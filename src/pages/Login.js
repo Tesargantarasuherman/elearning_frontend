@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container,Image, Button, Form, Loader, Segment, Divider, Grid, Message, Header, Icon, Modal } from 'semantic-ui-react'
+import { Container, Image, Button, Form, Checkbox, Loader, Segment, Divider, Grid, Message, Header, Icon, Modal } from 'semantic-ui-react'
 
 const Login = () => {
     return (
@@ -8,19 +8,22 @@ const Login = () => {
                 <Grid>
                     <Grid.Row>
                         <Grid.Column width={8}>
-                            <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
+                            <h1>Login</h1>
+                            <Form>
+                                <Form.Field>
+                                    <label>Email</label>
+                                    <input placeholder='Email' />
+                                </Form.Field>
+                                <Form.Field>
+                                    <label>Password</label>
+                                    <input placeholder='Password' />
+                                </Form.Field>
+                                <Button type='submit'>Login</Button>
+                                <p>Belum Punya Akun ? Register</p>
+                            </Form>
                         </Grid.Column>
                         <Grid.Column width={8}>
-                            <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
-                        </Grid.Column>
-                    </Grid.Row>
-
-                    <Grid.Row>
-                        <Grid.Column width={8}>
-                            <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
-                        </Grid.Column>
-                        <Grid.Column width={8}>
-                            <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
+                            <Image src='https://image.freepik.com/free-vector/code-typing-concept-illustration_114360-3866.jpg' />
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
