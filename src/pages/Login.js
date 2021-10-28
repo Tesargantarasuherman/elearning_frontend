@@ -7,7 +7,7 @@ const Login = () => {
             <Container>
                 <Grid>
                     <Grid.Row>
-                        <Grid.Column width={8}>
+                        <Grid.Column mobile={16} tablet={8} computer={8}>
                             <h1>Login</h1>
                             <Form>
                                 <Form.Field>
@@ -22,7 +22,7 @@ const Login = () => {
                                 <p>Belum Punya Akun ? Register</p>
                             </Form>
                         </Grid.Column>
-                        <Grid.Column width={8}>
+                        <Grid.Column mobile={16} tablet={8} computer={8}>
                             <Image src='https://image.freepik.com/free-vector/code-typing-concept-illustration_114360-3866.jpg' />
                         </Grid.Column>
                     </Grid.Row>
