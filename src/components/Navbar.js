@@ -21,8 +21,8 @@ function Navbar() {
             />
           </Link>
           <Menu.Item
-            name='class'
-            active={activeItem === 'class'}
+            name='blog'
+            active={activeItem === 'blog'}
             onClick={handleItemClick}
           />
           <Menu.Menu position="right">
