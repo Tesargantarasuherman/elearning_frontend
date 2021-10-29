@@ -25,7 +25,7 @@ const Login = () => {
                                     <Button
                                         onClick={() => setOpen(true)}
                                     >
-                                        Registrasi
+                                        Register
                                     </Button>
                                 </Button.Group>
                             </Form>
@@ -36,14 +36,14 @@ const Login = () => {
                     </Grid.Row>
                 </Grid>
             </Container>
-            {/* Modal Registrasi */}
+            {/* Modal Register */}
             <Modal
                 closeIcon
                 open={open}
                 onClose={() => setOpen(false)}
                 onOpen={() => setOpen(true)}
             >
-                <Header icon='user' content='Registrasi' />
+                <Header icon='user' content='Register' />
                 <Modal.Content>
                     <Form>
                         <Form.Field>
@@ -59,11 +59,11 @@ const Login = () => {
                             <input placeholder='Password' />
                         </Form.Field>
                         <Form.Field>
-                            <label>Konfirmasi Password</label>
-                            <input placeholder='Konfirmasi Password' />
+                            <label>Password Confirm</label>
+                            <input placeholder='Password Confirm' />
                         </Form.Field>
                         <Button.Group>
-                            <Button>Registrasi</Button>
+                            <Button>Register</Button>
                             <Button.Or />
                             <Button
                                 onClick={() => setOpen(false)}

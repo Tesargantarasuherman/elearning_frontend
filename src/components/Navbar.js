@@ -25,14 +25,17 @@ function Navbar() {
             active={activeItem === 'messages'}
             onClick={handleItemClick}
           />
-          <Link
-            to="login">
-            <Menu.Item
-              name='login'
-              active={activeItem === 'login'}
-              onClick={handleItemClick}
-            />
-          </Link>
+          <Menu.Menu position="right">
+            <Link
+              to="login">
+              <Menu.Item
+                name='login'
+                active={activeItem === 'login'}
+                onClick={handleItemClick}
+                floated="right"
+              />
+            </Link>
+          </Menu.Menu>
         </Menu>
       </Container>
     </Segment>
