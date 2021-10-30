@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Header, Popup, Grid, Rating, Container, Input, Menu, Segment, Card, Icon, Image, Button } from 'semantic-ui-react'
+import { Header, Popup, Grid, Rating, Container, Input, Menu, Segment, Card, Icon, Image, Button, Pagination } from 'semantic-ui-react'
 import RowClass from '../components/RowClass';
 
 function Home() {
@@ -15,11 +15,15 @@ function Home() {
                     <RowClass />
                 );
             case 'Premium':
-                return 'Premium';
-            case 'Free':
-                return 'Free';
-            default:
-                return 'All';
+                return (
+                    <RowClass />
+                ); case 'Free':
+                return (
+                    <RowClass />
+                ); default:
+                return (
+                    <RowClass />
+                );
         }
     }
     return (
@@ -51,6 +55,7 @@ function Home() {
                 <Segment>
                     {renderSwitch(activeItem)}
                 </Segment>
+                <Pagination defaultActivePage={5} totalPages={10} floated="center"/>
             </Container>
         </div>
     )
