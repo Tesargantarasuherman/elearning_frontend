@@ -8,22 +8,27 @@ import {
 } from "react-router-dom"; import 'semantic-ui-css/semantic.min.css'
 import './App.css';
 import Navbar from './components/Navbar';
+import { CartContext } from "./context/CartContex";
+import { useState } from 'react';
 import Home from "./pages/Home";
 import Login from './pages/Login';
 
 const App = () => {
+  const [value,setValue] = useState(0)
   return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-      </Switch>
-    </Router>
+    <CartContext.Provider value={{ value, setValue }}>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+        </Switch>
+      </Router>
+    </CartContext.Provider>
   );
 }
 

@@ -1,9 +1,12 @@
-import React from 'react'
-import { Container, Menu, Segment } from 'semantic-ui-react'
+import React, { useContext } from 'react'
+import { Container, Menu, Segment,Icon } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { CartContext } from '../context/CartContex'
 
 function Navbar() {
+  const {value,setValue} =useContext(CartContext)
+
   const [activeItem, setActiveItem] = useState('')
 
   const handleItemClick = (e, { name }) => setActiveItem(name)
@@ -25,6 +28,13 @@ function Navbar() {
             active={activeItem === 'blog'}
             onClick={handleItemClick}
           />
+          <Menu.Item
+            name='keranjang'
+            active={activeItem === 'keranjang'}
+            onClick={handleItemClick}
+          >
+            <Icon name="shopping basket" /> {value}
+          </Menu.Item>
           <Menu.Menu position="right">
             <Link
               to="login">
