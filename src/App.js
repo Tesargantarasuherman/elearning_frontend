@@ -12,6 +12,7 @@ import { CartContext } from "./context/CartContex";
 import { useState } from 'react';
 import Home from "./pages/Home";
 import Login from './pages/Login';
+import Blog from "./pages/Blog";
 
 const App = () => {
   const [value,setValue] = useState(0)
@@ -25,6 +26,9 @@ const App = () => {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/blog">
+            <Blog />
           </Route>
         </Switch>
       </Router>

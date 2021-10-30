@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { Container, Menu, Segment,Icon } from 'semantic-ui-react'
+import { Container, Menu, Segment, Icon } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../context/CartContex'
 
 function Navbar() {
-  const {value,setValue} =useContext(CartContext)
+  const { value, setValue } = useContext(CartContext)
 
   const [activeItem, setActiveItem] = useState('')
 
@@ -23,11 +23,14 @@ function Navbar() {
               onClick={handleItemClick}
             />
           </Link>
-          <Menu.Item
-            name='blog'
-            active={activeItem === 'blog'}
-            onClick={handleItemClick}
-          />
+          <Link
+            to="blog">
+            <Menu.Item
+              name='blog'
+              active={activeItem === 'blog'}
+              onClick={handleItemClick}
+            />
+          </Link>
           <Menu.Item
             name='keranjang'
             active={activeItem === 'keranjang'}
