@@ -1,8 +1,29 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useState } from 'react'
 import { Container, Image, Button, Form, Checkbox, Loader, Segment, Divider, Grid, Message, Header, Icon, Modal } from 'semantic-ui-react'
 
-const Login = () => {
+function Login() {
     const [open, setOpen] = React.useState(false)
+    const [formLogin, setFormLogin] = useState({ email:'',password:null });
+
+    const handleChangeFormLogin = (e) => {
+        const { name, value } = e.target
+
+        setFormLogin({
+            ...formLogin,
+            [name]: value
+        },console.log(formLogin))
+    }
+    let axiosConfig = {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+      };
+    const handleLogin =()=>{
+        axios.post(`http://localhost:8000/api/v1/login`,formLogin,axiosConfig).then(res=>{
+            localStorage.setItem('token',res.data.token)
+        })
+    }
     return (
         <>
             <Container>
@@ -10,14 +31,14 @@ const Login = () => {
                     <Grid.Row>
                         <Grid.Column mobile={16} tablet={8} computer={8}>
                             <h1>Login</h1>
-                            <Form>
+                            <Form onSubmit={handleLogin}>
                                 <Form.Field>
                                     <label>Email</label>
-                                    <input placeholder='Email' />
+                                    <input placeholder='Email' name="email" onChange={handleChangeFormLogin} />
                                 </Form.Field>
                                 <Form.Field>
                                     <label>Password</label>
-                                    <input placeholder='Password' />
+                                    <input placeholder='Password' name="password" onChange={handleChangeFormLogin} />
                                 </Form.Field>
                                 <Button.Group>
                                     <Button>Login</Button>
