@@ -46,7 +46,6 @@ export default function MyClass() {
                   );
                 })}
               </>
-              ;
             </Menu>
           </Grid.Column>
           <Grid.Column width={12}>

@@ -38,7 +38,7 @@ function Login() {
                                 </Form.Field>
                                 <Form.Field>
                                     <label>Password</label>
-                                    <input placeholder='Password' name="password" onChange={handleChangeFormLogin} />
+                                    <input placeholder='Password' type="password" name="password" onChange={handleChangeFormLogin} />
                                 </Form.Field>
                                 <Button.Group>
                                     <Button>Login</Button>

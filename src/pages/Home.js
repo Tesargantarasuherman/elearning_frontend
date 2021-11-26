@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useState,useEffect } from 'react'
 import { Header, Popup, Grid, Rating, Container, Input, Menu, Segment, Card, Icon, Image, Button, Pagination } from 'semantic-ui-react'
 import RowClass from '../components/RowClass';
 
@@ -8,21 +9,29 @@ function Home() {
 
     const handleItemClick = (e, { name }) => setActiveItem(name)
 
+    const [dataClass,setDataClass]=useState([])
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/v1/kursus').then(res=>{
+            setDataClass(res.data.data)
+        })
+    })
+
     const renderSwitch = (activeItem) => {
         switch (activeItem) {
             case 'All':
                 return (
-                    <RowClass />
+                    <RowClass dataClass={dataClass} />
                 );
             case 'Premium':
                 return (
-                    <RowClass />
+                    <RowClass dataClass={dataClass} />
                 ); case 'Free':
                 return (
-                    <RowClass />
+                    <RowClass dataClass={dataClass} />
                 ); default:
                 return (
-                    <RowClass />
+                    <RowClass dataClass={dataClass} />
                 );
         }
     }
