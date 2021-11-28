@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import {
   Container,
   Image,
@@ -15,11 +15,13 @@ import {
   Icon,
   Modal,
 } from "semantic-ui-react";
+import { AuthContext } from '../context/AuthContext'
 
 function Login() {
   const [open, setOpen] = React.useState(false);
   const [formLogin, setFormLogin] = useState({ email: "", password: null });
   const [formRegister, setFormRegister] = useState({});
+  const { login, setLogin } = useContext(AuthContext)
 
   const handleChangeFormLogin = (e) => {
     const { name, value } = e.target;
@@ -32,6 +34,7 @@ function Login() {
       console.log(formLogin)
     );
   };
+
   const handleChangeFormRegister = (e) => {
     const { name, value } = e.target;
 
@@ -43,11 +46,13 @@ function Login() {
       console.log(formRegister)
     );
   };
+
   let axiosConfig = {
     headers: {
       "Content-Type": "application/json",
     },
   };
+
   const handleRegister = () => {
     axios
       .post(`http://localhost:8000/api/v1/register`, formRegister, axiosConfig)
@@ -55,14 +60,22 @@ function Login() {
         console.log(res);
       });
   };
+
   const handleLogin = () => {
     axios
       .post(`http://localhost:8000/api/v1/login`, formLogin, axiosConfig)
       .then((res) => {
         console.log(res);
-        localStorage.setItem("token", res.data.token);
+        setLogin(
+          {
+            ...login,
+            token:  res.data.token,
+          },
+          console.log(login)
+        ); 
       });
   };
+
   return (
     <>
       <Container>

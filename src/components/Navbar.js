@@ -3,9 +3,11 @@ import { Container, Menu, Segment, Icon } from 'semantic-ui-react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../context/CartContex'
+import { AuthContext } from '../context/AuthContext'
 
 function Navbar() {
   const { value, setValue } = useContext(CartContext)
+  const { login, setLogin } = useContext(AuthContext)
 
   const [activeItem, setActiveItem] = useState('')
 
