@@ -1,60 +1,61 @@
-import React, { useContext } from 'react'
-import { Container, Menu, Segment, Icon } from 'semantic-ui-react'
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { CartContext } from '../context/CartContex'
-import { AuthContext } from '../context/AuthContext'
+import React, { useContext } from "react";
+import { Container, Menu, Segment, Icon } from "semantic-ui-react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContex";
+import { AuthContext } from "../context/AuthContext";
 
 function Navbar() {
-  const { value, setValue } = useContext(CartContext)
-  const { login, setLogin } = useContext(AuthContext)
+  const { value, setValue } = useContext(CartContext);
+  const { login, setLogin } = useContext(AuthContext);
 
-  const [activeItem, setActiveItem] = useState('')
+  const [activeItem, setActiveItem] = useState("");
 
-  const handleItemClick = (e, { name }) => setActiveItem(name)
+  const handleItemClick = (e, { name }) => setActiveItem(name);
 
   return (
-    <Segment color={'red'} inverted>
+    <Segment color={"red"} inverted>
       <Container>
         <Menu inverted pointing secondary>
-          <Link
-            to="/">
+          <Link to="/">
             <Menu.Item
-              name='home'
-              active={activeItem === 'home'}
+              name="home"
+              active={activeItem === "home"}
               onClick={handleItemClick}
             />
           </Link>
-          <Link
-            to="blog">
+          <Link to="blog">
             <Menu.Item
-              name='blog'
-              active={activeItem === 'blog'}
+              name="blog"
+              active={activeItem === "blog"}
               onClick={handleItemClick}
             />
           </Link>
           <Menu.Item
-            name='keranjang'
-            active={activeItem === 'keranjang'}
+            name="keranjang"
+            active={activeItem === "keranjang"}
             onClick={handleItemClick}
           >
             <Icon name="shopping basket" /> {value}
           </Menu.Item>
           <Menu.Menu position="right">
-            <Link
-              to="login">
-              <Menu.Item
-                name='login'
-                active={activeItem === 'login'}
-                onClick={handleItemClick}
-                floated="right"
-              />
-            </Link>
+            {login != null ? (
+              ''
+            ) : (
+              <Link to="login">
+                <Menu.Item
+                  name="login"
+                  active={activeItem === "login"}
+                  onClick={handleItemClick}
+                  floated="right"
+                />
+              </Link>
+            )}
           </Menu.Menu>
         </Menu>
       </Container>
     </Segment>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
