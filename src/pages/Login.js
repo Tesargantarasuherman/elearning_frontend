@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import {
   Container,
   Image,
@@ -15,12 +15,16 @@ import {
   Icon,
   Modal,
 } from "semantic-ui-react";
+import { useHistory } from "react-router";
+import { AuthContext } from "../context/AuthContext";
 
 function Login() {
   const [open, setOpen] = React.useState(false);
   const [formLogin, setFormLogin] = useState({ email: "", password: null });
   const [formRegister, setFormRegister] = useState({});
-  const [dataUser, setDataUser] = useState(JSON.parse(localStorage.getItem('data_user')));
+  const { login, setLogin } = useContext(AuthContext);
+
+  const history = useHistory();
 
   const handleChangeFormLogin = (e) => {
     const { name, value } = e.target;
@@ -60,11 +64,12 @@ function Login() {
     axios
       .post(`http://localhost:8000/api/v1/login`, formLogin, axiosConfig)
       .then((res) => {
+        console.log(res);
         localStorage.setItem("data_user", JSON.stringify(res.data.data));
-      });
+        setLogin(JSON.parse(localStorage.getItem("data_user")));
+      }, history.push("/"));
   };
 
-  
   return (
     <>
       <Container>

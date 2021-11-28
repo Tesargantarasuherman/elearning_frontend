@@ -15,7 +15,7 @@ function Home() {
         axios.get('http://localhost:8000/api/v1/kursus').then(res=>{
             setDataClass(res.data.data)
         })
-    })
+    }, []);
 
     const renderSwitch = (activeItem) => {
         switch (activeItem) {

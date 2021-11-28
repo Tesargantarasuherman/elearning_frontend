@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { Container, Menu, Segment, Icon } from "semantic-ui-react";
+import { Container, Menu, Segment, Icon,Button } from "semantic-ui-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContex";
 import { AuthContext } from "../context/AuthContext";
 
-function Navbar() {
+function Navbar(props) {
   const { value, setValue } = useContext(CartContext);
   const { login, setLogin } = useContext(AuthContext);
 
@@ -39,9 +39,7 @@ function Navbar() {
             <Icon name="shopping basket" /> {value}
           </Menu.Item>
           <Menu.Menu position="right">
-            {login != null ? (
-              ''
-            ) : (
+            {!login ? (
               <Link to="login">
                 <Menu.Item
                   name="login"
@@ -50,6 +48,18 @@ function Navbar() {
                   floated="right"
                 />
               </Link>
+            ) : (
+              <>
+                <Link to="login">
+                  <Menu.Item
+                    name={login.data.nama}
+                    active={activeItem === "login"}
+                    onClick={handleItemClick}
+                    floated="right"
+                  />
+                </Link>
+                <Button content="Logout" primary onClick={props.Logout}/>
+              </>
             )}
           </Menu.Menu>
         </Menu>
