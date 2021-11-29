@@ -82,7 +82,7 @@ const RowClass = (props) => {
                           />
                         </Card.Meta>
                         <Card.Description>
-                          Daniel is a comedian living in Nashville.
+                        {Class.nama_instruktur}
                         </Card.Description>
                       </Card.Content>
                       <Card.Content>
@@ -91,7 +91,7 @@ const RowClass = (props) => {
                             history.push(`/${props.url}/${Class.id_kursus}`)
                           }
                         >
-                          Mulai Belajar
+                          {props.text_button}
                         </Button>
                       </Card.Content>
                     </Card>

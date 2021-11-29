@@ -13,7 +13,7 @@ function KursusSaya() {
   }, []);
   return (
     <div className='container'>
-      <RowClass dataClass={dataClass} url={'my-class'} />
+      <RowClass dataClass={dataClass} url={'my-class'} text_button={'Mulai Belajar'} />
     </div>
   );
 }

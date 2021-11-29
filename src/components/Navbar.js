@@ -12,8 +12,7 @@ const Navbar = (props) => {
 
   const [activeItem, setActiveItem] = useState("");
 
-  const handleItemClick = (e, { name }) =>
-    setActiveItem(history.push(`/${name}`));
+  const handleItemClick = (e, { name }) =>setActiveItem(history.push(`/${name}`));
 
   return (
     <Segment color={"red"} inverted>
@@ -59,12 +58,12 @@ const Navbar = (props) => {
               </Link>
             ) : (
               <>
-                  <Menu.Item
-                    name={`user/${login.data.id}`}
-                    active={activeItem === `${login.data.nama}`}
-                    onClick={handleItemClick}
-                    floated="right"
-                  />
+                <Menu.Item
+                  name={`user/${login.data.id}`}
+                  active={activeItem === `${login.data.id}`}
+                  onClick={handleItemClick}
+                  floated="right"
+                />
                 <Button content="Logout" primary onClick={props.Logout} />
               </>
             )}
