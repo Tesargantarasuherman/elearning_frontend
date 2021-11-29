@@ -21,17 +21,17 @@ function Home() {
         switch (activeItem) {
             case 'All':
                 return (
-                    <RowClass dataClass={dataClass} />
+                    <RowClass dataClass={dataClass} url={`detail-kursus`} />
                 );
             case 'Premium':
                 return (
-                    <RowClass dataClass={dataClass} />
+                    <RowClass dataClass={dataClass} url={`detail-kursus`}/>
                 ); case 'Free':
                 return (
-                    <RowClass dataClass={dataClass} />
+                    <RowClass dataClass={dataClass} url={`detail-kursus`}/>
                 ); default:
                 return (
-                    <RowClass dataClass={dataClass} />
+                    <RowClass dataClass={dataClass} url={`detail-kursus`}/>
                 );
         }
     }

@@ -4,6 +4,7 @@ import { useState, useEffect,useContext } from "react";
 import { Menu, Embed, Grid } from "semantic-ui-react";
 import Commentar from "../components/Commentar";
 import { AuthContext } from "../context/AuthContext";
+import { useParams } from "react-router-dom";
 
 export default function MyClass() {
   const [state, setstate] = useState({ activeItem: null });
@@ -21,9 +22,12 @@ export default function MyClass() {
       Authorization: `bearer ${login ? login.token : ""}`,
     },
   };
+  let { id } = useParams();
+
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/v1/kursus/1/3",axiosConfig).then((res) => {
+    axios.get(`http://localhost:8000/api/v1/kursus/${id}/${login.data.id}`,axiosConfig).then((res) => {
+      console.log(res)
       setdata_class(res.data.data.data_kelas);
     });
   }, []);

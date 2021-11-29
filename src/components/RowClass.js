@@ -82,7 +82,7 @@ const RowClass = (props) => {
                         </Card.Description>
                       </Card.Content>
                       <Card.Content>
-                        <Button onClick={()=>history.push(`/my-class/1/3`)}>Mulai Belajar</Button>
+                        <Button onClick={()=>history.push(`/${props.url}/${Class.id_kursus}`)}>Mulai Belajar</Button>
                       </Card.Content>
                     </Card>
                   }

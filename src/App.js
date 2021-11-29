@@ -50,7 +50,7 @@ function App() {
             <Route path="/blog">
               <Blog />
             </Route>
-            <Route path="/my-class">
+            <Route path="/my-class/:id">
               <MyClass />
             </Route>
             <Route path="/user/:id">{login ? <User /> : ""}</Route>
