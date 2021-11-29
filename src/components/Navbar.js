@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { Container, Menu, Segment, Icon,Button } from "semantic-ui-react";
+import { Container, Menu, Segment, Icon, Button } from "semantic-ui-react";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 import { CartContext } from "../context/CartContex";
 import { AuthContext } from "../context/AuthContext";
 
-function Navbar(props) {
+const Navbar = (props) => {
   const { value, setValue } = useContext(CartContext);
   const { login, setLogin } = useContext(AuthContext);
 
@@ -32,6 +32,13 @@ function Navbar(props) {
             />
           </Link>
           <Menu.Item
+            name="Kursus Saya"
+            active={activeItem === `Kursus Saya`}
+            onClick={handleItemClick}
+          >
+            <Link to={`user/${login.data.id}`}>Kursus Saya</Link>
+          </Menu.Item>
+          <Menu.Item
             name="keranjang"
             active={activeItem === "keranjang"}
             onClick={handleItemClick}
@@ -50,15 +57,15 @@ function Navbar(props) {
               </Link>
             ) : (
               <>
-                <Link to="login">
+                <Link to={`user/${login.data.id}`}>
                   <Menu.Item
                     name={login.data.nama}
-                    active={activeItem === "login"}
+                    active={activeItem === `${login.data.nama}`}
                     onClick={handleItemClick}
                     floated="right"
                   />
                 </Link>
-                <Button content="Logout" primary onClick={props.Logout}/>
+                <Button content="Logout" primary onClick={props.Logout} />
               </>
             )}
           </Menu.Menu>
@@ -66,6 +73,6 @@ function Navbar(props) {
       </Container>
     </Segment>
   );
-}
+};
 
 export default Navbar;

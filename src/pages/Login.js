@@ -42,12 +42,10 @@ function Login() {
   const handleChangeFormRegister = (e) => {
     const { name, value } = e.target;
 
-    setFormRegister(
-      {
-        ...formRegister,
-        [name]: value,
-      },
-    );
+    setFormRegister({
+      ...formRegister,
+      [name]: value,
+    });
   };
   let axiosConfig = {
     headers: {
@@ -78,7 +76,6 @@ function Login() {
         setIsError(true);
       });
   };
-
 
   return (
     <>
