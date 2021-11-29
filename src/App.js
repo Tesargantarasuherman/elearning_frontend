@@ -19,6 +19,7 @@ import Login from "./pages/Login";
 import Blog from "./pages/Blog";
 import MyClass from "./pages/MyClass";
 import User from "./pages/User";
+import KursusSaya from "./pages/KursusSaya";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -35,28 +36,29 @@ function App() {
     setLogin(null);
   };
   return (
+    <Router>
       <CartContext.Provider value={{ value, setValue }}>
         <AuthContext.Provider value={{ login, setLogin }}>
-          <Router>
-            <Navbar Logout={Logout} />
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <Route path="/blog">
-                <Blog />
-              </Route>
-              <Route path="/my-class">
-                <MyClass />
-              </Route>
-              <Route path="/user/:id">{login ? <User /> : ""}</Route>
-            </Switch>
-          </Router>
+          <Navbar Logout={Logout} />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/blog">
+              <Blog />
+            </Route>
+            <Route path="/my-class">
+              <MyClass />
+            </Route>
+            <Route path="/user/:id">{login ? <User /> : ""}</Route>
+            <Route path="/kursus-saya/:id" exact component={KursusSaya}/>
+          </Switch>
         </AuthContext.Provider>
       </CartContext.Provider>
+    </Router>
   );
 }
 

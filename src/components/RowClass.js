@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import {
   Header,
   Popup,
@@ -16,8 +17,10 @@ import {
   Divider,
 } from "semantic-ui-react";
 import { CartContext } from "../context/CartContex";
+import { useHistory } from "react-router";
 
 const RowClass = (props) => {
+  const history = useHistory();
   const { value, setValue } = useContext(CartContext);
   const iconPlay = {
     position: "absolute",
@@ -50,14 +53,8 @@ const RowClass = (props) => {
                   trigger={
                     <Card>
                       <div style={labelClass}>
-                        <Label as="a" tag>
-                          New
-                        </Label>
                         <Label as="a" color="red" tag>
-                          Free
-                        </Label>
-                        <Label as="a" color="teal" tag>
-                          Basic
+                          {Class.tipe}
                         </Label>
                       </div>
                       <Icon name="play circle" size="huge" style={iconPlay} />
@@ -71,7 +68,7 @@ const RowClass = (props) => {
                           Reviews
                         </Label>
                         <Divider horizontal />
-                        <Card.Header>Daniel</Card.Header>
+                        <Card.Header>{Class.nama_kursus}</Card.Header>
                         <Card.Meta>
                           <Rating
                             maxRating={5}
@@ -85,7 +82,7 @@ const RowClass = (props) => {
                         </Card.Description>
                       </Card.Content>
                       <Card.Content>
-                        <Button disabled>Rp. 200,000</Button>
+                        <Button onClick={()=>history.push(`/my-class/1/3`)}>Mulai Belajar</Button>
                       </Card.Content>
                     </Card>
                   }

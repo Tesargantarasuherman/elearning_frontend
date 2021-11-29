@@ -4,14 +4,16 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 import { CartContext } from "../context/CartContex";
 import { AuthContext } from "../context/AuthContext";
-
+import { useHistory } from "react-router";
 const Navbar = (props) => {
   const { value, setValue } = useContext(CartContext);
   const { login, setLogin } = useContext(AuthContext);
+  const history = useHistory();
 
   const [activeItem, setActiveItem] = useState("");
 
-  const handleItemClick = (e, { name }) => setActiveItem(name);
+  const handleItemClick = (e, { name }) =>
+    setActiveItem(history.push(`/${name}`));
 
   return (
     <Segment color={"red"} inverted>
@@ -32,11 +34,11 @@ const Navbar = (props) => {
             />
           </Link>
           <Menu.Item
-            name="Kursus Saya"
+            name={`kursus-saya/${login ? login.data.id : null}`}
             active={activeItem === `Kursus Saya`}
             onClick={handleItemClick}
           >
-            <Link to={`user/${login.data.id}`}>Kursus Saya</Link>
+            Kursus Saya
           </Menu.Item>
           <Menu.Item
             name="keranjang"
@@ -57,14 +59,12 @@ const Navbar = (props) => {
               </Link>
             ) : (
               <>
-                <Link to={`user/${login.data.id}`}>
                   <Menu.Item
-                    name={login.data.nama}
+                    name={`user/${login.data.id}`}
                     active={activeItem === `${login.data.nama}`}
                     onClick={handleItemClick}
                     floated="right"
                   />
-                </Link>
                 <Button content="Logout" primary onClick={props.Logout} />
               </>
             )}

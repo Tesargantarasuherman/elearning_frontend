@@ -1,25 +1,33 @@
 import axios from "axios";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import { Menu, Embed, Grid } from "semantic-ui-react";
 import Commentar from "../components/Commentar";
+import { AuthContext } from "../context/AuthContext";
 
 export default function MyClass() {
   const [state, setstate] = useState({ activeItem: null });
   const [data_class, setdata_class] = useState([]);
   const [materi, setmateri] = useState({});
+  const { login, setLogin } = useContext(AuthContext);
 
   const handleItemClick = (materi, row) => {
     setstate({ activeItem: materi.judul });
     setmateri(materi);
   };
+  let axiosConfig = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `bearer ${login ? login.token : ""}`,
+    },
+  };
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/v1/kursus/1").then((res) => {
+    axios.get("http://localhost:8000/api/v1/kursus/1/3",axiosConfig).then((res) => {
       setdata_class(res.data.data.data_kelas);
     });
   }, []);
-  const changeVideo = () => {};
+
   return (
     <div className="container">
       <Grid divided="vertically">
