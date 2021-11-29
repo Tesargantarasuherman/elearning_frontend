@@ -54,7 +54,7 @@ const RowClass = (props) => {
                     <Card>
                       <div style={labelClass}>
                         <Label as="a" color="red" tag>
-                          {Class.tipe}
+                          {Class.tipe_kursus}
                         </Label>
                       </div>
                       <Icon name="play circle" size="huge" style={iconPlay} />
@@ -64,9 +64,13 @@ const RowClass = (props) => {
                         ui={false}
                       />
                       <Card.Content>
-                        <Label as="a" color="red" ribbon="left">
-                          Reviews
-                        </Label>
+                        {Class.harga ? (
+                          <Label as="a" color="red" ribbon="left">
+                            {`Rp. ${Class.harga}`}
+                          </Label>
+                        ) : (
+                          ""
+                        )}
                         <Divider horizontal />
                         <Card.Header>{Class.nama_kursus}</Card.Header>
                         <Card.Meta>
@@ -82,14 +86,20 @@ const RowClass = (props) => {
                         </Card.Description>
                       </Card.Content>
                       <Card.Content>
-                        <Button onClick={()=>history.push(`/${props.url}/${Class.id_kursus}`)}>Mulai Belajar</Button>
+                        <Button
+                          onClick={() =>
+                            history.push(`/${props.url}/${Class.id_kursus}`)
+                          }
+                        >
+                          Mulai Belajar
+                        </Button>
                       </Card.Content>
                     </Card>
                   }
                   flowing
                   hoverable
                 >
-                  <Grid centered divided columns={1}>
+                  {/* <Grid centered divided columns={1}>
                     <Grid.Column textAlign="center">
                       <Header as="h4">Benefit</Header>
                       <p>
@@ -100,7 +110,7 @@ const RowClass = (props) => {
                         Tambah Ke Keranjang
                       </Button>
                     </Grid.Column>
-                  </Grid>
+                  </Grid> */}
                 </Popup>
               </Grid.Column>
             );
