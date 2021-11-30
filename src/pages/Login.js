@@ -57,7 +57,7 @@ function Login() {
         console.log(res);
         localStorage.setItem("data_user", JSON.stringify(res.data.data));
         setLogin(JSON.parse(localStorage.getItem("data_user")));
-        history.push("/");
+        history.goBack();
       })
       .catch((err) => {
         toast.error("Email Atau Password Salah!");

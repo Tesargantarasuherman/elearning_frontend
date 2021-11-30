@@ -67,6 +67,7 @@ function DetailKursus() {
         }
         else{
           toast.error("Anda Belum Login!");
+          history.push("/login");
         }
       });
   };
