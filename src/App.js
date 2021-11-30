@@ -20,6 +20,7 @@ import Blog from "./pages/Blog";
 import MyClass from "./pages/MyClass";
 import User from "./pages/User";
 import KursusSaya from "./pages/KursusSaya";
+import DetailKursus from "./pages/DetailKursus";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -52,6 +53,9 @@ function App() {
             </Route>
             <Route path="/my-class/:id">
               <MyClass />
+            </Route>
+            <Route path="/kursus/:id">
+              <DetailKursus />
             </Route>
             <Route path="/user/:id">{login ? <User /> : ""}</Route>
             <Route path="/kursus-saya/:id" exact component={KursusSaya}/>
