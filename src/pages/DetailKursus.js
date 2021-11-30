@@ -63,7 +63,10 @@ function DetailKursus() {
       })
       .catch((err) => {
         if (isLogin != null) {
-          toast.error("Kelas Sudah Di Ambil!");
+            toast.error("Kelas Sudah Di Ambil!");
+            setTimeout(() => {
+              history.push(`/kursus-saya/${login.data.id}`);
+            }, 2000);
         }
         else{
           toast.error("Anda Belum Login!");

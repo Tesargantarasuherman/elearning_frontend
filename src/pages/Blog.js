@@ -44,7 +44,6 @@ function Blog() {
                         </Menu.Item>
                     </Menu.Menu>
                 </Menu>
-
                 <Segment>
                     {renderSwitch(activeItem)}
                 </Segment>
