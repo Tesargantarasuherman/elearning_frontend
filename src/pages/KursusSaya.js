@@ -8,7 +8,7 @@ function KursusSaya() {
   let { id } = useParams();
   const [ dataClass, setDataClass ] = useState([]);
   useEffect(() => {
-    axios.get(`${BaseUrl}/kursus-saya/${id}`).then((res) => {
+    axios.get(`${BaseUrl}kursus-saya/${id}`).then((res) => {
       setDataClass(res.data.data);
     });
   }, []);

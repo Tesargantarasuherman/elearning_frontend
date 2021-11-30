@@ -12,7 +12,8 @@ const Navbar = (props) => {
 
   const [activeItem, setActiveItem] = useState("");
 
-  const handleItemClick = (e, { name }) =>setActiveItem(history.push(`/${name}`));
+  const handleItemClick = (e, { name }) =>
+    setActiveItem(history.push(`/${name}`));
 
   return (
     <Segment color={"red"} inverted>
@@ -32,13 +33,17 @@ const Navbar = (props) => {
               onClick={handleItemClick}
             />
           </Link>
-          <Menu.Item
-            name={`kursus-saya/${login ? login.data.id : null}`}
-            active={activeItem === `Kursus Saya`}
-            onClick={handleItemClick}
-          >
-            Kursus Saya
-          </Menu.Item>
+          {login ? (
+            <Menu.Item
+              name={`kursus-saya/${login ? login.data.id : null}`}
+              active={activeItem === `Kursus Saya`}
+              onClick={handleItemClick}
+            >
+              Kursus Saya
+            </Menu.Item>
+          ) : (
+            ""
+          )}
           <Menu.Item
             name="keranjang"
             active={activeItem === "keranjang"}
