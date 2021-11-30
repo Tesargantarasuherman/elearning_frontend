@@ -1,14 +1,8 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import {
-  Header,
   Popup,
   Grid,
   Rating,
-  Container,
-  Input,
-  Menu,
-  Segment,
   Card,
   Icon,
   Image,

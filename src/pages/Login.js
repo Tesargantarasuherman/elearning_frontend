@@ -5,14 +5,8 @@ import {
   Image,
   Button,
   Form,
-  Checkbox,
-  Loader,
-  Segment,
-  Divider,
   Grid,
-  Message,
   Header,
-  Icon,
   Modal,
 } from "semantic-ui-react";
 import { useHistory } from "react-router";

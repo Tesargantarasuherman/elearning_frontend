@@ -1,6 +1,6 @@
 import React from 'react'
 import RowBlog from '../components/RowBlog'
-import { Container, Input, Menu, Segment, Pagination } from 'semantic-ui-react'
+import { Container, Input, Menu, Segment} from 'semantic-ui-react'
 import { useState } from 'react/cjs/react.development';
 
 function Blog() {

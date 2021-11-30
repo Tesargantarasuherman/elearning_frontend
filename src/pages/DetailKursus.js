@@ -62,14 +62,19 @@ function DetailKursus() {
     console.log(state);
   }, []);
   const tambahKursus = () => {
+    let isLogin = login ? login.data.id : null;
     axios
       .post(`${BaseUrl}add-kursus-saya`, kursus, axiosConfig)
       .then((res) => {
         toast.success("Kelas Berhasil Ditambahkan");
-    })
+      })
       .catch((err) => {
-        console.log(err);
-        toast.error("Kelas Sudah Di Ambil!");
+        if (isLogin != null) {
+          toast.error("Kelas Sudah Di Ambil!");
+        }
+        else{
+          toast.error("Anda Belum Login!");
+        }
       });
   };
   return (
