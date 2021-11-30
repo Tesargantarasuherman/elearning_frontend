@@ -17,6 +17,7 @@ import {
 } from "semantic-ui-react";
 import { useHistory } from "react-router";
 import { AuthContext } from "../context/AuthContext";
+import BaseUrl from "../utils/BaseUrl";
 
 function Login() {
   const [open, setOpen] = React.useState(false);
@@ -54,16 +55,15 @@ function Login() {
   };
   const handleRegister = () => {
     axios
-      .post(`http://localhost:8000/api/v1/register`, formRegister, axiosConfig)
+      .post(`{${BaseUrl}register`, formRegister, axiosConfig)
       .then((res) => {
         console.log(res);
       });
   };
   const handleLogin = () => {
     setIsSubmiting(true);
-
     axios
-      .post(`http://localhost:8000/api/v1/login`, formLogin, axiosConfig)
+      .post(`${BaseUrl}login`, formLogin, axiosConfig)
       .then((res) => {
         console.log(res);
         localStorage.setItem("data_user", JSON.stringify(res.data.data));
