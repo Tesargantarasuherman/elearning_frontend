@@ -12,6 +12,7 @@ function KursusSaya() {
       setDataClass(res.data.data);
     });
   }, []);
+  
   return (
     <div className='container'>
       <RowClass dataClass={dataClass} url={'my-class'} text_button={'Mulai Belajar'} />

@@ -13,11 +13,11 @@ import { useHistory } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import BaseUrl from "../utils/BaseUrl";
 import axiosConfig from "../utils/Config";
+import { ToastContainer, toast } from "react-toastify";
 
 function Login() {
   const [open, setOpen] = React.useState(false);
   const [isSubmiting, setIsSubmiting] = useState(false);
-  const [isError, setIsError] = useState(false);
   const [formLogin, setFormLogin] = useState({ email: "", password: null });
   const [formRegister, setFormRegister] = useState({});
   const { login, setLogin } = useContext(AuthContext);
@@ -45,11 +45,9 @@ function Login() {
   };
 
   const handleRegister = () => {
-    axios
-      .post(`{${BaseUrl}register`, formRegister, axiosConfig)
-      .then((res) => {
-        console.log(res);
-      });
+    axios.post(`{${BaseUrl}register`, formRegister, axiosConfig).then((res) => {
+      console.log(res);
+    });
   };
   const handleLogin = () => {
     setIsSubmiting(true);
@@ -59,17 +57,17 @@ function Login() {
         console.log(res);
         localStorage.setItem("data_user", JSON.stringify(res.data.data));
         setLogin(JSON.parse(localStorage.getItem("data_user")));
-        setIsError(false);
         history.push("/");
       })
       .catch((err) => {
+        toast.error("Email Atau Password Salah!");
         setIsSubmiting(false);
-        setIsError(true);
       });
   };
 
   return (
     <>
+      <ToastContainer />
       <Container>
         <Grid>
           <Grid.Row>
@@ -94,7 +92,6 @@ function Login() {
                     onChange={handleChangeFormLogin}
                   />
                 </Form.Field>
-                {isError ? <div>Nama Atau Password Salah</div> : ""}
                 <Button.Group>
                   {isSubmiting ? (
                     <Button loading>Loading</Button>

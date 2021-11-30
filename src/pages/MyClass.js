@@ -18,14 +18,8 @@ export default function MyClass() {
     setstate({ activeItem: materi.judul });
     setmateri(materi);
   };
-  // let axiosConfig = {
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     Authorization: `bearer ${login ? login.token : ""}`,
-  //   },
-  // };
-  let { id } = useParams();
 
+  let { id } = useParams();
 
   useEffect(() => {
     axios.get(`${BaseUrl}kursus/${id}/${login.data.id}`,axiosConfig).then((res) => {

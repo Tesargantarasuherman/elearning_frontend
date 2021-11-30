@@ -1,9 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  Header,
-  Popup,
-  Grid,
   Rating,
   Card,
   Icon,
@@ -50,7 +47,7 @@ function DetailKursus() {
     user_id: `${login ? login.data.id : null}`,
     kursus_id: id,
   });
-  
+
   useEffect(() => {
     axios.get(`${BaseUrl}kursus/${id}`).then((res) => {
       setstate(res.data.data[0]);
