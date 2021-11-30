@@ -6,6 +6,7 @@ import Commentar from "../components/Commentar";
 import { AuthContext } from "../context/AuthContext";
 import { useParams } from "react-router-dom";
 import BaseUrl from "../utils/BaseUrl";
+import axiosConfig from "../utils/Config";
 
 export default function MyClass() {
   const [state, setstate] = useState({ activeItem: null });
@@ -17,18 +18,17 @@ export default function MyClass() {
     setstate({ activeItem: materi.judul });
     setmateri(materi);
   };
-  let axiosConfig = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `bearer ${login ? login.token : ""}`,
-    },
-  };
+  // let axiosConfig = {
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     Authorization: `bearer ${login ? login.token : ""}`,
+  //   },
+  // };
   let { id } = useParams();
 
 
   useEffect(() => {
     axios.get(`${BaseUrl}kursus/${id}/${login.data.id}`,axiosConfig).then((res) => {
-      console.log(res)
       setdata_class(res.data.data.data_kelas);
     });
   }, []);

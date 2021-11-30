@@ -20,6 +20,7 @@ import { AuthContext } from "../context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BaseUrl from "../utils/BaseUrl";
+import axiosConfig from "../utils/Config";
 
 function DetailKursus() {
   const history = useHistory();
@@ -49,12 +50,7 @@ function DetailKursus() {
     user_id: `${login ? login.data.id : null}`,
     kursus_id: id,
   });
-  let axiosConfig = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `bearer ${login ? login.token : ""}`,
-    },
-  };
+  
   useEffect(() => {
     axios.get(`${BaseUrl}kursus/${id}`).then((res) => {
       setstate(res.data.data[0]);

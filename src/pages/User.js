@@ -4,17 +4,12 @@ import { useParams } from "react-router-dom";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 import { AuthContext } from "../context/AuthContext";
 import BaseUrl from "../utils/BaseUrl";
+import axiosConfig from "../utils/Config";
 
 function User() {
   const [state, setstate] = useState([]);
   const { login, setLogin } = useContext(AuthContext);
 
-  let axiosConfig = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `bearer ${login ? login.token : ""}`,
-    },
-  };
   let { id } = useParams();
   useEffect(() => {
     axios.get(`${BaseUrl}profile/${id}`, axiosConfig).then((res) => {

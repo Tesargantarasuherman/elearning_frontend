@@ -12,6 +12,7 @@ import {
 import { useHistory } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import BaseUrl from "../utils/BaseUrl";
+import axiosConfig from "../utils/Config";
 
 function Login() {
   const [open, setOpen] = React.useState(false);
@@ -42,11 +43,7 @@ function Login() {
       [name]: value,
     });
   };
-  let axiosConfig = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
+
   const handleRegister = () => {
     axios
       .post(`{${BaseUrl}register`, formRegister, axiosConfig)
