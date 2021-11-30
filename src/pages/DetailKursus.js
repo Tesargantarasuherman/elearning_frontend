@@ -19,6 +19,7 @@ import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BaseUrl from "../utils/BaseUrl";
 
 function DetailKursus() {
   const history = useHistory();
@@ -55,14 +56,14 @@ function DetailKursus() {
     },
   };
   useEffect(() => {
-    axios.get(`http://localhost:8000/api/v1/kursus/${id}`).then((res) => {
+    axios.get(`${BaseUrl}kursus/${id}`).then((res) => {
       setstate(res.data.data[0]);
     });
     console.log(state);
   }, []);
   const tambahKursus = () => {
     axios
-      .post(`http://localhost:8000/api/v1/add-kursus-saya`, kursus, axiosConfig)
+      .post(`${BaseUrl}add-kursus-saya`, kursus, axiosConfig)
       .then((res) => {
         toast.success("Kelas Berhasil Ditambahkan");
     })

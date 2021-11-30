@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState,useEffect } from 'react'
 import { Header, Popup, Grid, Rating, Container, Input, Menu, Segment, Card, Icon, Image, Button, Pagination } from 'semantic-ui-react'
 import RowClass from '../components/RowClass';
+import BaseUrl from '../utils/BaseUrl';
 
 function Home() {
 
@@ -12,7 +13,7 @@ function Home() {
     const [dataClass,setDataClass]=useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/v1/kursus').then(res=>{
+        axios.get(`${BaseUrl}kursus`).then(res=>{
             setDataClass(res.data.data)
         })
     }, []);

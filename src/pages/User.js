@@ -3,11 +3,12 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 import { AuthContext } from "../context/AuthContext";
+import BaseUrl from "../utils/BaseUrl";
 
 function User() {
   const [state, setstate] = useState([]);
   const { login, setLogin } = useContext(AuthContext);
-  
+
   let axiosConfig = {
     headers: {
       "Content-Type": "application/json",
@@ -16,11 +17,9 @@ function User() {
   };
   let { id } = useParams();
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/v1/profile/${id}`, axiosConfig)
-      .then((res) => {
-        setstate(res.data.data[0]);
-      });
+    axios.get(`${BaseUrl}profile/${id}`, axiosConfig).then((res) => {
+      setstate(res.data.data[0]);
+    });
   }, []);
   return (
     <div className="container my-2">
