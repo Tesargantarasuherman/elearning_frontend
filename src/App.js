@@ -21,6 +21,7 @@ import MyClass from "./pages/MyClass";
 import User from "./pages/User";
 import KursusSaya from "./pages/KursusSaya";
 import DetailKursus from "./pages/DetailKursus";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -45,20 +46,19 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
+            <Route path="/login">{login ? <Home /> : <Login />}</Route>
             <Route path="/blog">
               <Blog />
             </Route>
             <Route path="/my-class/:id">
-              <MyClass />
+              {login ? <MyClass /> : <Login />}
             </Route>
             <Route path="/kursus/:id">
-              <DetailKursus />
+              {login ? <DetailKursus /> : <Login />}
             </Route>
             <Route path="/user/:id">{login ? <User /> : ""}</Route>
-            <Route path="/kursus-saya/:id" exact component={KursusSaya}/>
+            <Route path="/kursus-saya/:id" exact component={KursusSaya} />
+            <Route component={NotFound} />
           </Switch>
         </AuthContext.Provider>
       </CartContext.Provider>

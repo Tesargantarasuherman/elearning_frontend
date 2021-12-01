@@ -13,19 +13,28 @@ export default function MyClass() {
   const [data_class, setdata_class] = useState([]);
   const [materi, setmateri] = useState({});
   const { login, setLogin } = useContext(AuthContext);
+  const [isiKomentar,setIsiKomentar] = useState([])
 
   const handleItemClick = (materi, row) => {
     setstate({ activeItem: materi.judul });
     setmateri(materi);
+    getKomentar(materi)
   };
 
   let { id } = useParams();
 
   useEffect(() => {
     axios.get(`${BaseUrl}kursus/${id}/${login.data.id}`,axiosConfig).then((res) => {
+      console.log(res)
       setdata_class(res.data.data.data_kelas);
     });
   }, []);
+
+  const getKomentar=(materi)=>{
+    axios.get(`${BaseUrl}komentar/${id}/${materi.kelas_id}/${materi.id}`).then(res=>{
+      setIsiKomentar(res.data.data)
+    })
+  }
 
   return (
     <div className="container">
@@ -63,7 +72,7 @@ export default function MyClass() {
               source="youtube"
             />
             <h3>{materi.deskripsi}</h3>
-            <Commentar />
+            <Commentar isiKomentar ={isiKomentar}/>
           </Grid.Column>
         </Grid.Row>
       </Grid>
