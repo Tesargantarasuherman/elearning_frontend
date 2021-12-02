@@ -66,29 +66,7 @@ export default function MyClass() {
           };
         });
       });
-    // const fetchData = async () => {
-    //   setLoading(true);
-    //   try {
-    //     const response = await fetch(`${BaseUrl}komentar/${id}/${materi.kelas_id}/${materi.id}?page=${page}`);
-    //     const result = await response.json();
-    //     setstateData((current) => {
-    //       return {
-    //         ...result,
-    //         articles: [...current.articles, ...result.data.data],
-    //         totalResult: result.data.total,
-    //         status: result.status,
-    //       };
-    //     });
-    //     if (result.status !== "ok") {
-    //       throw new Error("error");
-    //     }
-    //   } catch (error) {
-    //     setError(true);
-    //   }
-    //   setLoading(false);
-    // };
-    // fetchData();
-  }, [page, isRefresh,materi]);
+  }, [page, isRefresh, materi]);
 
   const getKursus = () => {
     axios
