@@ -30,9 +30,9 @@ const Commentar = (props) => {
               );
             })
           : null}
-        {props.page >= 1 || (props.lengthKomentar <= props.totalResult)  ? (
+        {props.lengthKomentar < props.totalResult  ? (
           <Button
-            content={props.page == 1 ?'Muat Komentar':'Muat Lagi'}
+            content={'Muat Lagi'}
             disabled={props.isLoading}
             onClick={() => props.setPage((c) => c + 1)}
           />

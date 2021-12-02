@@ -88,7 +88,7 @@ export default function MyClass() {
     //   setLoading(false);
     // };
     // fetchData();
-  }, [page, isRefresh]);
+  }, [page, isRefresh,materi]);
 
   const getKursus = () => {
     axios
