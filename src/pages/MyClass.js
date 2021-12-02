@@ -9,7 +9,7 @@ import BaseUrl from "../utils/BaseUrl";
 import axiosConfig from "../utils/Config";
 const defaultData = {
   status: "ok",
-  totalResult: 10,
+  totalResult: 0,
   articles: [],
 };
 const endpoint = "http://localhost:8000/api/v1/komentar/1/1/1";
@@ -25,7 +25,6 @@ export default function MyClass() {
   const [stateData, setstateData] = useState(defaultData);
   const [page, setPage] = useState(1);
   const [isLoading, setLoading] = useState(false);
-  const [isError, setError] = useState(false);
   const [isRefresh, setRefresh] = useState(false);
 
   const [formKomentar, setFormKomentar] = useState({
@@ -43,6 +42,7 @@ export default function MyClass() {
   };
 
   const handleItemClick = (_materi, row) => {
+    handleRefresh();
     setstate({ activeItem: _materi.judul });
     setmateri(_materi);
     getKomentar(_materi);
@@ -51,29 +51,43 @@ export default function MyClass() {
   let { id } = useParams();
 
   useEffect(() => {
-    getKursus()
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(`${endpoint}?page=${page}`);
-        const result = await response.json();
+    getKursus();
+    axios
+      .get(
+        `${BaseUrl}komentar/${id}/${materi.kelas_id}/${materi.id}?page=${page}`
+      )
+      .then((result) => {
         setstateData((current) => {
           return {
             ...result,
-            articles: [...current.articles, ...result.data.data],
-            totalResult: result.data.total,
+            articles: [...current.articles, ...result.data.data.data],
+            totalResult: result.data.data.total,
             status: result.status,
           };
         });
-        if (result.status !== "ok") {
-          throw new Error("error");
-        }
-      } catch (error) {
-        setError(true);
-      }
-      setLoading(false);
-    };
-    fetchData();
+      });
+    // const fetchData = async () => {
+    //   setLoading(true);
+    //   try {
+    //     const response = await fetch(`${BaseUrl}komentar/${id}/${materi.kelas_id}/${materi.id}?page=${page}`);
+    //     const result = await response.json();
+    //     setstateData((current) => {
+    //       return {
+    //         ...result,
+    //         articles: [...current.articles, ...result.data.data],
+    //         totalResult: result.data.total,
+    //         status: result.status,
+    //       };
+    //     });
+    //     if (result.status !== "ok") {
+    //       throw new Error("error");
+    //     }
+    //   } catch (error) {
+    //     setError(true);
+    //   }
+    //   setLoading(false);
+    // };
+    // fetchData();
   }, [page, isRefresh]);
 
   const getKursus = () => {
@@ -168,6 +182,7 @@ export default function MyClass() {
               formKomentar={formKomentar}
               lengthKomentar={stateData.articles.length}
               totalResult={stateData.totalResult}
+              page={page}
               setPage={setPage}
               isLoading={isLoading}
             />
