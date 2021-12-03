@@ -41,7 +41,7 @@ const Commentar = (props) => {
           <Button
             content={'Selanjutnya'}
             disabled={props.isLoading}
-            onClick={props._setPage}
+            onClick={() => props.setPage((c) => c + 1)}
           />
         ) : null}
         <Form reply onSubmit={props.submitKomentar}>

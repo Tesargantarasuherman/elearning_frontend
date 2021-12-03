@@ -57,7 +57,6 @@ export default function MyClass() {
     axios
       .get(`${BaseUrl}kursus/${id}/${login.data.id}`, axiosConfig)
       .then((res) => {
-        console.log(res);
         setdata_class(res.data.data.data_kelas);
       });
   };
@@ -89,7 +88,6 @@ export default function MyClass() {
       kursus_id: id,
       kelas_id: `${materi.kelas_id}`,
     });
-    console.log(formKomentar);
   };
   const submitKomentar = () => {
     axios
@@ -104,13 +102,9 @@ export default function MyClass() {
           kelas_id: "",
         });
       });
-    console.log(page);
-    setPage(page);
     getKomentar();
   };
-  const _setPage = () => {
-    setPage(page + 1);
-  };
+
 
   return (
     <div className="container">
@@ -157,7 +151,6 @@ export default function MyClass() {
               totalResult={stateData.totalResult}
               toResult={stateData.toResult}
               page={page}
-              _setPage={_setPage}
               setPage={setPage}
               isLoading={isLoading}
             />
