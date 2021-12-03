@@ -19,7 +19,6 @@ export default function MyClass() {
   const [data_class, setdata_class] = useState([]);
   const [materi, setmateri] = useState({});
   const { login, setLogin } = useContext(AuthContext);
-  const [isiKomentar, setIsiKomentar] = useState([]);
 
   const [stateData, setstateData] = useState(defaultData);
   const [page, setPage] = useState(1);
