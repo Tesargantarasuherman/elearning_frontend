@@ -7,15 +7,14 @@ import { AuthContext } from "../context/AuthContext";
 import { useParams } from "react-router-dom";
 import BaseUrl from "../utils/BaseUrl";
 import axiosConfig from "../utils/Config";
-const defaultData = {
-  status: "ok",
-  totalResult: 0,
-  articles: [],
-};
-const endpoint = "http://localhost:8000/api/v1/komentar/1/1/1";
-let rows = [];
+
 
 export default function MyClass() {
+  const defaultData = {
+    status: "ok",
+    totalResult: 0,
+    articles: [],
+  };
   const [state, setstate] = useState({ activeItem: null });
   const [data_class, setdata_class] = useState([]);
   const [materi, setmateri] = useState({});
@@ -111,12 +110,7 @@ export default function MyClass() {
       });
     getKomentar(materi);
   };
-  const paginateKomentar = (lengthMateri) => {
-    for (let i = 1; i >= lengthMateri; i++) {
-      this.rows.push(<span class="fa fa-star"></span>);
-    }
-    console.log(rows);
-  };
+
   return (
     <div className="container">
       <Grid divided="vertically">
