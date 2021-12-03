@@ -30,11 +30,18 @@ const Commentar = (props) => {
               );
             })
           : null}
-        {props.lengthKomentar < props.totalResult  ? (
+        {props.page > 1 ? (
           <Button
-            content={'Muat Lagi'}
+            content={'Sebelumnya'}
             disabled={props.isLoading}
-            onClick={() => props.setPage((c) => c + 1)}
+            onClick={() => props.setPage((c) => c - 1)}
+          />
+        ) : null}
+        {props.toResult < props.totalResult ? (
+          <Button
+            content={'Selanjutnya'}
+            disabled={props.isLoading}
+            onClick={props._setPage}
           />
         ) : null}
         <Form reply onSubmit={props.submitKomentar}>

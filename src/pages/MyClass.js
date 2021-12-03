@@ -8,10 +8,10 @@ import { useParams } from "react-router-dom";
 import BaseUrl from "../utils/BaseUrl";
 import axiosConfig from "../utils/Config";
 
-
 export default function MyClass() {
   const defaultData = {
     status: "ok",
+    toResult:0,
     totalResult: 0,
     articles: [],
   };
@@ -44,27 +44,13 @@ export default function MyClass() {
     handleRefresh();
     setstate({ activeItem: _materi.judul });
     setmateri(_materi);
-    getKomentar(_materi);
   };
 
   let { id } = useParams();
 
   useEffect(() => {
     getKursus();
-    axios
-      .get(
-        `${BaseUrl}komentar/${id}/${materi.kelas_id}/${materi.id}?page=${page}`
-      )
-      .then((result) => {
-        setstateData((current) => {
-          return {
-            ...result,
-            articles: [...current.articles, ...result.data.data.data],
-            totalResult: result.data.data.total,
-            status: result.status,
-          };
-        });
-      });
+    getKomentar();
   }, [page, isRefresh, materi]);
 
   const getKursus = () => {
@@ -75,11 +61,21 @@ export default function MyClass() {
         setdata_class(res.data.data.data_kelas);
       });
   };
-  const getKomentar = (_materi) => {
+  const getKomentar = () => {
     axios
-      .get(`${BaseUrl}komentar/${id}/${_materi.kelas_id}/${_materi.id}`)
-      .then((res) => {
-        setIsiKomentar(res.data.data.data);
+      .get(
+        `${BaseUrl}komentar/${id}/${materi.kelas_id}/${materi.id}?page=${page}`
+      )
+      .then((result) => {
+        setstateData((current) => {
+          return {
+            ...result,
+            articles: [...result.data.data.data],
+            toResult: result.data.data.to,
+            totalResult: result.data.data.total,
+            status: result.status,
+          };
+        });
       });
   };
   const handleFormKomentar = (e) => {
@@ -108,7 +104,12 @@ export default function MyClass() {
           kelas_id: "",
         });
       });
-    getKomentar(materi);
+    console.log(page);
+    setPage(page);
+    getKomentar();
+  };
+  const _setPage = () => {
+    setPage(page + 1);
   };
 
   return (
@@ -154,7 +155,9 @@ export default function MyClass() {
               formKomentar={formKomentar}
               lengthKomentar={stateData.articles.length}
               totalResult={stateData.totalResult}
+              toResult={stateData.toResult}
               page={page}
+              _setPage={_setPage}
               setPage={setPage}
               isLoading={isLoading}
             />
