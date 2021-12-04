@@ -5,6 +5,8 @@ import { BrowserRouter, Link } from "react-router-dom";
 import { CartContext } from "../context/CartContex";
 import { AuthContext } from "../context/AuthContext";
 import { useHistory } from "react-router";
+// import '../Styles/Navbar.css'
+
 const Navbar = (props) => {
   const { value, setValue } = useContext(CartContext);
   const { login, setLogin } = useContext(AuthContext);

@@ -1,3 +1,6 @@
+body{
+  background-color: #F6F8FD;
+}
 .App {
   text-align: center;
 }
@@ -26,6 +29,20 @@
 
 .App-link {
   color: #61dafb;
+}
+/* Profle-User */
+.br-50{
+  border-radius:50%;
+}
+.sidebar-user-left{
+  background-color: white;
+  border-radius: 20px !important;
+  width:15%;
+  height: 90vh;
+}
+.sidebar-user-right{
+  width:80%;
+  border-radius: 20px !important;
 }
 
 @keyframes App-logo-spin {

@@ -18,7 +18,7 @@ const Commentar = (props) => {
                     <Comment.Content>
                       <Comment.Author as="a">{komentar.user.nama}</Comment.Author>
                       <Comment.Metadata>
-                        <div>Today at 5:42PM</div>
+                        <div>{komentar.created_at}</div>
                       </Comment.Metadata>
                       <Comment.Text>{komentar.isi_komentar}</Comment.Text>
                       <Comment.Actions>
