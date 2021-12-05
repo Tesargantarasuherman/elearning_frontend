@@ -35,17 +35,6 @@ const Navbar = (props) => {
               onClick={handleItemClick}
             />
           </Link>
-          {login ? (
-            <Menu.Item
-              name={`kursus-saya/${login ? login.data.id : null}`}
-              active={activeItem === `Kursus Saya`}
-              onClick={handleItemClick}
-            >
-              Kursus Saya
-            </Menu.Item>
-          ) : (
-            ""
-          )}
           <Menu.Item
             name="keranjang"
             active={activeItem === "keranjang"}
@@ -66,8 +55,8 @@ const Navbar = (props) => {
             ) : (
               <>
                 <Menu.Item
-                  name={`user/${login.data.id}`}
-                  active={activeItem === `${login.data.id}`}
+                  name={`profile`}
+                  active={activeItem === `${login.data.nama}`}
                   onClick={handleItemClick}
                   floated="right"
                 />

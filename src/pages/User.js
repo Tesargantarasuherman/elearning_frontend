@@ -11,22 +11,11 @@ import KursusSaya from "./KursusSaya";
 function User() {
   const [state, setstate] = useState([]);
   const { login, setLogin } = useContext(AuthContext);
-  const [active, setactive] = useState({ active: "lain" });
+  const [active, setactive] = useState({ active: "profile" });
 
-  const render =()=>{
-    switch (active) {
-      case 'profile': return (
-          <Profile/>
-      )
-      case 'kurang': return(
-        'null'
-      )
-      default:
-          return <Profile/>
-    }
-  }
 
-  let { id } = useParams();
+
+  let id = login.data.id;
   useEffect(() => {
     axios.get(`${BaseUrl}profile/${id}`, axiosConfig).then((res) => {
       setstate(res.data.data[0]);
@@ -65,7 +54,7 @@ function User() {
           </div>
         </div>
         <div className="sidebar-user-right">
-          {active.active == "profile" ? <Profile /> : <KursusSaya/>}
+          {active.active == "profile" ? <Profile state={state} /> : <KursusSaya/>}
         </div>
       </div>
     </div>

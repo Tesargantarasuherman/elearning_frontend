@@ -56,8 +56,7 @@ function App() {
             <Route path="/kursus/:id">
               {login ? <DetailKursus /> : <Login />}
             </Route>
-            <Route path="/user/:id">{login ? <User /> : ""}</Route>
-            <Route path="/kursus-saya/:id" exact component={KursusSaya} />
+            <Route path="/profile">{login ? <User /> : ""}</Route>
             <Route component={NotFound} />
           </Switch>
         </AuthContext.Provider>
