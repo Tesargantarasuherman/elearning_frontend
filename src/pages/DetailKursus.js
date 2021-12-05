@@ -57,11 +57,12 @@ function DetailKursus() {
   const tambahKursus = () => {
     let isLogin = login ? login.data.id : null;
     axios
-      .post(`${BaseUrl}add-kursus-saya`, kursus, axiosConfig)
+      .post(`${BaseUrl}add-transaksi/${kursus.user_id}/${kursus.kursus_id}`, axiosConfig)
       .then((res) => {
         toast.success("Kelas Berhasil Ditambahkan");
       })
       .catch((err) => {
+        console.log(axiosConfig)
         if (isLogin != null) {
           toast.error("Kelas Sudah Di Ambil!");
           setTimeout(() => {
@@ -76,33 +77,86 @@ function DetailKursus() {
   return (
     <div className="container">
       <ToastContainer />
-      <Card>
-        <div style={labelClass}>
-          <Label as="a" color="red" tag>
-            {state.tipe_kursus}
-          </Label>
+      <div className="row">
+        <div className="col-md-12">
+          <h1 className="text-center my-2">Checkout Kelas</h1>
         </div>
-        <Icon name="play circle" size="huge" style={iconPlay} />
-        <Image
-          src="https://images.unsplash.com/photo-1480796927426-f609979314bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
-          wrapped
-          ui={false}
-        />
-        <Card.Content>
-          <Label as="a" color="red" ribbon="left">
-            Rp.{state.harga}
-          </Label>
-          <Divider horizontal />
-          <Card.Header>{state.nama_kursus}</Card.Header>
-          <Card.Meta>
-            <Rating maxRating={5} defaultRating={3} icon="star" size="mini" />
-          </Card.Meta>
-          <Card.Description>{state.nama_instruktur}</Card.Description>
-        </Card.Content>
-        <Card.Content>
-          <Button onClick={tambahKursus}>Ambil Sekarang</Button>
-        </Card.Content>
-      </Card>
+        <div className="col-md-4">
+          <div className="card">
+            <img
+              className="card-img-top"
+              src="https://class.buildwithangga.com/storage/assets/thumbnails/BWALP3D%201.jpg"
+              alt="Card image cap"
+            />
+            <div className="card-body">
+              <h5 className="card-title">{state.nama_kursus}</h5>
+              <p className="card-text">{state.harga}</p>
+              <a href="#" className="btn btn-primary">
+                {state.harga}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-8">
+          <div className="card">
+            <div className="card-body">
+              <h2 className="card-title text-center">Detail Pembayaran</h2>
+              <form>
+                <div className="form-group row">
+                  <label
+                    htmlFor="staticEmail"
+                    className="col-sm-2 col-form-label"
+                  >
+                    Harga
+                  </label>
+                  <div className="col-sm-10">
+                    <input
+                      type="text"
+                      readOnly
+                      className="form-control-plaintext"
+                      value={state.harga}
+                    />
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label
+                    htmlFor="inputPassword"
+                    className="col-sm-2 col-form-label"
+                  >
+                    Kode Promo
+                  </label>
+                  <div className="col-sm-10">
+                    <input
+                      type="password"
+                      className="form-control"
+                      placeholder="Masukkan Kode Promo"
+                    />
+                  </div>
+                </div>
+                <div className="d-flex justify-content-between">
+                  <div>
+                    <h4 className="card-title">Total Harga</h4>
+                  </div>
+                  <div>
+                  <h4 className="card-title">{state.harga}</h4>
+                  </div>
+                </div>
+                <hr />
+                <div>
+                  <img
+                    src="https://dplk.bni.co.id/theme/front/images/logo/BNI-logo.png"
+                    alt=""
+                    width={100}
+                  />
+                    <h4 className="card-title">AN. Lorem Ipspum</h4>
+                    <h4 className="card-title">1230123</h4>
+                </div>
+                <button type="button" className="btn btn-primary btn-block" onClick={tambahKursus}>Konfirmasi Pembayaran</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

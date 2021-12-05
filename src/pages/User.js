@@ -11,13 +11,14 @@ import KursusSaya from "./KursusSaya";
 function User() {
   const [state, setstate] = useState([]);
   const { login, setLogin } = useContext(AuthContext);
-  const [active, setactive] = useState({ active: "profile" });
+  const [active, setactive] = useState({ active: "lain" });
 
 
 
-  let id = login.data.id;
+  let  id  = login.data.id;
   useEffect(() => {
-    axios.get(`${BaseUrl}profile/${id}`, axiosConfig).then((res) => {
+    axios.get(`${BaseUrl}profile/${login.data.id}`, axiosConfig).then((res) => {
+      console.log(res.data.data[0])
       setstate(res.data.data[0]);
     });
   }, []);
