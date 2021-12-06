@@ -31,6 +31,7 @@ function KursusSaya() {
   useEffect(() => {
     render(active.active)
     axios.get(`${BaseUrl}kursus-saya/${id}`).then((res) => {
+      console.log(res.data.data)
       setDataAktif(res.data.data);
     });
     axios.get(`${BaseUrl}transaksi/${id}`).then((res) => {

@@ -58,7 +58,7 @@ const RowClass = (props) => {
                 <div className="card-body">
                   <h5 className="card-title">{Class.nama_kursus} </h5>
                   <p className="card-text">
-                    {`Rp. ${Class.harga}`}
+                    {Class.harga ? `Rp. ${Class.harga}` :null}
                   </p>
                   <a href="#" className="btn btn-primary" onClick={() =>
                     history.push(`/${props.url}/${Class.id_kursus}`)

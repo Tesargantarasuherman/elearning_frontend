@@ -90,10 +90,7 @@ function DetailKursus() {
             />
             <div className="card-body">
               <h5 className="card-title">{state.nama_kursus}</h5>
-              <p className="card-text">{state.harga}</p>
-              <a href="#" className="btn btn-primary">
-                {state.harga}
-              </a>
+              <p className="card-text">{state.tipe}</p>
             </div>
           </div>
         </div>
@@ -138,7 +135,7 @@ function DetailKursus() {
                     <h4 className="card-title">Total Harga</h4>
                   </div>
                   <div>
-                  <h4 className="card-title">{state.harga}</h4>
+                    <h4 className="card-title">{state.harga}</h4>
                   </div>
                 </div>
                 <hr />
@@ -148,8 +145,8 @@ function DetailKursus() {
                     alt=""
                     width={100}
                   />
-                    <h4 className="card-title">AN. Lorem Ipspum</h4>
-                    <h4 className="card-title">1230123</h4>
+                  <h4 className="card-title">AN. Lorem Ipspum</h4>
+                  <h4 className="card-title">1230123</h4>
                 </div>
                 <button type="button" className="btn btn-primary btn-block" onClick={tambahKursus}>Konfirmasi Pembayaran</button>
               </form>
