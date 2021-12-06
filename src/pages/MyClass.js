@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { Menu, Embed, Grid, Button } from "semantic-ui-react";
+import { Menu, Embed, Grid, Button, Modal } from "semantic-ui-react";
 import Commentar from "../components/Commentar";
 import { AuthContext } from "../context/AuthContext";
 import { useParams } from "react-router-dom";
@@ -15,15 +15,20 @@ export default function MyClass() {
     totalResult: 0,
     articles: [],
   };
+  let { id } = useParams();
+  let id_ = { id }
+  const [open, setOpen] = useState(false)
   const [state, setstate] = useState({ activeItem: null });
   const [data_class, setdata_class] = useState([]);
   const [materi, setmateri] = useState({});
   const { login, setLogin } = useContext(AuthContext);
+  const [tandaiselesai, settandaiselesai] = useState({ 'user_id': null }, { 'kursus_id': null }, { 'kelas_id': null, 'materi_id': null });
 
   const [stateData, setstateData] = useState(defaultData);
   const [page, setPage] = useState(1);
   const [isLoading, setLoading] = useState(false);
   const [isRefresh, setRefresh] = useState(false);
+  const [rating, setrating] = useState({ 'rating': null }, { 'user_id': null }, { 'kursus_id': null }, { 'review': null })
 
   const [formKomentar, setFormKomentar] = useState({
     user_id: "",
@@ -38,14 +43,20 @@ export default function MyClass() {
     setLoading(false);
     setRefresh(false);
   };
-
   const handleItemClick = (_materi, row) => {
+    console.log(_materi)
     handleRefresh();
     setstate({ activeItem: _materi.judul });
     setmateri(_materi);
+    settandaiselesai({
+      'user_id': `${login.data.id}`,
+      'kursus_id': `${id_.id}`,
+      'kelas_id': `${_materi.kelas_id}`,
+      'materi_id': `${_materi.id}`,
+    })
+    console.log(tandaiselesai)
   };
 
-  let { id } = useParams();
 
   useEffect(() => {
     getKursus();
@@ -95,16 +106,47 @@ export default function MyClass() {
         setFormKomentar({
           ...formKomentar,
           isi_komentar: "",
-          user_id: "",
-          materi_id: "",
-          kursus_id: "",
-          kelas_id: "",
         });
       });
     getKomentar();
   };
-
-
+  // Tandai Selesai
+  const selesaiKursus = () => {
+    axios
+      .post(`${BaseUrl}add-kelas-selesai`, tandaiselesai, axiosConfig)
+      .then((res) => {
+        console.log(res)
+      });
+  }
+  const handleFormChangeReview = (e) => {
+    const { name, value } = e.target;
+    setrating({
+      ...rating,
+      [name]: value,
+      user_id: `${login.data.id}`,
+      kursus_id: id,
+    });
+    console.log(rating)
+  };
+  const addRating = (e) => {
+    e.preventDefault()
+    axios
+      .post(`${BaseUrl}add-rating-kursus`, rating, axiosConfig)
+      .then((res) => {
+        setrating({
+          ...rating,
+          rating: "",
+          review: ""
+        })
+        console.log(res)
+      }).catch(err => {
+        setrating({
+          ...rating,
+          rating: "",
+          review: ""
+        })
+      })
+  }
   return (
     <div >
       <div className="row ">
@@ -142,6 +184,94 @@ export default function MyClass() {
         <div className="col-md-8 col-md-offset-2">
           <div className="card">
             <div className="card-body">
+              <div className="d-flex justify-content-end">
+                <Modal
+                  centered={false}
+                  open={open}
+                  onClose={() => setOpen(false)}
+                  onOpen={() => setOpen(true)}
+                  trigger={<Button>Rating</Button>}
+                >
+                  <Modal.Header>Rating</Modal.Header>
+                  <Modal.Content>
+                    <Modal.Description>
+                      <form onSubmit={addRating}>
+                        <fieldset class="rating-review">
+                          <h6 className="font-black font-weight-bold">Rating</h6>
+                          <input
+                            name="rating"
+                            onChange={handleFormChangeReview}
+                            type="radio"
+                            id="rating5"
+                            value="5"
+                          />
+                          <label for="rating5" title="5 stars">
+                            ☆
+                          </label>
+                          <input
+                            name="rating"
+                            onChange={handleFormChangeReview}
+                            type="radio"
+                            id="rating4"
+                            value="4"
+                          />
+                          <label for="rating4" title="4 stars">
+                            ☆
+                          </label>
+                          <input
+                            name="rating"
+                            onChange={handleFormChangeReview}
+                            type="radio"
+                            id="rating3"
+                            value="3"
+                          />
+                          <label for="rating3" title="3 stars">
+                            ☆
+                          </label>
+                          <input
+                            name="rating"
+                            onChange={handleFormChangeReview}
+                            type="radio"
+                            id="rating2"
+                            value="2"
+                          />
+                          <label for="rating2" title="2 stars">
+                            ☆
+                          </label>
+                          <input
+                            name="rating"
+                            onChange={handleFormChangeReview}
+                            type="radio"
+                            id="rating1"
+                            value="1"
+                          />
+                          <label for="rating1" title="1 stars">
+                            ☆
+                          </label>
+                        </fieldset>
+                        <div className="form-group">
+                          <label
+                            htmlFor="exampleFormControlTextarea1"
+                            className="font-black"
+                          >
+                            Review
+                          </label>
+                          <textarea
+                            className="form-control"
+                            id="exampleFormControlTextarea1"
+                            rows={3}
+                            name="review"
+                            value={rating.review}
+                            onChange={handleFormChangeReview}
+                          />
+                        </div>
+                        <Button tipe="submit">Tambah Review</Button>
+                      </form>
+                    </Modal.Description>
+                  </Modal.Content>
+                </Modal>
+                <button className="btn btn-danger" onClick={selesaiKursus}>Tandai Selesai</button>
+              </div>
               <h1>{materi.judul}</h1>
               <iframe
                 width={"100%"}

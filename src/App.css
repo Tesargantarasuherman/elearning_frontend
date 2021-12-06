@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&display=swap');
+p,h1,h2,h3,h4,h5,a,button,label{
+  font-family: 'Baloo Bhaijaan 2', cursive;
+}
 body {
   background-color: #f6f8fd;
 }
@@ -104,6 +108,50 @@ body {
 } */
 .card-course {
   position: relative;
+}
+/* my course */
+.rating{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.star{
+  display: flex;
+  justify-content: left;
+}
+/* the stars */
+.rating-review > label {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+  width: calc(var(--star-size) / 3 * 1.1em);
+  color: black;
+}
+.rating-review > *:hover,
+.rating-review > *:hover ~ label,
+.rating-review:not(:hover) > input:checked ~ label {
+  color: transparent;
+  cursor: inherit;
+}
+.rating-review > *:hover:before,
+.rating-review > *:hover ~ label:before,
+.rating-review:not(:hover) > input:checked ~ label:before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  color: gold;
+}
+.rating-review > input {
+  position: relative;
+  transform: scale(3);
+  transform: scale(var(--star-size));
+  top: -0.5em;
+  top: calc(var(--star-size) / 6 * -1em);
+  margin-left: -2.5em;
+  margin-left: calc(var(--star-size) / 6 * -5em);
+  z-index: 2;
+  opacity: 0;
+  font-size: initial;
 }
 @keyframes App-logo-spin {
   from {
