@@ -1,5 +1,5 @@
-body{
-  background-color: #F6F8FD;
+body {
+  background-color: #f6f8fd;
 }
 .App {
   text-align: center;
@@ -31,28 +31,50 @@ body{
   color: #61dafb;
 }
 /* Profle-User */
-.br-50{
-  border-radius:50%;
+.br-50 {
+  border-radius: 50%;
 }
-.body-profile{
+.body-profile {
   background-color: white;
   border-radius: 20px !important;
-  width:40%;
+  width: 40%;
   height: 90vh;
-  padding:40px;
+  padding: 40px;
 }
-.sidebar-user-left{
+.sidebar-user-left {
   background-color: white;
   border-radius: 20px !important;
-  width:15%;
+  width: 15%;
   height: 90vh;
 }
-.sidebar-user-right{
-  width:80%;
+.sidebar-user-right {
+  width: 80%;
   border-radius: 20px !important;
-  padding-left:50px;
+  padding-left: 50px;
 }
-
+/* Home */
+.rating {
+  position: absolute !important;
+  bottom: 5% !important;
+  right:5%;
+}
+.checked {
+  color: orange;
+}
+.type-course{
+  position: absolute !important;
+  top: 5% !important;
+  right:5%;
+  background-color: #282c34;
+  padding: 2px 5px;
+  border-radius:5px;
+  color:white;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.card-course {
+  position: relative;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
