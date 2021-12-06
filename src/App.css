@@ -72,6 +72,30 @@ body {
   font-weight: bold;
   text-transform: capitalize;
 }
+.button-list-course{
+  background-color: #dfe6e9;
+  border: none;
+  color: #DB2828;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding:5px 10px ;
+  border-radius:5px;
+  width:200px;
+}
+.button-list-course:hover{
+  cursor: pointer;
+}
+/* .button-menu{
+  position:absolute !important;
+  z-index: 92;
+  right:2%;
+  top:2%;
+}
+.menu-course{
+  left: -250px;
+} */
 .card-course {
   position: relative;
 }

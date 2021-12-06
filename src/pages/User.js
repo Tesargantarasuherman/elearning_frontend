@@ -15,13 +15,29 @@ function User() {
 
 
 
-  let  id  = login.data.id;
+  let id = login.data.id;
   useEffect(() => {
     axios.get(`${BaseUrl}profile/${id}`, axiosConfig).then((res) => {
       console.log(res.data.data[0])
       setstate(res.data.data[0]);
     });
   }, []);
+  const renderSwitch = (activeItem) => {
+    switch (activeItem) {
+      case "profile":
+        return (
+          <Profile state={state} />
+        );
+      case "kelas_saya":
+        return (
+          <KursusSaya />
+        );
+      default:
+        return (
+          <Profile state={state} />
+        );
+    }
+  };
   return (
     <div className="d-flex">
       <div class="d-flex justify-content-around w-100">
@@ -39,23 +55,17 @@ function User() {
               <p className="">Fullstack Developer</p>
             </div>
             <div className="user-menu mt-4">
-              <p
-                className="font-weight-bold"
-                onClick={() => setactive({ active: "profile" })}
-              >
+              <p className="font-weight-bold" onClick={() => setactive({ active: "profile" })}>
                 Profile Saya
               </p>
-              <p
-                className="font-weight-bold"
-                onClick={() => setactive({ active: "kelas_saya" })}
-              >
+              <p className="font-weight-bold" onClick={() => setactive({ active: "kelas_saya" })}>
                 Kelas Saya
               </p>
             </div>
           </div>
         </div>
         <div className="sidebar-user-right">
-          {active.active == "profile" ? <Profile state={state} /> : <KursusSaya/>}
+          {renderSwitch(active.active)}
         </div>
       </div>
     </div>

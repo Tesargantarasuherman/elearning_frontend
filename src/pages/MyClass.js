@@ -11,7 +11,7 @@ import axiosConfig from "../utils/Config";
 export default function MyClass() {
   const defaultData = {
     status: "ok",
-    toResult:0,
+    toResult: 0,
     totalResult: 0,
     articles: [],
   };
@@ -106,56 +106,65 @@ export default function MyClass() {
 
 
   return (
-    <div className="container">
-      <Grid divided="vertically">
-        <Grid.Row columns={2}>
-          <Grid.Column width={4}>
-            <Menu vertical>
-              <>
+    <div >
+      <div className="row">
+        <div className="col-md-2">
+          {/* menu */}
+          <div className="card menu-course">
+            <div className="card-body">
+              <div className="pull-right button-menu">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+              </div>
+              <div className="d-flex flex-column">
                 {data_class.map((clas, row) => {
                   return (
-                    <Menu.Item>
-                      <Menu.Header>{clas.judul}</Menu.Header>
+                    <>
+                      <div className="p-2">
+                        <span className="font-weight-bold">{clas.judul}</span>
+                      </div>
                       {clas.materi.map((materi, row) => {
                         return (
-                          <Menu.Menu>
-                            <Menu.Item
-                              name={materi.judul}
-                              active={state.activeItem === `${materi.judul}`}
-                              onClick={() => handleItemClick(materi, row)}
-                            />
-                          </Menu.Menu>
-                        );
+                          <div className="p-2">
+                            <button className="button-list-course" onClick={() => handleItemClick(materi, row)}>
+                              {materi.judul}
+                            </button>
+                          </div>
+                        )
                       })}
-                    </Menu.Item>
-                  );
+                    </>
+                  )
                 })}
-              </>
-            </Menu>
-          </Grid.Column>
-          <Grid.Column width={12}>
-            <h1>{materi.judul}</h1>
-            <Embed
-              id={materi.link_video}
-              placeholder="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1459&q=80"
-              source="youtube"
-            />
-            <h3>{materi.deskripsi}</h3>
-            <Commentar
-              isiKomentar={stateData.articles}
-              handleFormKomentar={handleFormKomentar}
-              submitKomentar={submitKomentar}
-              formKomentar={formKomentar}
-              lengthKomentar={stateData.articles.length}
-              totalResult={stateData.totalResult}
-              toResult={stateData.toResult}
-              page={page}
-              setPage={setPage}
-              isLoading={isLoading}
-            />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+              </div>
+            </div>
+          </div>
+          {/*  */}
+        </div>
+        <div className="col-md-10">
+          <div className="card">
+            <div className="card-body">
+              <h1>{materi.judul}</h1>
+              <iframe
+                width={"100%"}
+                height={500}
+                src={`https://www.youtube.com/embed/${materi.link_video}`}
+
+              ></iframe>
+              <Commentar
+                isiKomentar={stateData.articles}
+                handleFormKomentar={handleFormKomentar}
+                submitKomentar={submitKomentar}
+                formKomentar={formKomentar}
+                lengthKomentar={stateData.articles.length}
+                totalResult={stateData.totalResult}
+                toResult={stateData.toResult}
+                page={page}
+                setPage={setPage}
+                isLoading={isLoading}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
