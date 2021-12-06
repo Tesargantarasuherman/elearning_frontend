@@ -139,7 +139,7 @@ export default function MyClass() {
           </div>
           {/*  */}
         </div>
-        <div className="col-md-10">
+        <div className="col-md-8 col-md-offset-2">
           <div className="card">
             <div className="card-body">
               <h1>{materi.judul}</h1>
