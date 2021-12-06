@@ -35,13 +35,6 @@ const Navbar = (props) => {
               onClick={handleItemClick}
             />
           </Link>
-          <Menu.Item
-            name="keranjang"
-            active={activeItem === "keranjang"}
-            onClick={handleItemClick}
-          >
-            <Icon name="shopping basket" /> {value}
-          </Menu.Item>
           <Menu.Menu position="right">
             {!login ? (
               <Link to="login">

@@ -51,14 +51,15 @@ function User() {
           />
           <div className="px-4">
             <div className="user-descripton">
-              <p className="font-weight-bold">Tesar Gantara Suherman</p>
-              <p className="">Fullstack Developer</p>
+              <p className="font-weight-bold text-center  label">Tesar Gantara Suherman</p>
+              <p className="text-center label">Fullstack Developer</p>
             </div>
+            <hr/>
             <div className="user-menu mt-4">
-              <p className="font-weight-bold" onClick={() => setactive({ active: "profile" })}>
+              <p className="font-weight-bold label label-menu-user" onClick={() => setactive({ active: "profile" })}>
                 Profile Saya
               </p>
-              <p className="font-weight-bold" onClick={() => setactive({ active: "kelas_saya" })}>
+              <p className="font-weight-bold label label-menu-user" onClick={() => setactive({ active: "kelas_saya" })}>
                 Kelas Saya
               </p>
             </div>

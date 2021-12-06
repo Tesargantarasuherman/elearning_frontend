@@ -31,6 +31,10 @@ body {
   color: #61dafb;
 }
 /* Profle-User */
+.label-menu-user:hover{
+  cursor: pointer;
+  color:#DB2828;
+}
 .br-50 {
   border-radius: 50%;
 }
@@ -49,8 +53,10 @@ body {
 }
 .sidebar-user-right {
   width: 80%;
+  background-color: white;
   border-radius: 20px !important;
-  padding-left: 50px;
+  border-radius: 20px !important;
+  padding: 10px 0px 0px 50px;
 }
 /* Home */
 .rating {
