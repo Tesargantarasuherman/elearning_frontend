@@ -53,7 +53,8 @@ const Navbar = (props) => {
                   onClick={handleItemClick}
                   floated="right"
                 />
-                <Button content="Logout" primary onClick={props.Logout} />
+                <Button light onClick={props.Logout} ><i class="fa fa-sign-out" aria-hidden="true"></i> </Button>
+
               </>
             )}
           </Menu.Menu>

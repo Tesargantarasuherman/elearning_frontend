@@ -107,10 +107,10 @@ export default function MyClass() {
 
   return (
     <div >
-      <div className="row">
+      <div className="row ">
         <div className="col-md-2">
           {/* menu */}
-          <div className="card menu-course">
+          <div className="card menu-course position-fixed">
             <div className="card-body">
               <div className="pull-right button-menu">
                 <i class="fa fa-bars" aria-hidden="true"></i>
