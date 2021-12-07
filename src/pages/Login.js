@@ -45,7 +45,7 @@ function Login() {
   };
 
   const handleRegister = () => {
-    axios.post(`{${BaseUrl}register`, formRegister, axiosConfig).then((res) => {
+    axios.post(`${BaseUrl}register`, formRegister, axiosConfig).then((res) => {
       console.log(res);
     });
   };

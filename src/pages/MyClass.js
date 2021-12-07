@@ -23,6 +23,7 @@ export default function MyClass() {
   const [materi, setmateri] = useState({});
   const { login, setLogin } = useContext(AuthContext);
   const [tandaiselesai, settandaiselesai] = useState({ 'user_id': null }, { 'kursus_id': null }, { 'kelas_id': null, 'materi_id': null });
+  const [terakhirdilihat, setterakhirdilihat] = useState({});
 
   const [stateData, setstateData] = useState(defaultData);
   const [page, setPage] = useState(1);
@@ -59,9 +60,15 @@ export default function MyClass() {
 
 
   useEffect(() => {
+    getLastWatch();
+
+  }, []);
+
+  useEffect(() => {
     getKursus();
     getKomentar();
-  }, [page, isRefresh, materi]);
+
+  }, [page, isRefresh,materi]);
 
   const getKursus = () => {
     axios
@@ -70,10 +77,23 @@ export default function MyClass() {
         setdata_class(res.data.data.data_kelas);
       });
   };
-  const getKomentar = () => {
+  const getLastWatch = () => {
+    axios
+      .get(`${BaseUrl}terakhir-ditonton/${login.data.id}/${id}`, axiosConfig)
+      .then((res) => {
+        setterakhirdilihat(res.data.data.history);
+        setMateriOnload(res.data.data.history);
+      });
+  };
+  const setMateriOnload =(data)=>{
+    setmateri(data)
+    getKomentar(data)
+    console.log('materi',materi)
+  }
+  const getKomentar = (data) => {
     axios
       .get(
-        `${BaseUrl}komentar/${id}/${materi.kelas_id}/${materi.id}?page=${page}`
+        `${BaseUrl}komentar/${id}/${data?data.kelas_id:materi.kelas_id}/${data?data.materi_id:materi.id}?page=${page}`
       )
       .then((result) => {
         setstateData((current) => {
