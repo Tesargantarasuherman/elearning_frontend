@@ -41,6 +41,7 @@ function DetailKursus() {
     },
   };
   const [state, setstate] = useState([]);
+  const [rating, setrating] = useState([]);
   let { id } = useParams();
   const { login, setLogin } = useContext(AuthContext);
   const [kursus, setkursus] = useState({
@@ -52,8 +53,15 @@ function DetailKursus() {
     axios.get(`${BaseUrl}kursus/${id}`).then((res) => {
       setstate(res.data.data[0]);
     });
+    getRating();
     console.log(state);
   }, []);
+  const getRating = () => {
+    axios.get(`${BaseUrl}rating/${id}`).then(res => {
+      setrating(res.data.data.data_rating)
+      console.log(rating)
+    })
+  }
   const tambahKursus = () => {
     let isLogin = login ? login.data.id : null;
     axios
@@ -154,6 +162,32 @@ function DetailKursus() {
           </div>
         </div>
       </div>
+      {
+        rating.map(rating => {
+          return (
+            <Card>
+              <Card.Content>
+                <Image
+                  floated='right'
+                  size='mini'
+                  src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
+                />
+                <Card.Header>{rating.user.nama}</Card.Header>
+                <Card.Meta>Programmer</Card.Meta>
+                <Card.Description>
+                  {rating.review}
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <div className='ui two buttons'>
+                <Rating icon='star' defaultRating={rating.rating} maxRating={5} />
+                </div>
+              </Card.Content>
+            </Card>
+          )
+        })
+      }
+
     </div>
   );
 }
