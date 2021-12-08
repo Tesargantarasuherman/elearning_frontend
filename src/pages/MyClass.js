@@ -81,8 +81,9 @@ export default function MyClass() {
     axios
       .get(`${BaseUrl}terakhir-ditonton/${login.data.id}/${id}`, axiosConfig)
       .then((res) => {
-        setterakhirdilihat(res.data.data.history);
-        setMateriOnload(res.data.data.history);
+        console.log('tes',res.data.data.history[0])
+        setterakhirdilihat(res.data.data.history[0]);
+        setMateriOnload(res.data.data.history[0]);
       });
   };
   const setMateriOnload =(data)=>{

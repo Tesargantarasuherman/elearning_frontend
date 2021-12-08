@@ -60,7 +60,7 @@ const RowClass = (props) => {
                   <p className="card-text">
                     {Class.harga ? `Rp. ${Class.harga}` :null}
                   </p>
-                  <a href="#" className="btn btn-primary" onClick={() =>
+                  <a href="#" className="btn btn-danger" onClick={() =>
                     history.push(`/${props.url}/${Class.id_kursus}`)
                   }
                   >

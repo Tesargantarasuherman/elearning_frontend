@@ -22,7 +22,7 @@ function Profile(props) {
             value={props.state.email}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-danger">
           Update
         </button>
       </form>

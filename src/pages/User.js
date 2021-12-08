@@ -51,8 +51,8 @@ function User() {
           />
           <div className="px-4">
             <div className="user-descripton">
-              <p className="font-weight-bold text-center  label">Tesar Gantara Suherman</p>
-              <p className="text-center label">Fullstack Developer</p>
+              <p className="font-weight-bold text-center  label">{state.nama}</p>
+              <p className="text-center label">Programmer</p>
             </div>
             <hr/>
             <div className="user-menu mt-4">
