@@ -65,7 +65,7 @@ export default function MyClass() {
       'kelas_id': `${_materi.kelas_id}`,
       'materi_id': `${_materi.id}`,
     }), axiosConfig).then(res => {
-      console.log(res)
+      getLastWatch()
     })
   }
 
@@ -99,7 +99,6 @@ export default function MyClass() {
   const setMateriOnload = (data) => {
     setmateri(data)
     getKomentar(data)
-    console.log('materi', materi)
   }
   const getKomentar = (data) => {
     axios
@@ -198,7 +197,7 @@ export default function MyClass() {
                       {clas.materi.map((materi, row) => {
                         return (
                           <div className="p-2">
-                            <button className="button-list-course" onClick={() => handleItemClick(materi, row)}>
+                            <button className={`button-list-course ${terakhirdilihat.id ==materi.id ? 'active':''} `} onClick={() => handleItemClick(materi, row)}>
                               {materi.judul}
                             </button>
                           </div>

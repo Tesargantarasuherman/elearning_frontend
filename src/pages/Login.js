@@ -46,7 +46,10 @@ function Login() {
 
   const handleRegister = () => {
     axios.post(`${BaseUrl}register`, formRegister, axiosConfig).then((res) => {
-      console.log(res);
+      toast.success("Register Berhasil");
+      setTimeout(() => {
+        setOpen(false)
+      }, 2000);
     });
   };
   const handleLogin = () => {
@@ -99,7 +102,7 @@ function Login() {
                     <Button>Login</Button>
                   )}
                   <Button.Or />
-                  <Button onClick={() => setOpen(true)}>Register</Button>
+                  <Button type="button" onClick={() => setOpen(true)}>Register</Button>
                 </Button.Group>
               </Form>
             </Grid.Column>
@@ -157,7 +160,7 @@ function Login() {
             <Button.Group>
               <Button>Register</Button>
               <Button.Or />
-              <Button onClick={() => setOpen(false)}>Login</Button>
+              <Button type="button" onClick={() => setOpen(false)}>Login</Button>
             </Button.Group>
           </Form>
         </Modal.Content>

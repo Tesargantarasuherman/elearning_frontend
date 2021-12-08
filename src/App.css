@@ -62,6 +62,11 @@ body {
   border-radius: 20px !important;
   padding: 10px 0px 0px 50px;
 }
+/* My Class */
+button.active{
+  background-color: #DB2828 !important;
+  color:white;
+}
 /* Home */
 .rating {
   position: absolute !important;
