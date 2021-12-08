@@ -55,9 +55,19 @@ export default function MyClass() {
       'kelas_id': `${_materi.kelas_id}`,
       'materi_id': `${_materi.id}`,
     })
+
+    updateLastWatch(_materi)
     console.log(tandaiselesai)
   };
 
+  const updateLastWatch = (_materi) => {
+    axios.post(`${BaseUrl}update-terakhir-ditonton/${login.data.id}/${id}`, ({
+      'kelas_id': `${_materi.kelas_id}`,
+      'materi_id': `${_materi.id}`,
+    }), axiosConfig).then(res => {
+      console.log(res)
+    })
+  }
 
   useEffect(() => {
     getLastWatch();
@@ -68,7 +78,7 @@ export default function MyClass() {
     getKursus();
     getKomentar();
 
-  }, [page, isRefresh,materi]);
+  }, [page, isRefresh, materi]);
 
   const getKursus = () => {
     axios
@@ -81,20 +91,20 @@ export default function MyClass() {
     axios
       .get(`${BaseUrl}terakhir-ditonton/${login.data.id}/${id}`, axiosConfig)
       .then((res) => {
-        console.log('tes',res.data.data.history[0])
+        console.log('tes', res.data.data.history[0])
         setterakhirdilihat(res.data.data.history[0]);
         setMateriOnload(res.data.data.history[0]);
       });
   };
-  const setMateriOnload =(data)=>{
+  const setMateriOnload = (data) => {
     setmateri(data)
     getKomentar(data)
-    console.log('materi',materi)
+    console.log('materi', materi)
   }
   const getKomentar = (data) => {
     axios
       .get(
-        `${BaseUrl}komentar/${id}/${data?data.kelas_id:materi.kelas_id}/${data?data.materi_id:materi.id}?page=${page}`
+        `${BaseUrl}komentar/${id}/${data ? data.kelas_id : materi.kelas_id}/${data ? data.materi_id : materi.id}?page=${page}`
       )
       .then((result) => {
         setstateData((current) => {
