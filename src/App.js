@@ -22,6 +22,7 @@ import User from "./pages/User";
 import KursusSaya from "./pages/KursusSaya";
 import DetailKursus from "./pages/DetailKursus";
 import NotFound from "./pages/NotFound";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -34,11 +35,15 @@ function App() {
     setLogin(JSON.parse(localStorage.getItem("data_user")));
   }, []);
   const Logout = () => {
-    localStorage.removeItem("data_user");
-    setLogin(null);
+    toast.success("Anda Telah Keluar");
+    setTimeout(() => {
+      localStorage.removeItem("data_user");
+      setLogin(null);
+    }, 1000);
   };
   return (
     <Router>
+      <ToastContainer />
       <CartContext.Provider value={{ value, setValue }}>
         <AuthContext.Provider value={{ login, setLogin }}>
           <Navbar Logout={Logout} />
