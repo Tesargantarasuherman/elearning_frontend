@@ -26,6 +26,13 @@ function KursusSaya() {
     //     return( <div>hello</div>)
     // }
   }
+  const axiosConfig = {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `bearer ${login ? login.token : ""}`,
+    },
+  };
+  
   const [dataMenunggu, setDataMenunggu] = useState([]);
   const [dataAktif, setDataAktif] = useState([]);
   useEffect(() => {

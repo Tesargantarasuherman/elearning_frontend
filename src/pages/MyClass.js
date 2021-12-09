@@ -6,7 +6,6 @@ import Commentar from "../components/Commentar";
 import { AuthContext } from "../context/AuthContext";
 import { useParams } from "react-router-dom";
 import BaseUrl from "../utils/BaseUrl";
-import axiosConfig from "../utils/Config";
 
 export default function MyClass() {
   const defaultData = {
@@ -38,6 +37,14 @@ export default function MyClass() {
     kelas_id: "",
     isi_komentar: "",
   });
+
+  const axiosConfig = {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `bearer ${login ? login.token : ""}`,
+    },
+  };
+  
   const handleRefresh = () => {
     setstateData(defaultData);
     setPage(1);

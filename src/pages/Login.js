@@ -57,10 +57,12 @@ function Login() {
     axios
       .post(`${BaseUrl}login`, formLogin, axiosConfig)
       .then((res) => {
-        console.log(res);
-        localStorage.setItem("data_user", JSON.stringify(res.data.data));
-        setLogin(JSON.parse(localStorage.getItem("data_user")));
-        history.goBack();
+        toast.success("Berhasil Login");
+        setTimeout(() => {
+          localStorage.setItem("data_user", JSON.stringify(res.data.data));
+          setLogin(JSON.parse(localStorage.getItem("data_user")));
+          history.goBack();
+        }, 1000);
       })
       .catch((err) => {
         toast.error("Email Atau Password Salah!");

@@ -17,7 +17,6 @@ import { AuthContext } from "../context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BaseUrl from "../utils/BaseUrl";
-import axiosConfig from "../utils/Config";
 
 function DetailKursus() {
   const history = useHistory();
@@ -62,6 +61,12 @@ function DetailKursus() {
       console.log(rating)
     })
   }
+  const axiosConfig = {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `bearer ${login ? login.token : ""}`,
+    },
+  };
   const tambahKursus = () => {
     let isLogin = login ? login.data.id : null;
     axios

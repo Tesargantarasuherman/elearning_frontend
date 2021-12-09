@@ -5,7 +5,6 @@ import { Button, Checkbox, Form } from "semantic-ui-react";
 import Profile from "../components/Profile";
 import { AuthContext } from "../context/AuthContext";
 import BaseUrl from "../utils/BaseUrl";
-import axiosConfig from "../utils/Config";
 import KursusSaya from "./KursusSaya";
 
 function User() {
@@ -13,7 +12,12 @@ function User() {
   const { login, setLogin } = useContext(AuthContext);
   const [active, setactive] = useState({ active: "kelas_saya" });
 
-
+  const axiosConfig = {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `bearer ${login ? login.token : ""}`,
+    },
+  };
 
   let id = login.data.id;
   useEffect(() => {
