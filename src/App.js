@@ -61,7 +61,7 @@ function App() {
             <Route path="/kursus/:id">
               {login ? <DetailKursus /> : <Login />}
             </Route>
-            <Route path="/profile">{login ? <User /> : ""}</Route>
+            <Route path="/profile">{login ? <User /> : <Login />}</Route>
             <Route component={NotFound} />
           </Switch>
         </AuthContext.Provider>
