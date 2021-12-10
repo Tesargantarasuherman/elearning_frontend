@@ -10,7 +10,7 @@ import {
 
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/index";
 import { CartContext } from "./context/CartContex";
 import { AuthContext } from "./context/AuthContext";
 import { useEffect, useState } from "react";
