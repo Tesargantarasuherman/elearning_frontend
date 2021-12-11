@@ -30,7 +30,7 @@ function Home() {
           <RowClass
             dataClass={dataClass}
             url={`kursus`}
-            text_button={"Lihat Detail"}
+            text_button={"Detail"}
           />
         );
       case "Premium":
@@ -38,7 +38,7 @@ function Home() {
           <RowClass
             dataClass={dataClass}
             url={`kursus`}
-            text_button={"Lihat Detail"}
+            text_button={"Detail"}
           />
         );
       case "Free":
@@ -46,7 +46,7 @@ function Home() {
           <RowClass
             dataClass={dataClass}
             url={`kursus`}
-            text_button={"Lihat Detail"}
+            text_button={"Detail"}
           />
         );
       default:
@@ -54,7 +54,7 @@ function Home() {
           <RowClass
             dataClass={dataClass}
             url={`kursus`}
-            text_button={"Lihat Detail"}
+            text_button={"Detail"}
           />
         );
     }

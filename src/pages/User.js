@@ -6,8 +6,10 @@ import Profile from "../components/Profile";
 import { AuthContext } from "../context/AuthContext";
 import BaseUrl from "../utils/BaseUrl";
 import KursusSaya from "./KursusSaya";
+import { useTranslation } from 'react-i18next';
 
 function User() {
+  const { t, i18n } = useTranslation();
   const [state, setstate] = useState([]);
   const { login, setLogin } = useContext(AuthContext);
   const [active, setactive] = useState({ active: "kelas_saya" });
@@ -61,10 +63,10 @@ function User() {
             <hr/>
             <div className="user-menu mt-4">
               <p className="font-weight-bold label label-menu-user" onClick={() => setactive({ active: "profile" })}>
-                Profile Saya
+                {t('User.1')}
               </p>
               <p className="font-weight-bold label label-menu-user" onClick={() => setactive({ active: "kelas_saya" })}>
-                Kelas Saya
+              {t('User.2')}
               </p>
             </div>
           </div>

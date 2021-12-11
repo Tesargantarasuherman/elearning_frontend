@@ -10,7 +10,7 @@ import {
 
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
-import Navbar from "./components/Navbar/index";
+import Navbar from "./components/Navbar/Navbar";
 import { CartContext } from "./context/CartContex";
 import { AuthContext } from "./context/AuthContext";
 import { useEffect, useState } from "react";
@@ -23,17 +23,22 @@ import KursusSaya from "./pages/KursusSaya";
 import DetailKursus from "./pages/DetailKursus";
 import NotFound from "./pages/NotFound";
 import { ToastContainer, toast } from "react-toastify";
+import { useTranslation } from 'react-i18next';
+import { LangContext } from "./context/LangContext";
 
 function App() {
   const [value, setValue] = useState(0);
+  const [lang, setLang] = useState(0);
   const [login, setLogin] = useState(
     JSON.parse(localStorage.getItem("data_user"))
   );
   const history = useHistory();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     setLogin(JSON.parse(localStorage.getItem("data_user")));
-  }, []);
+    actionSetLang()
+  }, [lang]);
   const Logout = () => {
     toast.success("Anda Telah Keluar");
     setTimeout(() => {
@@ -41,12 +46,20 @@ function App() {
       setLogin(null);
     }, 1000);
   };
+  function handleClick (_lang) {
+    setLang(_lang)
+  }
+  function actionSetLang() {
+    console.log(lang)
+    i18n.changeLanguage(lang);
+  }
   return (
     <Router>
       <ToastContainer />
       <CartContext.Provider value={{ value, setValue }}>
         <AuthContext.Provider value={{ login, setLogin }}>
-          <Navbar Logout={Logout} />
+        <LangContext.Provider value={{ lang, setLang }}>
+          <Navbar Logout={Logout} handleClick={handleClick} />
           <Switch>
             <Route exact path="/">
               <Home />
@@ -64,6 +77,7 @@ function App() {
             <Route path="/profile">{login ? <User /> : <Login />}</Route>
             <Route component={NotFound} />
           </Switch>
+        </LangContext.Provider>
         </AuthContext.Provider>
       </CartContext.Provider>
     </Router>

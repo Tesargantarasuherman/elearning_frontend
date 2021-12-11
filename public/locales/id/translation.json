@@ -1,0 +1,15 @@
+{
+    "Profile": {
+        "1": "Profile Saya",
+        "2":"Keluar"
+    },
+    "Card": {
+        "1": "Lihat Detail",
+        "2":"Sign Out"
+    },
+    "User": {
+        "1": "Profile Saya",
+        "2":"Kelas Saya"
+    }
+    
+}

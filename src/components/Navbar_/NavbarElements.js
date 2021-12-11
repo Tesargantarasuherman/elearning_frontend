@@ -3,8 +3,10 @@ import { NavLink as LinkRouter } from "react-router-dom";
 
 export const Nav = styled.nav`
   background: #D43E2A;
-  height: 80px;
+  height: 50px;
+  padding-top:10px;
   display: flex;
+  margin-bottom:20px;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
@@ -63,18 +65,19 @@ export const NavLogo = styled(LinkRouter)`
 `;
 
 export const NavImg = styled.img`
-  width: 60px;
+  width: 50px;
+  margin-top:-10px;
   height: auto;
   justify-self: left;
   border: 2px solid #fff;
   border-radius: 50%;
 
   @media screen and (max-width: 768px) {
-    width: 100px;
+    width: 50px;
   }
 
   @media screen and (max-width: 480px) {
-    width: 60px;
+    width: 50px;
   }
 `;
 
@@ -117,9 +120,9 @@ export const NavItem = styled.li`
 export const NavLinks = styled(LinkRouter)`
   color: #fff;
   display: flex;
-  font-family: Roboto;
+  font-family: 'Baloo Bhaijaan 2', cursive;
   font-weight: 500;
-  font-size: 1.4vw;
+  font-size: 1vw;
   align-items: center;
   text-decoration: none;
   padding: 0 1rem;
@@ -148,7 +151,7 @@ export const NavBtnLink = styled(LinkRouter)`
     white-space: nowrap;
     padding: .7rem;
     color: #fff;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     outline: none;
     border: 2px solid #fff;
