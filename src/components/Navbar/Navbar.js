@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import { Container, Menu, Segment, Icon, Button } from "semantic-ui-react";
-import { useState, useEffect } from "react";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContex";
 import { AuthContext } from "../../context/AuthContext";
 import { useHistory } from "react-router";
 import '../Navbar/Styles/Navbar.css'
 import Logo from '../../images/logo-ureshii.png'
+import Profile from '../../images/male.png'
 import { useTranslation } from 'react-i18next';
 
 const Navbar = (props) => {
@@ -15,37 +14,32 @@ const Navbar = (props) => {
 
   return (
     <nav>
-      <Link to="/">
-        <img src={Logo} alt="" className='img-navbar' />
-      </Link>
-      <ul>
-        <li>
-          {!login ?
-            <Link className="link c-white" to="/login">
-              Login
-            </Link> :
+      <div className="navbar-left">
+        <img src={Logo} alt="" srcset="" />
+      </div>
+      <div className="navbar-right">
+        <ul>
+          <li><Link className="link">{t('Navbar.1')}</Link></li>
+          <li>
+            <select onChange={(e) => props.handleClick(e.target.value)}>
+              <option value="id">Indonesia</option>
+              <option value="en">English</option>
+            </select>
+          </li>
+          <li>
             <div className="dropdown">
-              <span>{login.data.nama}</span>
+              <img src={Profile}/>
               <div className="dropdown-content">
                 <ul>
-                  <li>
-                    <Link className="link" to="/profile">{t('Profile.1')}</Link>
-                  </li>
-                  <li>
-                    <button onClick={props.Logout}>{t('Card.2')}</button>
-                  </li>
+                  <li><Link className="link">{t('Profile.1')}</Link></li>
+                  <li><Link className="link">{t('Profile.2')}</Link></li>
+                  <li><Link className="link">{t('Profile.3')}</Link></li>
                 </ul>
               </div>
             </div>
-          }
-        </li>
-        <li>
-          <select name="" id="" onChange={(e) => props.handleClick(e.target.value)}>
-            <option value="id" >🇮🇩 Indonesia</option>
-            <option value="en"> english</option>
-          </select>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };

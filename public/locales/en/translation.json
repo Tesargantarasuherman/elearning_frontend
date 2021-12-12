@@ -1,7 +1,11 @@
 {
+    "Navbar":{
+        "1":"Course"
+    },
     "Profile": {
         "1": "My Profile",
-        "2":"Sign Out"
+        "2":"My Course",
+        "3":"Sign Out"
     },
     "Card": {
         "1": "More Details",

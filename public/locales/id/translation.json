@@ -1,7 +1,11 @@
 {
+    "Navbar":{
+        "1":"Kursus"
+    },
     "Profile": {
         "1": "Profile Saya",
-        "2":"Keluar"
+        "2":"Kelas Saya",
+        "3":"Keluar"
     },
     "Card": {
         "1": "Lihat Detail",
