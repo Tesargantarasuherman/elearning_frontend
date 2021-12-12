@@ -7,6 +7,7 @@ import {
   Segment,
   Pagination,
 } from "semantic-ui-react";
+import Jumbotron from "../components/Jumbotron/Jumbotron";
 import RowClass from "../components/RowClass";
 import BaseUrl from "../utils/BaseUrl";
 
@@ -60,35 +61,12 @@ function Home() {
     }
   };
   return (
-    <div>
+    <>
+      <Jumbotron />
       <Container>
-        <Menu pointing>
-          <Menu.Item
-            name="All"
-            active={activeItem === "All"}
-            onClick={handleItemClick}
-          />
-          <Menu.Item
-            name="Premium"
-            active={activeItem === "Premium"}
-            onClick={handleItemClick}
-          />
-          <Menu.Item
-            name="Free"
-            active={activeItem === "Free"}
-            onClick={handleItemClick}
-          />
-          <Menu.Menu position="right">
-            <Menu.Item>
-              <Input icon="search" placeholder="Search..." />
-            </Menu.Item>
-          </Menu.Menu>
-        </Menu>
-
         <Segment>{renderSwitch(activeItem)}</Segment>
-        <Pagination defaultActivePage={5} totalPages={10} floated="center" />
       </Container>
-    </div>
+    </>
   );
 }
 

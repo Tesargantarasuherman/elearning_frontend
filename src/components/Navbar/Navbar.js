@@ -32,7 +32,7 @@ const Navbar = (props) => {
                     <Link className="link" to="/profile">{t('Profile.1')}</Link>
                   </li>
                   <li>
-                    <button onClick={props.Logout}>{t('Profile.2')}</button>
+                    <button onClick={props.Logout}>{t('Card.2')}</button>
                   </li>
                 </ul>
               </div>

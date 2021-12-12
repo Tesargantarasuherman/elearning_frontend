@@ -14,7 +14,6 @@ nav {
           justify-content: space-between;
   text-align: center;
   padding: 0px 22%;
-  margin-bottom: 10px;
 }
 
 nav img {
@@ -23,17 +22,17 @@ nav img {
   border-radius: 50%;
 }
 
-nav > ul > li {
+nav > ul li {
   color: #FFFF;
   display: inline;
   margin: 0px 20px;
 }
 
-nav > ul > li .link {
+nav > ul li .link {
   list-style: none;
 }
 
-nav > ul > li .c-white {
+nav > ul li .c-white {
   color: #FFFF;
 }
 
