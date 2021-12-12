@@ -14,5 +14,9 @@
     "User": {
         "1": "My Profile",
         "2":"My Class"
+    },
+    "Jumbotron": {
+        "1": "Learn Japanese With Us",
+        "2":"Let's Begin Now"
     }
 }

@@ -11,6 +11,9 @@
   width: 400px;
   height: auto;
 }
+.jumbotron-left{
+  max-width:350px;
+}
 .jumbotron-left>div{
   display: flex;
   justify-content: space-between;
