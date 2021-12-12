@@ -18,6 +18,24 @@
     "Jumbotron": {
         "1": "Belajar Bahasa Jepang Dengan Kami",
         "2":"Ayo Mulai Sekarang"
+    },
+    "Login":{
+        "1":"Masuk",
+        "2":"Masuk Untuk Melanjutkan Belajar",
+        "3":"Alamat Email",
+        "4":"Kata Sandi",
+        "5":"Daftar Akun",
+        "6":"Masukkan"
     }
+    ,
+    "Register":{
+        "1":"Daftar",
+        "2":"Mulai Tingkatkan Keahlianmu",
+        "3":"Alamat Email",
+        "4":"Kata Sandi",
+        "5":"Login",
+        "6":"Masukkan"
+    }
+    
     
 }

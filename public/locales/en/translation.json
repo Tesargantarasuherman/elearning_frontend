@@ -18,5 +18,21 @@
     "Jumbotron": {
         "1": "Learn Japanese With Us",
         "2":"Let's Begin Now"
+    },
+    "Login":{
+        "1":"Login",
+        "2":"Sign In To Continue Learning",
+        "3":"Email Address",
+        "4":"Password",
+        "5":"Register",
+        "6":"Enter"
+    },
+    "Register":{
+        "1":"Register",
+        "2":"Grow Up Your Skils",
+        "3":"Email Address",
+        "4":"Password",
+        "5":"Login",
+        "6":"Enter"
     }
 }
