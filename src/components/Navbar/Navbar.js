@@ -32,7 +32,7 @@ const Navbar = (props) => {
               <img src={Profile}/>
               <div className="dropdown-content">
                 <ul>
-                  <li onClick={()=>history.push('/profile')}>{t('Profile.1')}</li>
+                  <li onClick={()=>history.push('/user')}>{t('Profile.1')}</li>
                   <li>{t('Profile.2')}</li>
                   <li>{t('Profile.3')}</li>
                 </ul>

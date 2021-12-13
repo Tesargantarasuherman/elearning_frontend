@@ -1,0 +1,46 @@
+.user-component{
+    display:flex;
+    justify-content: space-between;
+}
+.user-component>div:nth-child(1){
+    flex:1;
+    background-color:  #D43E2A;
+    height:90vh;
+    margin:10px 0px 0px 10px;
+    border-radius: 10px;
+}
+.user-component>div:nth-child(2){
+    flex:4;
+}
+.user-description{
+    margin-top:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-description>div{
+  margin:0px 20px;
+}
+.user-description>div{
+    font-size:16px;
+    color:white;
+    font-weight:500;
+}
+.user-description>img{
+    border-radius: 50%;
+    width:80px;
+}
+.user-menu{
+    display: block;
+    margin:50px 0px;
+}
+.user-menu>ul{
+    list-style: none;
+    font-size:20px;
+    color:white;
+    font-weight:500;
+}
+.user-menu>ul>li{
+    margin:20px 0px;
+    cursor: pointer;
+}
