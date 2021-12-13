@@ -26,6 +26,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useTranslation } from 'react-i18next';
 import { LangContext } from "./context/LangContext";
 import Register from "./pages/Register";
+import Course from "./pages/Course";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -64,6 +65,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route exact path="/course">
+              <Course />
             </Route>
             <Route path="/login">{login ? <Home /> : <Login />}</Route>
             <Route path="/register">

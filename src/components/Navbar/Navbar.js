@@ -20,7 +20,7 @@ const Navbar = (props) => {
       </div>
       <div className="navbar-right">
         <ul>
-          <li>{t('Navbar.1')}</li>
+          <li onClick={()=>history.push('/course')}>{t('Navbar.1')}</li>
           <li>
             <select onChange={(e) => props.handleClick(e.target.value)}>
               <option value="id">Indonesia</option>

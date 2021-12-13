@@ -1,0 +1,73 @@
+.class-course {
+}
+.input-group{
+    display: flex;
+}
+.input-group >input{
+    flex: 5 ;
+    height:40px;
+    border:#D43E2A solid 2px;
+    border-radius:5px 0px 0px 5px;
+}
+.input-group >button{
+    flex: 1 ;
+    background-color: #D43E2A;
+    color:white;
+    font-size:16px;
+    border-radius:0px 5px 5px 0px;
+    border: none;
+    cursor:pointer;
+}
+.btn-category-class{
+    display: flex;
+    justify-content: space-between;
+    width:30%;
+   
+}
+.btn-category-class>button{
+    padding:10px 20px;
+    min-width:100px;
+    border: none;
+    color:white;
+    border-radius: 5px;
+    background-color: #D43E2A;
+    cursor:pointer;
+}
+.btn-category-class>button.active{
+    border:#D43E2A solid 2px;
+    color:#D43E2A !important;
+    border-radius: 5px;
+    background-color: white !important;
+}
+.data-class-course{
+    display: flex;
+    justify-content: space-between;
+    margin:20px auto;
+    width:100%
+}
+.data-class-course>.card-class-course{
+    flex:1;
+}
+.card-class-course{
+    position:relative;
+}
+.card-class-course>button{
+    position: absolute;
+    right:10px;
+    padding:10px 20px;
+    min-width:100px;
+    border: none;
+    color:white;
+    border-radius: 5px;
+    background-color: #D43E2A;
+    cursor:pointer;
+}
+.card-class-course>image{
+    width:fit-content;
+}
+@media only screen and (min-width: 960px) {
+  /* styles for browsers larger than 960px; */
+  .class-course {
+    padding: 20px 22%;
+  }
+}
