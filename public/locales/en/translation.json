@@ -19,6 +19,10 @@
         "1": "Learn Japanese With Us",
         "2":"Let's Begin Now"
     },
+    "HomeInfo": {
+        "1": "Why You have learn Japanese language ?",
+        "2":"Ayo Mulai Sekarang"
+    },
     "Login":{
         "1":"Login",
         "2":"Sign In To Continue Learning",

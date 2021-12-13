@@ -1,0 +1,34 @@
+
+    
+    .learning-path{
+        background-color: white;
+    }
+    .learning-path-body-card{
+        display: flex;
+        justify-content: space-between;
+    }
+    .learning-path-card{
+        display: block;
+    }
+    .learning-path-card:nth-child(2){
+        margin:0px 20px;
+    }
+    .learning-path-card>label{
+        margin:5px 0px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .learning-path-card>p{
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .learning-path-card>img{
+        width:100%;
+        border-radius:10px;
+    }
+    @media only screen and (min-width: 960px) {
+        /* styles for browsers larger than 960px; */
+        .learning-path{
+            padding: 20px 22%;
+        }
+      }

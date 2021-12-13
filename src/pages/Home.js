@@ -7,7 +7,9 @@ import {
   Segment,
   Pagination,
 } from "semantic-ui-react";
+import HomeInfo from "../components/HomeInfo/HomeInfo";
 import Jumbotron from "../components/Jumbotron/Jumbotron";
+import LearningPath from "../components/LearningPath/LearningPath";
 import RowClass from "../components/RowClass";
 import BaseUrl from "../utils/BaseUrl";
 
@@ -63,8 +65,10 @@ function Home() {
   return (
     <>
       <Jumbotron />
+      <HomeInfo />
+      <LearningPath />
       <Container>
-        <Segment>{renderSwitch(activeItem)}</Segment>
+        {/* <Segment>{renderSwitch(activeItem)}</Segment> */}
       </Container>
     </>
   );
