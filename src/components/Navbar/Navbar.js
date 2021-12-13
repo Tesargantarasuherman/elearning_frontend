@@ -9,17 +9,18 @@ import Profile from '../../images/male.png'
 import { useTranslation } from 'react-i18next';
 
 const Navbar = (props) => {
+  let history = useHistory();
   const { t, i18n } = useTranslation();
   const { login, setLogin } = useContext(AuthContext);
 
   return (
     <nav>
       <div className="navbar-left">
-        <img src={Logo} alt="" srcset="" />
+        <img src={Logo} onClick={()=>history.push('/')} />
       </div>
       <div className="navbar-right">
         <ul>
-          <li><Link className="link">{t('Navbar.1')}</Link></li>
+          <li>{t('Navbar.1')}</li>
           <li>
             <select onChange={(e) => props.handleClick(e.target.value)}>
               <option value="id">Indonesia</option>
@@ -31,9 +32,9 @@ const Navbar = (props) => {
               <img src={Profile}/>
               <div className="dropdown-content">
                 <ul>
-                  <li><Link className="link">{t('Profile.1')}</Link></li>
-                  <li><Link className="link">{t('Profile.2')}</Link></li>
-                  <li><Link className="link">{t('Profile.3')}</Link></li>
+                  <li onClick={()=>history.push('/profile')}>{t('Profile.1')}</li>
+                  <li>{t('Profile.2')}</li>
+                  <li>{t('Profile.3')}</li>
                 </ul>
               </div>
             </div>
