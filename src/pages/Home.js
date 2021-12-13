@@ -7,6 +7,7 @@ import {
   Segment,
   Pagination,
 } from "semantic-ui-react";
+import FAQ from "../components/FAQ/FAQ";
 import HomeBenefit from "../components/HomeBenefit/HomeBenefit";
 import HomeInfo from "../components/HomeInfo/HomeInfo";
 import Jumbotron from "../components/Jumbotron/Jumbotron";
@@ -69,6 +70,7 @@ function Home() {
       <HomeInfo />
       <LearningPath />
       <HomeBenefit/>
+      <FAQ />
       <Container>
         {/* <Segment>{renderSwitch(activeItem)}</Segment> */}
       </Container>
