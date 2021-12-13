@@ -18,6 +18,10 @@ const RegiserComponent =(props)=> {
                 </div>
                 <form onSubmit={props.handleRegister} className='form-register'>
                     <div className="form-group-register">
+                        <div className="label">{t('Register.7')}</div>
+                        <input type="email" placeholder={`${t('Register.6')} ${t('Register.7')}`}name="nama" onChange={props.handleChangeFormRegister}/>
+                    </div>
+                    <div className="form-group-register">
                         <div className="label">{t('Register.3')}</div>
                         <input type="email" placeholder={`${t('Register.6')} ${t('Register.3')}`}name="email" onChange={props.handleChangeFormRegister}/>
                     </div>
@@ -25,8 +29,12 @@ const RegiserComponent =(props)=> {
                         <div className="label">{t('Register.4')}</div>
                         <input type="password" placeholder={`${t('Register.6')} ${t('Register.4')}`}name="password" onChange={props.handleChangeFormRegister}/>
                     </div>
-                    <button className="btn-register" type="submit">{t('Register.5')}</button>
+                    <div className="form-group-register">
+                        <div className="label">{t('Register.8')}</div>
+                        <input type="password" placeholder={`${t('Register.6')} ${t('Register.8')}`}name="password_confirmation" onChange={props.handleChangeFormRegister}/>
+                    </div>
                     <button className="btn-register">{t('Register.1')}</button>
+                    <button className="btn-register" type="submit">{t('Register.5')}</button>
                 </form>
             </div>
         </div>
