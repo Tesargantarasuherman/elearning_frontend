@@ -48,7 +48,7 @@ function App() {
       setLogin(null);
     }, 1000);
   };
-  function handleClick (_lang) {
+  function handleClick(_lang) {
     setLang(_lang)
   }
   function actionSetLang() {
@@ -60,32 +60,32 @@ function App() {
       <ToastContainer />
       <CartContext.Provider value={{ value, setValue }}>
         <AuthContext.Provider value={{ login, setLogin }}>
-        <LangContext.Provider value={{ lang, setLang }}>
-          <Navbar Logout={Logout} handleClick={handleClick} />
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/course">
-              <Course />
-            </Route>
-            <Route path="/login">{login ? <Home /> : <Login />}</Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/blog">
-              <Blog />
-            </Route>
-            <Route path="/my-class/:id">
-              {login ? <MyClass /> : <Login />}
-            </Route>
-            <Route path="/kursus/:id">
-              {login ? <DetailKursus /> : <Login />}
-            </Route>
-            <Route path="/user">{login ? <User /> : <Login />}</Route>
-            <Route component={NotFound} />
-          </Switch>
-        </LangContext.Provider>
+          <LangContext.Provider value={{ lang, setLang }}>
+            <Navbar Logout={Logout} handleClick={handleClick} />
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/course">
+                <Course />
+              </Route>
+              <Route path="/login">{login ? <Home /> : <Login />}</Route>
+              <Route path="/register">
+                <Register />
+              </Route>
+              <Route path="/blog">
+                <Blog />
+              </Route>
+              <Route path="/my-class/:id">
+                {login ? <MyClass /> : <Login />}
+              </Route>
+              <Route path="/kursus/:id">
+                {login ? <DetailKursus /> : <Login />}
+              </Route>
+              <Route path="/user">{login ? <User /> : <Login />}</Route>
+              <Route component={NotFound} />
+            </Switch>
+          </LangContext.Provider>
         </AuthContext.Provider>
       </CartContext.Provider>
     </Router>

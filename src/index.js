@@ -1,13 +1,17 @@
-import React,{Suspense} from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import Logo from '../src/images/logo-ureshii.png'
 import './i18n'
 
 ReactDOM.render(
-  <Suspense fallback={(<div>Loading...</div>)}>
+  <Suspense fallback={(
+    <div className="loading">
+        <img src={Logo} alt="" />
+    </div>
+  )}>
     <App />
   </Suspense>,
   document.getElementById('root')
