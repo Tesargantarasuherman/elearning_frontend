@@ -29,6 +29,7 @@ import Register from "./pages/Register";
 import Course from "./pages/Course";
 import CoursePlaying from "./pages/CoursePlaying";
 import CourseDetail from "./pages/CourseDetail";
+import CourseCheckout from "./pages/CourseCheckout";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -80,6 +81,9 @@ function App() {
               </Route>
               <Route path="/course/detail">
                 <CourseDetail />
+              </Route>
+              <Route path="/course/checkout">
+                <CourseCheckout/>
               </Route>
               <Route path="/course/playing">
                 <CoursePlaying />

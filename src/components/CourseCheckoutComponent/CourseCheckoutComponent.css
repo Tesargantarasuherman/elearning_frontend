@@ -1,0 +1,107 @@
+.course-checkout-body{
+    display: flex;
+    justify-content: space-between;
+}
+.course-checkout-body>div:nth-child(1){
+    background-color: #D43E2A;
+    flex:1.5;
+}
+.course-checkout-body>div:nth-child(2){
+    flex:1;
+}
+.course-checkout-left>h1{
+    text-align: center;
+}
+.course-checkout-left>h2{
+    text-align: left;
+    margin-left:10px;
+}
+
+.list-checkout{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.list-checkout>div:nth-child(1){
+    flex:1;
+}
+.list-checkout>div:nth-child(2){
+    flex:2;
+    font-size: 20px;
+    text-align:left;
+    color:white;
+}
+.list-checkout>div:nth-child(3){
+    flex:1;
+    font-size: 20px;
+    text-align: center;
+}
+.list-checkout>div>img{
+    width:auto;
+    height:80px;
+    margin-left:10px;
+    border-radius: 10px;
+}
+.checkout-voucher{
+    display: flex;
+    justify-content: space-between;
+    margin:20px 25px;
+}
+.checkout-voucher>div:nth-child(1){
+    flex:1.5;
+}
+.checkout-voucher>div:nth-child(2){
+    flex:1;
+}
+.checkout-voucher>div>input{
+    width:100%;
+    height:40px;
+}
+.checkout-voucher>div>button{
+    width:50%;
+    height:40px;
+}
+.total-checkout{
+    display: flex;
+    justify-content: space-between;
+    margin:20px 25px;
+}
+.total-checkout>div:nth-child(1){
+    flex:2;
+    font-size: 20px;
+    color:white;
+    font-weight: bold;
+}
+.total-checkout>div:nth-child(2){
+    flex:1;
+    font-size: 20px;
+    color:white;
+    font-weight: bold;
+    text-align: end;
+}
+.course-checkout-body>div:nth-child(2){
+    background-color: white;
+    flex:1;
+}
+/* right */
+.course-checkout-right>div{
+    margin-top:10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.course-checkout-right>div>button{
+    background-color: #D43E2A;
+    color:white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    padding:5px 20px;
+}
+@media only screen and (min-width: 960px) {
+    /* styles for browsers larger than 960px; */
+    .course-checkout-body{
+      padding: 0px 22%;
+    }
+  }
