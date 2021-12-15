@@ -27,6 +27,7 @@ import { useTranslation } from 'react-i18next';
 import { LangContext } from "./context/LangContext";
 import Register from "./pages/Register";
 import Course from "./pages/Course";
+import CoursePlaying from "./pages/CoursePlaying";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -75,6 +76,9 @@ function App() {
               </Route>
               <Route path="/blog">
                 <Blog />
+              </Route>
+              <Route path="/course-playing">
+                <CoursePlaying />
               </Route>
               <Route path="/my-class/:id">
                 {login ? <MyClass /> : <Login />}

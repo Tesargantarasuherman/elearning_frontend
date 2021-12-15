@@ -2,6 +2,12 @@
     display:flex;
     justify-content: space-between;
 }
+.user-component>.back{
+    position: fixed;
+    left: -350px;
+    transition: 2s;
+}
+
 .user-component>div:nth-child(1){
     flex:1;
     background-color:  #D43E2A;
