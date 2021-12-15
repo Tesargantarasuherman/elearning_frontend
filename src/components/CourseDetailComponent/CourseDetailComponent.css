@@ -1,0 +1,121 @@
+.course-detail{
+    display: flex;
+    justify-content: space-between;
+    background-color: #D43E2A;
+    color:white;
+}
+.course-detail>.left{
+    flex:5;
+}
+.course-detail>.right{
+    flex:3;
+}
+.card-course-detail-component{
+    width:100%;
+    border-radius: 5px;
+    min-height: 400px;
+    background-color: #D43E2A;
+    padding:10px;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    border:2px solid white;
+}
+
+.card-course-detail-component>img{
+    width:100%;
+    border-radius: 5px;
+}
+.card-course-detail-component>h1{
+    color:white;
+}
+.card-course-detail-component>button{
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    height:40px;
+    font-size:16px;
+    font-weight: bold;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    color:#D43E2A;
+}
+.course-detail-title{
+    margin-bottom: 20px;
+}
+.course-detail-title>p{
+    font-size:16px;
+    font-weight: bold;
+}
+.course-detail-title>div>p{
+    font-size:16px;
+    font-weight: bold;
+}
+.benefit-course-detail{
+    border-radius: 5px;
+    padding: 20px;
+    background-color: white;
+    color:#D43E2A ;
+    
+}
+.benefit-course-detail>p{
+    font-weight: bold;
+    font-size:16px;
+}
+.rating-star-course>span{
+    font-size:16px;
+    color:#fffa65;
+    font-weight: bold;
+}
+.rating-user{
+    display:flex;
+    justify-content: space-between;
+}
+.rating-user-body:nth-child(2){
+    margin:20px 10px;
+}
+.rating-user-body{
+    background-color: #D43E2A;
+    color:white;
+    flex:1;
+    border-radius:10px;
+    overflow: hidden;
+    position:relative;
+    min-height: 120px;
+    margin:20px 0px;
+}
+.rating-user-card{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px 10px;
+}
+.rating-user-image>img{
+    width:50px;
+    border-radius:50%;
+}
+.rating-user-star{
+    padding:10px 10px;
+    background-color: white;
+    color: #D43E2A;
+    font-weight: 500;
+    font-size: 14px;
+    position:absolute;
+    right:0;
+    bottom:0;
+    left:0;
+    max-height: 50px;
+}
+@media only screen and (min-width: 960px) {
+    /* styles for browsers larger than 960px; */
+    .course-detail{
+      padding: 0px 22%;
+    }
+    .rating-user{
+      padding: 0px 22%;
+    }
+  }

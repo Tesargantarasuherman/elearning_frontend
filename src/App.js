@@ -17,10 +17,10 @@ import { useEffect, useState } from "react";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Blog from "./pages/Blog";
-import MyClass from "./pages/MyClass";
+// import MyClass from "./pages/MyClass";
 import User from "./pages/User";
-import KursusSaya from "./pages/KursusSaya";
-import DetailKursus from "./pages/DetailKursus";
+// import KursusSaya from "./pages/KursusSaya";
+// import DetailKursus from "./pages/DetailKursus";
 import NotFound from "./pages/NotFound";
 import { ToastContainer, toast } from "react-toastify";
 import { useTranslation } from 'react-i18next';
@@ -28,6 +28,7 @@ import { LangContext } from "./context/LangContext";
 import Register from "./pages/Register";
 import Course from "./pages/Course";
 import CoursePlaying from "./pages/CoursePlaying";
+import CourseDetail from "./pages/CourseDetail";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -77,15 +78,18 @@ function App() {
               <Route path="/blog">
                 <Blog />
               </Route>
-              <Route path="/course-playing">
+              <Route path="/course/detail">
+                <CourseDetail />
+              </Route>
+              <Route path="/course/playing">
                 <CoursePlaying />
               </Route>
-              <Route path="/my-class/:id">
+              {/* <Route path="/my-class/:id">
                 {login ? <MyClass /> : <Login />}
-              </Route>
-              <Route path="/kursus/:id">
+              </Route> */}
+              {/* <Route path="/kursus/:id">
                 {login ? <DetailKursus /> : <Login />}
-              </Route>
+              </Route> */}
               <Route path="/user">{login ? <User /> : <Login />}</Route>
               <Route component={NotFound} />
             </Switch>

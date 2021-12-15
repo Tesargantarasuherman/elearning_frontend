@@ -3,7 +3,7 @@
     justify-content: space-between;
     max-height: 100vh;
 }
-.left{
+.body-course-playing>div:nth-child(1){
     flex:1;
     background-color: #D43E2A;
     min-height:95vh;

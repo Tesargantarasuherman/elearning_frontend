@@ -5,7 +5,7 @@ import { Button, Checkbox, Form } from "semantic-ui-react";
 import Profile from "../components/Profile";
 import { AuthContext } from "../context/AuthContext";
 import BaseUrl from "../utils/BaseUrl";
-import KursusSaya from "./KursusSaya";
+// import KursusSaya from "./KursusSaya";
 import { useTranslation } from 'react-i18next';
 import UserComponent from "../components/UserComponent/UserComponent";
 
@@ -29,22 +29,22 @@ function User() {
       setstate(res.data.data[0]);
     });
   }, []);
-  const renderSwitch = (activeItem) => {
-    switch (activeItem) {
-      case "profile":
-        return (
-          <Profile state={state} />
-        );
-      case "kelas_saya":
-        return (
-          <KursusSaya />
-        );
-      default:
-        return (
-          <Profile state={state} />
-        );
-    }
-  };
+  // const renderSwitch = (activeItem) => {
+  //   switch (activeItem) {
+  //     case "profile":
+  //       return (
+  //         <Profile state={state} />
+  //       );
+  //     case "kelas_saya":
+  //       return (
+  //         <KursusSaya />
+  //       );
+  //     default:
+  //       return (
+  //         <Profile state={state} />
+  //       );
+  //   }
+  // };
   return (
     <>
       <UserComponent />
