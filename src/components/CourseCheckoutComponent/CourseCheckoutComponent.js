@@ -40,6 +40,21 @@ function CourseCheckoutComponent() {
                     <button>BRI</button>
                     <button>MANDIRI</button>
                 </div>
+                <div>
+                    <div>
+                        <p>Nama Bank</p>
+                        <p>BNI</p>
+                    </div>
+                    <div>
+                        <p>No Rekening</p>
+                        <p>08131131</p>
+                    </div>
+                    <div>
+                        <p>Atas Nama</p>
+                        <p>lorem</p>
+                    </div>
+                </div>
+                <button>Konfirmasi Pembayaran</button>
             </div>
         </div>
     )
