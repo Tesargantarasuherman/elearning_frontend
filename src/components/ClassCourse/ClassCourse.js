@@ -1,7 +1,10 @@
 import React from 'react'
 import './ClassCourse.css'
 import imgClassCourse from '../../images/Rectangle 12-5.png'
+import { useHistory } from "react-router";
+
 export default function ClassCourse() {
+    let history = useHistory();
     return (
         <div className='class-course'>
             <h1>Katalog Kelas</h1>
@@ -21,19 +24,19 @@ export default function ClassCourse() {
                     <img src={imgClassCourse} alt="" />
                     <h3>Lorem, ipsum dolor.</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
-                    <button>Selengkapnya</button>
+                    <button onClick={()=>history.push('/course/detail')} >Selengkapnya</button>
                 </div>
                 <div className="card-class-course">
                     <img src={imgClassCourse} alt="" />
                     <h3>Lorem, ipsum dolor.</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
-                    <button>Selengkapnya</button>
+                    <button onClick={()=>history.push('/course/detail')} >Selengkapnya</button>
                 </div>
                 <div className="card-class-course">
                     <img src={imgClassCourse} alt="" />
                     <h3>Lorem, ipsum dolor.</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
-                    <button>Selengkapnya</button>
+                    <button onClick={()=>history.push('/course/detail')} >Selengkapnya</button>
                 </div>
             </div>
         </div>

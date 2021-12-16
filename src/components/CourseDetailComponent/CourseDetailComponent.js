@@ -1,7 +1,10 @@
 import React from 'react'
 import './CourseDetailComponent.css'
 import LogoUserRating from '../../images/male.png'
+import { useHistory } from "react-router";
+
 function CourseDetailComponent() {
+    let history = useHistory();
     return (
         <>
             <div className='course-detail'>
@@ -33,7 +36,7 @@ function CourseDetailComponent() {
                     <div className="card-course-detail-component">
                         <img src="https://class.buildwithangga.com/storage/assets/thumbnails/thumbnail%20kelas%203d%20design%20blender%20buildwith%20angga.png" alt="" />
                         <h1>Rp.700.000</h1>
-                        <button>Beli Sekarang</button>
+                        <button onClick={()=>history.push('/course/checkout')}>Beli Sekarang</button>
                     </div>
                 </div>
             </div>

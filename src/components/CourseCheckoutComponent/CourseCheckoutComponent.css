@@ -117,6 +117,7 @@
 /* right */
 .course-checkout-right{
     position: relative;
+    overflow: hidden;
 }
 .course-checkout-right>div:nth-child(1){
     margin-top:10px;
