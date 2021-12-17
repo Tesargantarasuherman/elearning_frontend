@@ -50,7 +50,7 @@ function UserComponent() {
 
                 </div>
                 <div className="right">
-               {renderSwitch(active.active)}
+                    {renderSwitch(active.active)}
                 </div>
             </div>
         </>
