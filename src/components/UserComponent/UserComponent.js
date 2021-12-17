@@ -1,19 +1,38 @@
-import React,{useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import './UserCommponent.css'
 import imgProfile from '../../images/male.png'
+import MyCourse from '../MyCourse/MyCourse'
+import Profile from '../Profile/Profile'
 function UserComponent() {
     const [togleNav, settogleNav] = useState(false)
+    const [active, setactive] = useState({ active: "myCourse" });
     useEffect(() => {
-        
+
     }, [])
-    const toggleBtn=()=>{
+    const toggleBtn = () => {
         settogleNav(!togleNav)
     }
+    const renderSwitch = (activeItem) => {
+        switch (activeItem) {
+            case "profile":
+                return (
+                    <Profile />
+                );
+            case "myCourse":
+                return (
+                    <MyCourse />
+                );
+            default:
+                return (
+                    <Profile />
+                );
+        }
+    };
     return (
         <>
             <button onClick={toggleBtn}>=</button>
             <div className='user-component'>
-                <div className={`${togleNav?'back':''} left `}>
+                <div className={`${togleNav ? 'back' : ''} left `}>
                     <div className="user-description">
                         <img src={imgProfile} alt="" />
                         <div>
@@ -23,15 +42,15 @@ function UserComponent() {
                     </div>
                     <div className="user-menu">
                         <ul>
-                            <li>My Course</li>
-                            <li>Profile</li>
+                            <li onClick={() => setactive({ active: "myCourse" })}>My Course</li>
+                            <li onClick={() => setactive({ active: "profile" })}>Profile</li>
                             <li>Logout</li>
                         </ul>
                     </div>
 
                 </div>
                 <div className="right">
-                    right
+               {renderSwitch(active.active)}
                 </div>
             </div>
         </>
