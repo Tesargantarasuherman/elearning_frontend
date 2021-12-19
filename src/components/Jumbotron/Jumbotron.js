@@ -9,7 +9,7 @@ function Jumbotron() {
 
     const { t, i18n } = useTranslation();
     return (
-        <section className='jumbotron'>
+        <section className='jumbotron dark'>
             <div className='jumbotron-left'>
                 <h1>
                     <strong>{t('Jumbotron.1')}</strong>

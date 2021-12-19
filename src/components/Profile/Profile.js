@@ -3,7 +3,7 @@ import React from 'react'
 function Profile() {
     return (
         <div>
-            Component Profile
+            My Profile
         </div>
     )
 }
