@@ -41,13 +41,16 @@
 }
 .data-class-course{
     display: flex;
-    justify-content: space-between;
     margin:20px auto;
-    width:100%
+    width:100%;
+    flex-wrap: wrap;
 }
 .data-class-course>.card-class-course{
-    flex:1;
+    max-width: 365px;
+    flex: 1;
+    margin:20px 0px;
 }
+
 .card-class-course{
     position:relative;
 }
