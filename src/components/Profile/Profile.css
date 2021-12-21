@@ -1,37 +1,45 @@
-.my-profile{
-    background-color: #D43E2A;
-    width:30%;
-    padding:10px;
-    color:white;
-    border-radius: 5px;
+.my-profile {
+  background-color: white;
+  width: 30%;
+  padding: 10px;
+  color: #d43e2a;
+  border-radius: 5px;
 }
-.body-input-form-profile{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin:10px 0px;
+.body-input-form-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
 }
-.body-input-form-profile>label{
-    font-size: 16px;
-    flex:1;
-    font-weight: 500;
+.body-input-form-profile > label {
+  font-size: 16px;
+  flex: 1;
+  font-weight: 500;
 }
-.body-input-form-profile>input{
-    font-size: 16px;
-    width:100%;
-    flex:1.5;
-    height:30px;
+.body-input-form-profile > input {
+  font-size: 16px;
+  width: 100%;
+  flex: 1.5;
+  height: 30px;
 }
-.form-profile>button{
-    width:100%;
-    padding:5px 10px;
+.form-profile > button {
+  width: 100%;
+  padding: 5px 10px;
+  background-color: #d43e2a;
+  border-radius: solid 1px white;
+  color:white;
+  font-weight: bold;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 @media only screen and (max-width: 600px) {
-    /* styles for browsers larger than 960px; */
-    .body-input-form-profile{
-        display: inline;
-    }
-    .my-profile{
-        width:100%;
-    }
+  /* styles for browsers larger than 960px; */
+  .body-input-form-profile {
+    display: inline;
   }
+  .my-profile {
+    width: 100%;
+  }
+}

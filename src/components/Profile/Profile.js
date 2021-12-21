@@ -1,16 +1,16 @@
 import React from 'react'
 import './Profile.css'
-function Profile() {
+function Profile(props) {
     return (
         <div className="my-profile">
             <form action="" className="form-profile">
                 <div className="body-input-form-profile">
                     <label htmlFor="">Nama Lengkap</label>
-                    <input type="text" />
+                    <input type="text" value={props.data_user.nama}/>
                 </div>
                 <div className="body-input-form-profile">
                     <label htmlFor="">Email</label>
-                    <input type="text" />
+                    <input type="text"  value={props.data_user.email}/>
                 </div>
                 <div className="body-input-form-profile">
                     <label htmlFor="">No Kontak</label>

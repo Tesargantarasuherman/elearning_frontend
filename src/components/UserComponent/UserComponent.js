@@ -3,7 +3,7 @@ import './UserCommponent.css'
 import imgProfile from '../../images/male.png'
 import MyCourse from '../MyCourse/MyCourse'
 import Profile from '../Profile/Profile'
-function UserComponent() {
+function UserComponent(props) {
     const [togleNav, settogleNav] = useState(false)
     const [active, setactive] = useState({ active: "myCourse" });
     useEffect(() => {
@@ -16,7 +16,7 @@ function UserComponent() {
         switch (activeItem) {
             case "profile":
                 return (
-                    <Profile />
+                    <Profile data_user={props.data_user} />
                 );
             case "myCourse":
                 return (
