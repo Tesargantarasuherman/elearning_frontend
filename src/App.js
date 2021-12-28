@@ -25,6 +25,7 @@ import NotFound from "./pages/NotFound";
 import { ToastContainer, toast } from "react-toastify";
 import { useTranslation } from 'react-i18next';
 import { LangContext } from "./context/LangContext";
+import { ThemeContext } from "./context/ThemeContext";
 import Register from "./pages/Register";
 import Course from "./pages/Course";
 import CoursePlaying from "./pages/CoursePlaying";
@@ -34,6 +35,7 @@ import CourseCheckout from "./pages/CourseCheckout";
 function App() {
   const [value, setValue] = useState(0);
   const [lang, setLang] = useState(0);
+  const [theme, setTheme] = useState(localStorage.getItem("theme"));
   const [login, setLogin] = useState(
     JSON.parse(localStorage.getItem("data_user"))
   );
@@ -43,7 +45,8 @@ function App() {
   useEffect(() => {
     setLogin(JSON.parse(localStorage.getItem("data_user")));
     actionSetLang()
-  }, [lang]);
+    localStorage.setItem("theme", theme)
+  }, [lang, theme]);
   const Logout = () => {
     toast.success("Anda Telah Keluar");
     setTimeout(() => {
@@ -53,6 +56,14 @@ function App() {
   };
   function handleClick(_lang) {
     setLang(_lang)
+  }
+  const setThemeAction = () => {
+    if (theme == "dark") {
+      setTheme("light");
+    }
+    else {
+      setTheme("dark");
+    }
   }
   function actionSetLang() {
     console.log(lang)
@@ -64,39 +75,41 @@ function App() {
       <CartContext.Provider value={{ value, setValue }}>
         <AuthContext.Provider value={{ login, setLogin }}>
           <LangContext.Provider value={{ lang, setLang }}>
-            <Navbar Logout={Logout} handleClick={handleClick} />
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route exact path="/course">
-                <Course />
-              </Route>
-              <Route path="/login">{login ? <Home /> : <Login />}</Route>
-              <Route path="/register">
-                <Register />
-              </Route>
-              <Route path="/blog">
-                <Blog />
-              </Route>
-              <Route path="/course/detail">
-                <CourseDetail />
-              </Route>
-              <Route path="/course/checkout">
-                <CourseCheckout/>
-              </Route>
-              <Route path="/course/playing">
-                <CoursePlaying />
-              </Route>
-              {/* <Route path="/my-class/:id">
+            <ThemeContext.Provider value={{ theme, setTheme }}>
+              <Navbar Logout={Logout} handleClick={handleClick} theme={theme} setThemeAction={setThemeAction} />
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route exact path="/course">
+                  <Course />
+                </Route>
+                <Route path="/login">{login ? <Home /> : <Login />}</Route>
+                <Route path="/register">
+                  <Register />
+                </Route>
+                <Route path="/blog">
+                  <Blog />
+                </Route>
+                <Route path="/course/detail">
+                  <CourseDetail />
+                </Route>
+                <Route path="/course/checkout">
+                  <CourseCheckout />
+                </Route>
+                <Route path="/course/playing">
+                  <CoursePlaying />
+                </Route>
+                {/* <Route path="/my-class/:id">
                 {login ? <MyClass /> : <Login />}
               </Route> */}
-              {/* <Route path="/kursus/:id">
+                {/* <Route path="/kursus/:id">
                 {login ? <DetailKursus /> : <Login />}
               </Route> */}
-              <Route path="/user">{login ? <User /> : <Login />}</Route>
-              <Route component={NotFound} />
-            </Switch>
+                <Route path="/user">{login ? <User /> : <Login />}</Route>
+                <Route component={NotFound} />
+              </Switch>
+            </ThemeContext.Provider>
           </LangContext.Provider>
         </AuthContext.Provider>
       </CartContext.Provider>

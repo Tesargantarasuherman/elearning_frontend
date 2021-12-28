@@ -16,11 +16,11 @@ const Navbar = (props) => {
   return (
     <nav>
       <div className="navbar-left">
-        <img src={Logo} onClick={()=>history.push('/')} />
+        <img src={Logo} onClick={() => history.push('/')} />
       </div>
       <div className="navbar-right">
         <ul>
-          <li onClick={()=>history.push('/course')}>{t('Navbar.1')}</li>
+          <li onClick={() => history.push('/course')}>{t('Navbar.1')}</li>
           <li>
             <select onChange={(e) => props.handleClick(e.target.value)}>
               <option value="id">Indonesia</option>
@@ -28,11 +28,23 @@ const Navbar = (props) => {
             </select>
           </li>
           <li>
+            {
+              props.theme == 'dark' ? (<label className="switch">
+                <input type="checkbox" onClick={props.setThemeAction} checked />
+                <span className="slider round"></span>
+              </label>)
+                : (<label className="switch">
+                  <input type="checkbox" onClick={props.setThemeAction} />
+                  <span className="slider round"></span>
+                </label>)
+            }
+          </li>
+          <li>
             <div className="dropdown">
-              <img src={Profile}/>
+              <img src={Profile} />
               <div className="dropdown-content">
                 <ul>
-                  <li onClick={()=>history.push('/user')}>{t('Profile.1')}</li>
+                  <li onClick={() => history.push('/user')}>{t('Profile.1')}</li>
                   <li>{t('Profile.2')}</li>
                   <li>{t('Profile.3')}</li>
                 </ul>

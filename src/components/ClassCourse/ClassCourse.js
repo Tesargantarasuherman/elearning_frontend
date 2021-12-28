@@ -21,14 +21,24 @@ export default function ClassCourse(props) {
             </div>
             <div className="data-class-course">
                 {
-                    props.dataCourse.map(course=>{
-                        return(
-                        <div className="card-class-course">
-                            <img src={imgClassCourse} alt="" />
-                            <h3>Lorem, ipsum dolor.</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
-                            <button onClick={()=>history.push('/course/detail')} >Selengkapnya</button>
-                        </div>
+                    props.dataCourse.map(course => {
+                        return (
+                            <div>
+                                <div className='type-class-course'>
+                                    Premium
+                                </div>
+                                <img src={imgClassCourse} alt="" />
+                                <div>
+                                    <h3>Lorem, ipsum dolor.</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
+                                </div>
+                                <div>
+                                    <button onClick={() => history.push('/course/detail')} >
+                                        <span className='price'>Rp. 20.000</span>
+                                        <span className='next'>Selengkapnya</span>
+                                    </button>
+                                </div>
+                            </div>
                         )
                     })
                 }
