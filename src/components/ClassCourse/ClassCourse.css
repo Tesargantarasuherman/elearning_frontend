@@ -1,73 +1,117 @@
 .class-course {
 }
-.input-group{
-    display: flex;
+.input-group {
+  display: flex;
 }
-.input-group >input{
-    flex: 5 ;
-    height:40px;
-    border:#D43E2A solid 2px;
-    border-radius:5px 0px 0px 5px;
+.input-group > input {
+  flex: 5;
+  height: 40px;
+  border: #d43e2a solid 2px;
+  border-radius: 5px 0px 0px 5px;
 }
-.input-group >button{
-    flex: 1 ;
-    background-color: #D43E2A;
-    color:white;
-    font-size:16px;
-    border-radius:0px 5px 5px 0px;
-    border: none;
-    cursor:pointer;
+.input-group > button {
+  flex: 1;
+  background-color: #d43e2a;
+  color: white;
+  font-size: 16px;
+  border-radius: 0px 5px 5px 0px;
+  border: none;
+  cursor: pointer;
 }
-.btn-category-class{
-    display: flex;
-    justify-content: space-between;
-    width:30%;
-   
+.btn-category-class {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
 }
-.btn-category-class>button{
-    padding:10px 20px;
-    min-width:100px;
-    border: none;
-    color:white;
-    border-radius: 5px;
-    background-color: #D43E2A;
-    cursor:pointer;
+.btn-category-class > button {
+  padding: 10px 20px;
+  min-width: 100px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  background-color: #d43e2a;
+  cursor: pointer;
 }
-.btn-category-class>button.active{
-    border:#D43E2A solid 2px;
-    color:#D43E2A !important;
-    border-radius: 5px;
-    background-color: white !important;
+.btn-category-class > button.active {
+  border: #d43e2a solid 2px;
+  color: #d43e2a !important;
+  border-radius: 5px;
+  background-color: white !important;
 }
-.data-class-course{
-    display: flex;
-    justify-content: space-between;
-    margin:20px auto;
-    width:100%
+.data-class-course {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto;
+  justify-content: center;
+  width: 100%;
 }
-.data-class-course>.card-class-course{
-    flex:1;
+.data-class-course > * {
+  background-color: white;
+  max-width: 346px;
+  min-height: 450px;
+  flex: 1;
+  margin: 20px 0px;
+  position: relative;
+  border-radius: 5px;
 }
-.card-class-course{
-    position:relative;
+.data-class-course > * > div:nth-child(1) {
+  padding: 0px 20px ;
 }
-.card-class-course>button{
-    position: absolute;
-    right:10px;
-    padding:10px 20px;
-    min-width:100px;
-    border: none;
-    color:white;
-    border-radius: 5px;
-    background-color: #D43E2A;
-    cursor:pointer;
+.data-class-course > * > div > h3 {
+  padding: 0px 10px ;
 }
-.card-class-course>image{
-    width:fit-content;
+.data-class-course > * > div > p {
+  padding: 0px 10px ;
+}
+
+.data-class-course > * > div > button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  min-width: 140px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  background-color: #d43e2a;
+  cursor: pointer;
+}
+.data-class-course > * > div > button>.next {
+  display: none;
+}
+.data-class-course > * > div > button:hover .next{
+  display: block;
+
+}
+.data-class-course > * > div > button:hover .price{
+  display: none;
+
+}
+
+.data-class-course > div > .type-class-course {
+  position: absolute ;
+  top: 5% ;
+  right: 5%;
+  background-color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: #d43e2a;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.data-class-course > * > img {
+  width: fit-content;
+  border-radius: 5px;
 }
 @media only screen and (min-width: 960px) {
   /* styles for browsers larger than 960px; */
+  .data-class-course > div:nth-child(2) {
+    margin: 20px 10px;
+  }
   .class-course {
     padding: 20px 22%;
+  }
+  .data-class-course {
+    justify-content: space-between;
   }
 }

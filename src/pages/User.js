@@ -47,7 +47,7 @@ function User() {
   // };
   return (
     <>
-      <UserComponent />
+      <UserComponent data_user={state}/>
     </>
     // <div className="d-flex">
     //   <div class="d-flex justify-content-around w-100">

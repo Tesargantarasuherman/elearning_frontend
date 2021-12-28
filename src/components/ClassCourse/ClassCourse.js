@@ -3,7 +3,7 @@ import './ClassCourse.css'
 import imgClassCourse from '../../images/Rectangle 12-5.png'
 import { useHistory } from "react-router";
 
-export default function ClassCourse() {
+export default function ClassCourse(props) {
     let history = useHistory();
     return (
         <div className='class-course'>
@@ -20,24 +20,28 @@ export default function ClassCourse() {
                 <button>Premium</button>
             </div>
             <div className="data-class-course">
-                <div className="card-class-course">
-                    <img src={imgClassCourse} alt="" />
-                    <h3>Lorem, ipsum dolor.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
-                    <button onClick={()=>history.push('/course/detail')} >Selengkapnya</button>
-                </div>
-                <div className="card-class-course">
-                    <img src={imgClassCourse} alt="" />
-                    <h3>Lorem, ipsum dolor.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
-                    <button onClick={()=>history.push('/course/detail')} >Selengkapnya</button>
-                </div>
-                <div className="card-class-course">
-                    <img src={imgClassCourse} alt="" />
-                    <h3>Lorem, ipsum dolor.</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
-                    <button onClick={()=>history.push('/course/detail')} >Selengkapnya</button>
-                </div>
+                {
+                    props.dataCourse.map(course => {
+                        return (
+                            <div>
+                                <div className='type-class-course'>
+                                    Premium
+                                </div>
+                                <img src={imgClassCourse} alt="" />
+                                <div>
+                                    <h3>Lorem, ipsum dolor.</h3>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
+                                </div>
+                                <div>
+                                    <button onClick={() => history.push('/course/detail')} >
+                                        <span className='price'>Rp. 20.000</span>
+                                        <span className='next'>Selengkapnya</span>
+                                    </button>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
     )
