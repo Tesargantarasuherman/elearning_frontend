@@ -7,11 +7,13 @@ import '../Navbar/Styles/Navbar.css'
 import Logo from '../../images/logo-ureshii.png'
 import Profile from '../../images/male.png'
 import { useTranslation } from 'react-i18next';
+import { LangContext } from "../../context/LangContext";
 
 const Navbar = (props) => {
   let history = useHistory();
   const { t, i18n } = useTranslation();
   const { login, setLogin } = useContext(AuthContext);
+  const { lang, setLang } = useContext(LangContext);
 
   return (
     <nav>
@@ -22,7 +24,7 @@ const Navbar = (props) => {
         <ul>
           <li onClick={() => history.push('/course')}>{t('Navbar.1')}</li>
           <li>
-            <select onChange={(e) => props.handleClick(e.target.value)}>
+            <select value={lang} onChange={(e) => props.handleClick(e.target.value)}>
               <option value="id">Indonesia</option>
               <option value="en">English</option>
             </select>

@@ -34,7 +34,7 @@ import CourseCheckout from "./pages/CourseCheckout";
 
 function App() {
   const [value, setValue] = useState(0);
-  const [lang, setLang] = useState(0);
+  const [lang, setLang] = useState(localStorage.getItem("lang"));
   const [theme, setTheme] = useState(localStorage.getItem("theme"));
   const [login, setLogin] = useState(
     JSON.parse(localStorage.getItem("data_user"))
@@ -55,6 +55,7 @@ function App() {
     }, 1000);
   };
   function handleClick(_lang) {
+    localStorage.setItem("lang", _lang)
     setLang(_lang)
   }
   const setThemeAction = () => {
@@ -66,7 +67,6 @@ function App() {
     }
   }
   function actionSetLang() {
-    console.log(lang)
     i18n.changeLanguage(lang);
   }
   return (

@@ -2,6 +2,7 @@
     display:flex;
     justify-content: space-between;
     max-height: 100vh;
+    margin-top:80px;
 }
 .body-course-playing>div:nth-child(1){
     flex:1;
