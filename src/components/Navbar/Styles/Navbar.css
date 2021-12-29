@@ -5,6 +5,10 @@ nav{
   justify-content: space-between;
   text-align: center;
   align-items: center;
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
 }
 
 nav>.navbar-left>img{
@@ -53,7 +57,7 @@ nav>.navbar-left>img{
   min-width: 100px;
   display: none;
   position: absolute;
-  left:-100%;
+  left:-50%;
   background-color: white;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   border-radius:5px;

@@ -14,7 +14,7 @@ function Jumbotron() {
         <section className={`jumbotron ${theme == 'dark' ? 'dark' : ''} `}>
             <div className='jumbotron-left'>
                 <h1>
-                    <strong>{t('Jumbotron.1')}{theme}</strong>
+                    <strong>{t('Jumbotron.1')}</strong>
                 </h1>
                 <h2>
                     {t('Jumbotron.2')}
