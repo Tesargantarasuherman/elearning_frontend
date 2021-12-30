@@ -1,5 +1,9 @@
 .home-info{
-    color:#1e272e
+    color:#1e272e;
+}
+.home-info.dark{
+    background-color: rgb(24,24,24);
+    color:white;
 }
 .home-info-body{
     width:100%;

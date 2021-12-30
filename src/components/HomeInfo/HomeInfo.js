@@ -2,12 +2,15 @@ import React from 'react'
 import './HomeInfo.css'
 import ImgHomeInfo from '../../images/Rectangle 12-1.png'
 import { useTranslation } from 'react-i18next';
+import { ThemeContext } from '../../context/ThemeContext';
+import { useContext } from 'react';
 
 export default function HomeInfo() {
     const { t, i18n } = useTranslation();
+    const { theme, setTheme } = useContext(ThemeContext);
 
     return (
-        <div className="home-info">
+        <div className={`home-info ${theme == 'dark' ? 'dark' : ''} `}>
             <h1>{t('HomeInfo.1')}</h1>
             <div className="home-info-body">
                 <div>

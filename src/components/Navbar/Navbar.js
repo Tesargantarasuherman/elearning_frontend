@@ -8,15 +8,17 @@ import Logo from '../../images/logo-ureshii.png'
 import Profile from '../../images/male.png'
 import { useTranslation } from 'react-i18next';
 import { LangContext } from "../../context/LangContext";
+import { ThemeContext } from '../../context/ThemeContext';
 
 const Navbar = (props) => {
   let history = useHistory();
+  const { theme, setTheme } = useContext(ThemeContext);
   const { t, i18n } = useTranslation();
   const { login, setLogin } = useContext(AuthContext);
   const { lang, setLang } = useContext(LangContext);
 
   return (
-    <nav>
+    <nav className={`${theme == 'dark' ? 'dark' : ''} `}>
       <div className="navbar-left">
         <img src={Logo} onClick={() => history.push('/')} />
       </div>

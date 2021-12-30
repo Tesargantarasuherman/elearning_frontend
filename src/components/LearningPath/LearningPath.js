@@ -1,9 +1,13 @@
 import React from 'react'
 import './LearningPath.css'
 import imgLearningPath from '../../images/Rectangle 12-2.png'
+import { ThemeContext } from '../../context/ThemeContext';
+import { useContext } from 'react';
 function LearningPath() {
+    const { theme, setTheme } = useContext(ThemeContext);
+
     return (
-        <div className='learning-path'>
+        <div className={`learning-path ${theme == 'dark' ? 'dark' : ''} `}>
             <h1>Core practice learning language</h1>
             <div className="learning-path-body-card">
                 <div className="learning-path-card">

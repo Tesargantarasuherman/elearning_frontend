@@ -11,9 +11,11 @@ nav{
   right:0;
   z-index: 999;
 }
-
+nav.dark{
+  background-color: black;
+}
 nav>.navbar-left>img{
-  width:80px;
+  width:60px;
   height:auto;
 }
 .navbar-right>ul{
@@ -121,11 +123,11 @@ nav>.navbar-left>img{
 }
 
 input:checked + .slider {
-  background-color: black;
+  background-color: #485460;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px black;
+  box-shadow: 0 0 1px #485460;
 }
 
 input:checked + .slider:before {

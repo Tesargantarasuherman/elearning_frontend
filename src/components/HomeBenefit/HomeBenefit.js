@@ -1,8 +1,12 @@
 import React from 'react'
 import './HomeBenefit.css'
+import { ThemeContext } from '../../context/ThemeContext';
+import { useContext } from 'react';
 function HomeBenefit() {
+    const { theme, setTheme } = useContext(ThemeContext);
+
     return (
-        <div className="home-benefit">
+        <div className={`home-benefit ${theme == 'dark' ? 'dark' : ''} `}>
             <div>
                 <h1>Benefit Yang Kami Tawarkan</h1>
                 <p>Belajar bersama platform ureshii lebih berkualitas dapat diakses kapan pun dan dimana saja.</p>

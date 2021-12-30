@@ -2,6 +2,10 @@
     display: flex;
     justify-content: space-between;
 }
+.home-benefit.dark{
+    background-color: rgb(24,24,24);
+    color:white;
+}
 .home-benefit>div{
     flex: 1;
 }

@@ -3,6 +3,9 @@
     .learning-path{
         background-color: white;
     }
+    .learning-path.dark{
+        background-color: black;
+        color:white;    }
     .learning-path-body-card{
         display: flex;
         justify-content: space-between;
