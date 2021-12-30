@@ -11,7 +11,8 @@ function Login() {
   const [isSubmiting, setIsSubmiting] = useState(false);
   const [formLogin, setFormLogin] = useState({ email: "", password: null });
   const { login, setLogin } = useContext(AuthContext);
-
+  const [errLogin,setErrorLogin] =useState('')
+  const [errActive,setErrActive] =useState('unactive')
   const history = useHistory();
 
   const handleChangeFormLogin = (e) => {
@@ -40,13 +41,15 @@ function Login() {
         }, 1000);
       })
       .catch((err) => {
-        toast.error("Email Atau Password Salah!");
+        console.log('err',errActive)
+        setErrorLogin('Password Salah');
+        setErrActive('active');
         setIsSubmiting(false);
       });
   };
 
   return (
-    <LoginComponent handleLogin={handleLogin} handleChangeFormLogin={handleChangeFormLogin}/>
+    <LoginComponent errActive={errActive} errLogin={errLogin} handleLogin={handleLogin} handleChangeFormLogin={handleChangeFormLogin}/>
   );
 }
 export default Login;

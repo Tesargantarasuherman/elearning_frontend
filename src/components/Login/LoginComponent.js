@@ -2,11 +2,14 @@ import React from 'react'
 import './LoginComponent.css'
 import Logo from '../../images/logo-ureshii.png'
 import { useTranslation } from 'react-i18next';
+import Alert from '../_components/Alert';
 
 const LoginComponent =(props)=> {
     const { t, i18n } = useTranslation();
 
     return (
+        <>
+        <Alert text={`${props.errActive}`} active={`${props.errActive}`} />
         <div className="login">
             <div className="login-body">
                 <div className="image-login">
@@ -30,6 +33,7 @@ const LoginComponent =(props)=> {
                 </form>
             </div>
         </div>
+        </>
     )
 }
 

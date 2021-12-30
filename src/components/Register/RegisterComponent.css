@@ -1,7 +1,9 @@
 .register{
-    margin:20px 0px 0px 0px;
+    margin:100px 0px 0px 0px;
     display: flex;
     justify-content: center;
+    position: fixed;
+    left:40%;
 }
 .register-body{
     display: block;

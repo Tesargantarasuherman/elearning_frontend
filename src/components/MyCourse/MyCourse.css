@@ -1,0 +1,97 @@
+.my-course {
+}
+.my-course-header {
+  max-width: 600px;
+}
+.my-course-header > label {
+  font-size: 32px;
+  font-weight: bold;
+}
+.my-course-header > p {
+  font-size: 16px;
+  font-weight: 500;
+}
+.btn-type-my-course > button {
+  padding: 5px 20px;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  min-width: 140px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  background-color: #d43e2a;
+  cursor: pointer;
+  font-weight: 500;
+}
+.btn-type-my-course > button.active-course {
+  background-color: white;
+  color: #d43e2a;
+  border: solid 2px #d43e2a;
+}
+.btn-type-my-course > button:nth-child(2) {
+  margin: 0px 20px;
+}
+.row-my-course {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px auto;
+  justify-content: space-between;
+  width: 100%;
+}
+.row-my-course > * {
+  background-color: white;
+  max-width: 346px;
+  min-height: 450px;
+  flex: 1;
+  margin: 20px 0px;
+  position: relative;
+  border-radius: 5px;
+}
+.row-my-course > * > div:nth-child(1) {
+  padding: 0px 20px;
+}
+.row-my-course > * > div > h3 {
+  padding: 0px 10px;
+}
+.row-my-course > * > div > p {
+  padding: 0px 10px;
+}
+
+.row-my-course > * > div > button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  min-width: 140px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  background-color: #d43e2a;
+  cursor: pointer;
+}
+.row-my-course > * > div > button > .next {
+  display: none;
+}
+.row-my-course > * > div > button:hover .next {
+  display: block;
+}
+.row-my-course > * > div > button:hover .price {
+  display: none;
+}
+
+.row-my-course > div > .type-class-course {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  background-color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: #d43e2a;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.row-my-course > * > img {
+  width: fit-content;
+  border-radius: 5px;
+}
