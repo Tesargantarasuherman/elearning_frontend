@@ -1,9 +1,11 @@
 .home-info{
     color:#1e272e;
+    transition: 0.4s;
 }
 .home-info.dark{
     background-color: rgb(24,24,24);
     color:white;
+    transition: 0.4s;
 }
 .home-info-body{
     width:100%;

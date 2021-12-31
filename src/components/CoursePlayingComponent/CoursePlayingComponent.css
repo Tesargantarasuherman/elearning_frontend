@@ -4,11 +4,17 @@
     max-height: 100vh;
     margin-top:80px;
 }
+.body-course-playing{
+    background-color: rgb(24,24,24);
+}
 .body-course-playing>div:nth-child(1){
     flex:1;
     background-color: #D43E2A;
     min-height:95vh;
     overflow-y: scroll;
+}
+.body-course-playing.dark>div:nth-child(1){
+    background-color: black;
 }
 .body-course-playing>div:nth-child(2){
     flex:6;

@@ -1,8 +1,12 @@
 import React from 'react'
 import './MyCourse.css'
 import imgClassCourse from '../../images/Rectangle 12-5.png'
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
 
 function MyCourse() {
+    const { theme, setTheme } = useContext(ThemeContext);
+
     return (
         <div className='my-course'>
             <div className="my-course-header">
@@ -21,7 +25,7 @@ function MyCourse() {
                         lorem
                     </button>
                 </div>
-                <div className="row-my-course">
+                <div className={`row-my-course ${theme == 'dark' ? 'dark' : ''} `}>
                     <div>
                         <div className='type-class-course'>
                             Premium

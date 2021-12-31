@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './CoursePlayingComponent.css'
+import { ThemeContext } from '../../context/ThemeContext';
+import { useContext } from 'react';
 function CoursePlayingComponent() {
+    const { theme, setTheme } = useContext(ThemeContext);
     const [togleNav, settogleNav] = useState(false)
     useEffect(() => {
 
@@ -9,7 +12,7 @@ function CoursePlayingComponent() {
         settogleNav(!togleNav)
     }
     return (
-        <div className='body-course-playing'>
+      <div className={`body-course-playing ${theme == 'dark' ? 'dark' : ''} `}>
             <div className={`${togleNav ? 'hide' : ''} left `}>
                 <div className="body-btn-toggle">
                     <button className="btn-toggle" onClick={toggleBtn}>X</button>

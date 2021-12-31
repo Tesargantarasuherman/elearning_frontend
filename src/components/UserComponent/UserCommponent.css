@@ -1,7 +1,15 @@
 .user-component{
-    margin-top:80px;
+    padding-top:60px;
+    height:100vh;
     display:flex;
     justify-content: space-between;
+}
+.user-component.dark{
+    background-color:black;
+    color:white;
+}
+.user-component.dark>.left{
+    background-color: rgb(24,24,24);
 }
 .user-component>.back{
     position: fixed;

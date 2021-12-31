@@ -1,5 +1,11 @@
 .class-course {
   margin-top:80px;
+  transition: 0.4s;
+}
+.class-course.dark {
+  background-color: black;
+  color: white;
+  transition: 0.4s;
 }
 .input-group {
   display: flex;
@@ -54,6 +60,9 @@
   margin: 20px 0px;
   position: relative;
   border-radius: 5px;
+}
+.data-class-course.dark > * {
+  background-color: rgb(24,24,24);
 }
 .data-class-course > * > div:nth-child(1) {
   padding: 0px 20px ;

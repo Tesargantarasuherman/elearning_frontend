@@ -1,4 +1,9 @@
-.my-course {
+.my-course{
+  transition: 0.4s;
+}
+.my-course.dark {
+  background-color: rgb(24,24,24);
+  transition: 0.4s;
 }
 .my-course-header {
   max-width: 600px;
@@ -48,8 +53,12 @@
   position: relative;
   border-radius: 5px;
 }
+
 .row-my-course > * > div:nth-child(1) {
   padding: 0px 20px;
+}
+.row-my-course.dark > *  {
+  background-color: rgb(24,24,24) !important;
 }
 .row-my-course > * > div > h3 {
   padding: 0px 10px;

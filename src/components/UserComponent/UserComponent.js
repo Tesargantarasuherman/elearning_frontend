@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import './UserCommponent.css'
 import imgProfile from '../../images/male.png'
 import MyCourse from '../MyCourse/MyCourse'
 import Profile from '../Profile/Profile'
+import { ThemeContext } from '../../context/ThemeContext';
+
 function UserComponent(props) {
+    const { theme, setTheme } = useContext(ThemeContext);
     const [togleNav, settogleNav] = useState(false)
     const [active, setactive] = useState({ active: "myCourse" });
     useEffect(() => {
@@ -31,7 +34,7 @@ function UserComponent(props) {
     return (
         <>
             <button onClick={toggleBtn}>=</button>
-            <div className='user-component'>
+            <div className={`user-component ${theme == 'dark' ? 'dark' : ''} `}>
                 <div className={`${togleNav ? 'back' : ''} left `}>
                     <div className="user-description">
                         <img src={imgProfile} alt="" />

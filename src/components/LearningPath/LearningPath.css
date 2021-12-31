@@ -2,10 +2,13 @@
     
     .learning-path{
         background-color: white;
+        transition: 0.4s;
     }
     .learning-path.dark{
         background-color: black;
-        color:white;    }
+        color:white;
+        transition: 0.4s;    
+    }
     .learning-path-body-card{
         display: flex;
         justify-content: space-between;

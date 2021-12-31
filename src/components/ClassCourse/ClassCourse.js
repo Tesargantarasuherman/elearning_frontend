@@ -2,11 +2,13 @@ import React from 'react'
 import './ClassCourse.css'
 import imgClassCourse from '../../images/Rectangle 12-5.png'
 import { useHistory } from "react-router";
-
+import { ThemeContext } from '../../context/ThemeContext';
+import { useContext } from 'react';
 export default function ClassCourse(props) {
     let history = useHistory();
+    const { theme, setTheme } = useContext(ThemeContext);
     return (
-        <div className='class-course'>
+        <div className={`class-course ${theme == 'dark' ? 'dark' : ''} `}>
             <h1>Katalog Kelas</h1>
             <p>Persiapkan Dirimu untuk Bekerja Di jepang</p>
             <div className="input-group">
@@ -19,7 +21,7 @@ export default function ClassCourse(props) {
                 <button className='active'>Free</button>
                 <button>Premium</button>
             </div>
-            <div className="data-class-course">
+            <div className={`data-class-course ${theme == 'dark' ? 'dark' : ''} `}>
                 {
                     props.dataCourse.map(course => {
                         return (
