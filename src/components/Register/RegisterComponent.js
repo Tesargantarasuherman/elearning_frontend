@@ -2,13 +2,16 @@ import React from 'react'
 import './RegisterComponent.css'
 import Logo from '../../images/logo-ureshii.png'
 import { useTranslation } from 'react-i18next';
+import { ThemeContext } from '../../context/ThemeContext';
+import { useContext } from 'react';
 
 const RegiserComponent =(props)=> {
     const { t, i18n } = useTranslation();
+    const { theme, setTheme } = useContext(ThemeContext);
 
     return (
-        <div className="register">
-            <div className="register-body">
+        <div className={`register ${theme == 'dark' ? 'dark' : ''} `}>
+        <div className="register-body">
                 <div className="image-register">
                     <img src={Logo} />
                 </div>

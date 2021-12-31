@@ -3,14 +3,16 @@ import './LoginComponent.css'
 import Logo from '../../images/logo-ureshii.png'
 import { useTranslation } from 'react-i18next';
 import Alert from '../_components/Alert';
-
+import { ThemeContext } from '../../context/ThemeContext';
+import { useContext } from 'react';
 const LoginComponent =(props)=> {
     const { t, i18n } = useTranslation();
+    const { theme, setTheme } = useContext(ThemeContext);
 
     return (
         <>
         <Alert text={`${props.errActive}`} active={`${props.errActive}`} />
-        <div className="login">
+        <div className={`login ${theme == 'dark' ? 'dark' : ''} `}>
             <div className="login-body">
                 <div className="image-login">
                     <img src={Logo} />
