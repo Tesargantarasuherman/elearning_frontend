@@ -2,7 +2,7 @@
   background-color: white;
   width: 30%;
   padding: 10px;
-  color: #d43e2a;
+  color: #2d3436;
   border-radius: 5px;
 }
 .body-input-form-profile {
@@ -24,9 +24,10 @@
 }
 .form-profile > button {
   width: 100%;
-  padding: 5px 10px;
+  padding:10px 20px;
   background-color: #d43e2a;
-  border-radius: solid 1px white;
+  border: solid 1px white;
+  border-radius: 5px;
   color:white;
   font-weight: bold;
   border: none;

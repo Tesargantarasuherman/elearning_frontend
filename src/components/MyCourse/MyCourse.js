@@ -37,8 +37,8 @@ function MyCourse() {
                         </div>
                         <div>
                             <button onClick={null} >
-                                <span className='price'>Rp. 20.000</span>
-                                <span className='next'>Selengkapnya</span>
+                                <span className='price'>Lanjutkan Belajar</span>
+                                <span className='next'>Ke Kursus</span>
                             </button>
                         </div>
                     </div>
@@ -53,8 +53,8 @@ function MyCourse() {
                         </div>
                         <div>
                             <button onClick={null} >
-                                <span className='price'>Rp. 20.000</span>
-                                <span className='next'>Selengkapnya</span>
+                                <span className='price'>Lanjutkan Belajar</span>
+                                <span className='next'>Ke Kursus</span>
                             </button>
                         </div>
                     </div>
@@ -69,8 +69,8 @@ function MyCourse() {
                         </div>
                         <div>
                             <button onClick={null} >
-                                <span className='price'>Rp. 20.000</span>
-                                <span className='next'>Selengkapnya</span>
+                                <span className='price'>Lanjutkan Belajar</span>
+                                <span className='next'>Ke Kursus</span>
                             </button>
                         </div>
                     </div>

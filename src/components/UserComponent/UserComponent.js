@@ -8,26 +8,32 @@ import { ThemeContext } from '../../context/ThemeContext';
 function UserComponent(props) {
     const { theme, setTheme } = useContext(ThemeContext);
     const [togleNav, settogleNav] = useState(false)
-    const [active, setactive] = useState({ active: "myCourse" });
+    const [active, setactive] = useState({ active: null });
+    const [url, setUrl] = useState('')
     useEffect(() => {
+        let uri_ = window.location.href;
+        let _uri = [];
+        _uri = uri_.split('#')
+        setactive({ active: _uri[1] });
+    }, [url])
 
-    }, [])
+
     const toggleBtn = () => {
         settogleNav(!togleNav)
     }
-    const renderSwitch = (activeItem) => {
-        switch (activeItem) {
+    const renderSwitch = (active) => {
+        switch (active) {
             case "profile":
                 return (
                     <Profile data_user={props.data_user} />
                 );
-            case "myCourse":
+            case "course":
                 return (
                     <MyCourse />
                 );
             default:
                 return (
-                    <Profile />
+                    <MyCourse />
                 );
         }
     };
@@ -40,13 +46,13 @@ function UserComponent(props) {
                         <img src={imgProfile} alt="" />
                         <div>
                             <p>Tesar Gantara Suherman</p>
-                            <p>Fullstack Developer</p>
+                            <p>{url}</p>
                         </div>
                     </div>
                     <div className="user-menu">
                         <ul>
-                            <li onClick={() => setactive({ active: "myCourse" })}>My Course</li>
-                            <li onClick={() => setactive({ active: "profile" })}>Profile</li>
+                            <li onClick={() => setactive({ active: "course" })}><a href="#course">My Course</a> </li>
+                            <li onClick={() => setactive({ active: "profile" })}><a href="#profile">Profile</a> </li>
                             <li>Logout</li>
                         </ul>
                     </div>
