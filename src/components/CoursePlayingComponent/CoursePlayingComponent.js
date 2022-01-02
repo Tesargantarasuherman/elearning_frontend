@@ -5,6 +5,7 @@ import { useContext } from 'react';
 function CoursePlayingComponent() {
     const { theme, setTheme } = useContext(ThemeContext);
     const [togleNav, settogleNav] = useState(false)
+    const [state, setstate] = useState('https://www.youtube.com/embed/JR9wsVYp8RQ')
     useEffect(() => {
 
     }, [])
@@ -111,6 +112,7 @@ function CoursePlayingComponent() {
                     src={`https://www.youtube.com/embed/JR9wsVYp8RQ`}
 
                 ></iframe>
+                <h1>1{state.duration}</h1>
             </div>
         </div>
     )

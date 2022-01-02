@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './CourseDetailComponent.css'
 import LogoUserRating from '../../images/male.png'
 import { useHistory } from "react-router";
+import { ThemeContext } from '../../context/ThemeContext';
 
 function CourseDetailComponent() {
     let history = useHistory();
+    const { theme, setTheme } = useContext(ThemeContext);
+
     return (
         <>
-            <div className='course-detail'>
+            <div className={`course-detail ${theme == 'dark' ? 'dark' : ''} `}>
                 <div className="left">
                     <div className='course-detail-title'>
                         <h1>React - The Complete Guide (incl Hooks, React Router, Redux)</h1>
@@ -25,7 +28,7 @@ function CourseDetailComponent() {
                             </div>
                         </div>
                     </div>
-                    <div className='benefit-course-detail'>
+                    <div className={`benefit-course-detail ${theme == 'dark' ? 'dark' : ''} `}>
                         <h1>Yang Akan Anda Pelajari</h1>
                         <p><span class="lnr lnr-thumbs-up"></span> Lorem, ipsum dolor.</p>
                         <p><span class="lnr lnr-thumbs-up"></span> Lorem ipsum dolor sit.</p>
@@ -36,78 +39,11 @@ function CourseDetailComponent() {
                     <div className="card-course-detail-component">
                         <img src="https://class.buildwithangga.com/storage/assets/thumbnails/thumbnail%20kelas%203d%20design%20blender%20buildwith%20angga.png" alt="" />
                         <h1>Rp.700.000</h1>
-                        <button onClick={()=>history.push('/course/checkout')}>Beli Sekarang</button>
+                        <button onClick={() => history.push('/course/checkout')}>Beli Sekarang</button>
                     </div>
                 </div>
             </div>
-            <div className="rating-user">
-            <div className="rating-user-body">
-                    <div className="rating-user-card">
-                        <div>
-                            Nama
-                        </div>
-                        <div className='rating-user-image'>
-                            <img src={LogoUserRating} alt="" srcset="" />
-                        </div>
-                    </div>
-                    <div className="rating-user-star">
-                        <div>
-                            <span class="lnr lnr-star"></span>
-                            <span class="lnr lnr-star"></span>
-                            <span class="lnr lnr-star"></span>
-                            <span class="lnr lnr-star"></span>
-                            <span class="lnr lnr-star"></span>
-                        </div>
-                        <div>
-                            Lorem, ipsum dolor.
-                        </div>
-                    </div>
-                </div>
-                <div className="rating-user-body">
-                    <div className="rating-user-card">
-                        <div>
-                            Lorem, ipsum.
-                        </div>
-                        <div className='rating-user-image'>
-                            <img src={LogoUserRating} alt="" srcset="" />
-                        </div>
-                    </div>
-                    <div className="rating-user-star">
-                        <div>
-                            <span class="lnr lnr-star"></span>
-                            <span class="lnr lnr-star"></span>
-                            <span class="lnr lnr-star"></span>
-                            <span class="lnr lnr-star"></span>
-                            <span class="lnr lnr-star"></span>
-                        </div>
-                        <div>
-                            Lorem, ipsum dolor.
-                        </div>
-                    </div>
-                </div>
-                <div className="rating-user-body">
-                    <div className="rating-user-card">
-                        <div>
-                            Nama
-                        </div>
-                        <div className='rating-user-image'>
-                            <img src={LogoUserRating} alt="" srcset="" />
-                        </div>
-                    </div>
-                    <div className="rating-user-star">
-                        <div>
-                            <span class="lnr lnr-star"></span>
-                            <span class="lnr lnr-star"></span>
-                            <span class="lnr lnr-star"></span>
-                            <span class="lnr lnr-star"></span>
-                            <span class="lnr lnr-star"></span>
-                        </div>
-                        <div>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. In, assumenda.
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </>
     )
 }

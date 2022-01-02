@@ -46,7 +46,7 @@ const Navbar = (props) => {
           <li>
             <div className="dropdown">
               <img src={Profile} />
-              <div className="dropdown-content">
+              <div className={`dropdown-content ${theme == 'dark' ? 'dark' : ''} `}>
                 <ul>
                   <li onClick={() => history.push('/user')}>{t('Profile.1')}</li>
                   <li>{t('Profile.2')}</li>

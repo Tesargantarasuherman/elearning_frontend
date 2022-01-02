@@ -4,6 +4,11 @@
     justify-content: space-between;
     background-color: #D43E2A;
     color:white;
+    transition: 0.4s;
+}
+.course-detail.dark{
+    background-color: black;
+    transition: 0.4s;
 }
 .course-detail>.left{
     flex:5;
@@ -63,6 +68,11 @@
     color:#D43E2A ;
     
 }
+.benefit-course-detail.dark{
+    transition: 0.4s;
+    background-color: rgb(24,24,24);
+    color:white;
+}
 .benefit-course-detail>p{
     font-weight: bold;
     font-size:16px;
@@ -76,47 +86,13 @@
     display:flex;
     justify-content: space-between;
 }
-.rating-user-body:nth-child(2){
-    margin:20px 10px;
-}
-.rating-user-body{
-    background-color: #D43E2A;
-    color:white;
-    flex:1;
-    border-radius:10px;
-    overflow: hidden;
-    position:relative;
-    min-height: 120px;
-    margin:20px 0px;
-}
-.rating-user-card{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    padding:10px 10px;
-}
-.rating-user-image>img{
-    width:50px;
-    border-radius:50%;
-}
-.rating-user-star{
-    padding:10px 10px;
-    background-color: white;
-    color: #D43E2A;
-    font-weight: 500;
-    font-size: 14px;
-    position:absolute;
-    right:0;
-    bottom:0;
-    left:0;
-    max-height: 50px;
-}
+
 @media only screen and (min-width: 960px) {
     /* styles for browsers larger than 960px; */
     .course-detail{
       padding: 0px 22%;
     }
-    .rating-user{
+    .body-rating-user{
       padding: 0px 22%;
     }
   }

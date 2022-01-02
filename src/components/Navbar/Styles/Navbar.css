@@ -65,6 +65,9 @@ nav>.navbar-left>img{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   border-radius:5px;
 }
+.dropdown-content.dark{
+  background-color: rgb(24,24,24);
+}
 .dropdown-content>ul{
   list-style: none;
   display: inline;
@@ -80,6 +83,9 @@ nav>.navbar-left>img{
   color:#D43E2A;
   font-weight: bold;
   font-size: 14px;
+}
+.dropdown-content.dark>ul>li{
+  color:white;
 }
 .dropdown:hover .dropdown-content {
   display: block;

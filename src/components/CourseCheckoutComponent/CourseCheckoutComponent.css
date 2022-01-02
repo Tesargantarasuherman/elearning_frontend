@@ -1,9 +1,21 @@
 .course-checkout-body{
-    margin-top:100px;
     display: flex;
     justify-content: space-between;
     border-radius: 20px;
     overflow: hidden;
+}
+.checkout-body{
+    padding-top :100px;
+}
+.checkout-body.dark>.course-checkout-body>.course-checkout-right{
+    background-color: rgb(24,24,24);
+    color:white;
+}
+.checkout-body.dark{
+    transition: 0.4s;
+    background-color: black;
+    color:white;
+    min-height: 100vh;
 }
 .course-checkout-body>div:nth-child(1){
     background-color: #D43E2A;
