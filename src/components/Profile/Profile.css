@@ -5,6 +5,11 @@
   color: #2d3436;
   border-radius: 5px;
 }
+.my-profile.dark {
+  transition: 0.4s;
+  background-color: rgb(24, 24, 24);
+  color: white;
+}
 .body-input-form-profile {
   display: flex;
   justify-content: space-between;
@@ -21,14 +26,26 @@
   width: 100%;
   flex: 1.5;
   height: 30px;
+  border: none;
+  border-bottom: solid 1px black;
+}
+.body-input-form-profile > input:focus::placeholder {
+  transform: scale(0.75) translateY(-100%) translateX(-30px);
+
+}
+.my-profile.dark > .form-profile > .body-input-form-profile > input {
+  transition: 0.4s;
+  background-color: rgb(24, 24, 24);
+  color: white;
+  border-bottom: solid 1px white;
 }
 .form-profile > button {
   width: 100%;
-  padding:10px 20px;
+  padding: 10px 20px;
   background-color: #d43e2a;
   border: solid 1px white;
   border-radius: 5px;
-  color:white;
+  color: white;
   font-weight: bold;
   border: none;
   text-align: center;

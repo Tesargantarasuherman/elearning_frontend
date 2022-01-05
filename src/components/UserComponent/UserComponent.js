@@ -15,7 +15,7 @@ function UserComponent(props) {
         let _uri = [];
         _uri = uri_.split('#')
         setactive({ active: _uri[1] });
-    }, [url])
+    }, [])
 
 
     const toggleBtn = () => {
@@ -51,8 +51,8 @@ function UserComponent(props) {
                     </div>
                     <div className="user-menu">
                         <ul>
-                            <li onClick={() => setactive({ active: "course" })}><a href="#course">My Course</a> </li>
-                            <li onClick={() => setactive({ active: "profile" })}><a href="#profile">Profile</a> </li>
+                            <li onClick={() => setactive({ active: "course" })} className={`${active.active =='course' ? 'active':''}`}><a href="#course">My Course</a> </li>
+                            <li onClick={() => setactive({ active: "profile" })} className={`${active.active =='profile' ? 'active':''}`}><a href="#profile">Profile</a> </li>
                             <li>Logout</li>
                         </ul>
                     </div>

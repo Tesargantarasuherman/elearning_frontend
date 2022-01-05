@@ -12,6 +12,7 @@
     min-height: 100vh;
 }
 .body-course-playing>div:nth-child(1){
+    transition: 0.4s;
     flex:1;
     background-color: #D43E2A;
     min-height:95vh;
