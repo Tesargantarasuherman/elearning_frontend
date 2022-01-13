@@ -48,7 +48,6 @@ function App() {
     localStorage.setItem("theme", theme)
   }, [lang, theme]);
   const Logout = () => {
-    toast.success("Anda Telah Keluar");
     setTimeout(() => {
       localStorage.removeItem("data_user");
       setLogin(null);
@@ -71,7 +70,6 @@ function App() {
   }
   return (
     <Router>
-      <ToastContainer />
       <CartContext.Provider value={{ value, setValue }}>
         <AuthContext.Provider value={{ login, setLogin }}>
           <LangContext.Provider value={{ lang, setLang }}>
