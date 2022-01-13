@@ -12,6 +12,7 @@
 }
 .body-course-playing > div:nth-child(1) {
   transition: 0.4s;
+  min-width: 400px;
   flex: 1;
   background-color: #d43e2a;
   min-height: 95vh;
@@ -42,7 +43,7 @@
 }
 .left.hide {
   position: fixed;
-  left: -240px;
+  left: -330px !important;
   transition: 0.5s;
   overflow-y: hidden;
 }
@@ -81,12 +82,7 @@
   border-radius: 5px;
   color: #d43e2a;
 }
-.right {
-  margin: 40px 100px;
-}
-.right.hide {
-  margin-left: 80px;
-}
+
 @media only screen and (max-width: 768px) {
   .body-course-playing > div:nth-child(1) {
     transition: 0.4s;
@@ -100,5 +96,19 @@
   }
   .body-course-playing > div:nth-child(2) {
     flex: 6;
+  }
+  .right {
+    margin: 20px;
+  }
+  .right.hide {
+    margin-left: 80px;
+  }
+}
+@media only screen and (min-width: 960px) {
+  .right {
+    margin: 40px 100px;
+  }
+  .right.hide {
+    margin-left: 80px;
   }
 }

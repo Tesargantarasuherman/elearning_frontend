@@ -39,6 +39,9 @@
   background-color: #d43e2a;
   cursor: pointer;
 }
+.btn-category-class > button:nth-child(2) {
+  margin:0px 20px;
+}
 .btn-category-class > button.active {
   border: #d43e2a solid 2px;
   color: #d43e2a !important;
@@ -48,8 +51,6 @@
 .data-class-course {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px auto;
-  justify-content: center;
   width: 100%;
 }
 .data-class-course > * {
@@ -120,6 +121,9 @@
 }
 @media only screen and (min-width: 960px) {
   /* styles for browsers larger than 960px; */
+  .btn-category-class > button {
+    min-width: 100px;
+  }
   .data-class-course > div:nth-child(2) {
     margin: 20px 10px;
   }
@@ -128,5 +132,6 @@
   }
   .data-class-course {
     justify-content: space-between;
+    margin: 20px auto;
   }
 }
