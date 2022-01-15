@@ -26,7 +26,7 @@ function HomeBenefit() {
                 <h1>Group Konsultasi</h1>
                 <p>Sarana Group untuk Konsultasi Member</p>
                 <h1>Tips & Trik</h1>
-                <p>Ada cara ninja untuk cepat bisa bahasa jepang</p>            
+                <p>Ada cara ninja untuk cepat bisa bahasa jepang</p>
             </div>
         </div>
     )

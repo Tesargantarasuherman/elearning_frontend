@@ -54,3 +54,23 @@
     padding: 0px 22%;
   }
 }
+@media only screen and (max-width: 600px) {
+  .jumbotron-right>img{
+    width: 300px;
+    height: auto;
+    display: none;
+  }
+  .jumbotron-left>div>button{
+    padding:10px 20px;
+    min-width: 50px;
+    font-size:12px;
+    margin:10px;
+  }
+  .jumbotron-left>h1,.jumbotron-left>h2{
+    font-size:18px;
+    margin-left:10px;
+  }
+  .jumbotron-left{
+    max-width:250px;
+  }
+}

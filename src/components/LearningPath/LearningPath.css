@@ -1,40 +1,52 @@
-
-    
-    .learning-path{
-        background-color: white;
-        transition: 0.4s;
+.learning-path {
+  background-color: white;
+  transition: 0.4s;
+}
+.learning-path.dark {
+  background-color: black;
+  color: white;
+  transition: 0.4s;
+}
+.learning-path-body-card {
+  display: flex;
+  justify-content: space-between;
+}
+.learning-path-card {
+  display: block;
+}
+.learning-path-card:nth-child(2) {
+  margin: 0px 20px;
+}
+.learning-path-card > label {
+  margin: 5px 0px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.learning-path-card > p {
+  font-weight: 500;
+  font-size: 16px;
+}
+.learning-path-card > img {
+  width: 100%;
+  border-radius: 10px;
+}
+@media only screen and (min-width: 960px) {
+  /* styles for browsers larger than 960px; */
+  .learning-path {
+    padding: 20px 22%;
+  }
+}
+@media only screen and (max-width: 600px) {
+    .learning-path {
+        padding:20px 0px;
     }
-    .learning-path.dark{
-        background-color: black;
-        color:white;
-        transition: 0.4s;    
-    }
-    .learning-path-body-card{
-        display: flex;
-        justify-content: space-between;
-    }
-    .learning-path-card{
-        display: block;
-    }
-    .learning-path-card:nth-child(2){
-        margin:0px 20px;
-    }
-    .learning-path-card>label{
-        margin:5px 0px;
-        font-weight: bold;
+    .learning-path>h1 {
         font-size: 18px;
     }
-    .learning-path-card>p{
-        font-weight:500;
+    .learning-path-card > label {
         font-size: 16px;
     }
-    .learning-path-card>img{
-        width:100%;
-        border-radius:10px;
+    .learning-path-card > p {
+        font-size: 14px;
     }
-    @media only screen and (min-width: 960px) {
-        /* styles for browsers larger than 960px; */
-        .learning-path{
-            padding: 20px 22%;
-        }
-      }
+}
