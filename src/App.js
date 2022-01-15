@@ -95,7 +95,7 @@ function App() {
                 <Route path="/course/checkout">
                   <CourseCheckout />
                 </Route>
-                <Route path="/course/playing">
+                <Route path="/course/playing/:id">
                   <CoursePlaying />
                 </Route>
                 {/* <Route path="/my-class/:id">

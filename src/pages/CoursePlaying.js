@@ -1,6 +1,6 @@
 import axios from 'axios';
 import CoursePlayingComponent from '../components/CoursePlayingComponent/CoursePlayingComponent'
-import React,{ useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useParams } from "react-router-dom";
 import BaseUrl from "../utils/BaseUrl";
@@ -86,8 +86,8 @@ export default function CoursePlaying() {
 
     const getKursus = () => {
         axios.get(`${BaseUrl}kursus/${1}/${login.data.id}`, axiosConfig).then((res) => {
-                setdata_class(res.data.data.data_kelas);
-            });
+            setdata_class(res.data.data.data_kelas);
+        });
     };
     const getLastWatch = () => {
         axios
@@ -181,7 +181,19 @@ export default function CoursePlaying() {
     }
     return (
         <div>
-            <CoursePlayingComponent data_class={data_class} login={login} handleItemClick={handleItemClick}/>
+            <CoursePlayingComponent
+                data_class={data_class}
+                login={login}
+                handleItemClick={handleItemClick}
+                materi={materi}
+                stateData={stateData}
+                handleFormKomentar={handleFormKomentar}
+                submitKomentar={submitKomentar}
+                formKomentar={formKomentar}
+                page={page}
+                setPage={setPage}
+                isLoading={isLoading}
+            />
         </div>
     )
 }

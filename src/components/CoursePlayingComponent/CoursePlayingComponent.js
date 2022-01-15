@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './CoursePlayingComponent.css'
 import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
+import Commentar from './Commentar/Commentar.jsx';
 function CoursePlayingComponent(props) {
     const { theme, setTheme } = useContext(ThemeContext);
     const [togleNav, settogleNav] = useState(false)
@@ -27,7 +28,7 @@ function CoursePlayingComponent(props) {
                                     <ul>
                                         {clas.materi.map((materi, row) => {
                                             return (
-                                                <li><button >
+                                                <li><button onClick={() => props.handleItemClick(materi, row)}>
                                                     {materi.judul}
                                                     {materi.kelas_selesai.map(kelas_selesai => {
                                                         return (
@@ -42,13 +43,27 @@ function CoursePlayingComponent(props) {
                 </div>
             </div>
             <div className={`${togleNav ? 'hide' : ''} right`}>
+                <h1>{props.materi.judul}</h1>
                 <iframe
                     width={"100%"}
                     height={700}
-                    src={`https://www.youtube.com/embed/JR9wsVYp8RQ`}
+                    src={`https://www.youtube.com/embed/${props.materi.link_video}`}
 
                 ></iframe>
                 <h1>1{state.duration}</h1>
+                <Commentar
+                    handleFormKomentar={props.handleFormKomentar}
+                    submitKomentar={props.submitKomentar}
+                    formKomentar={props.formKomentar}
+                    isiKomentar={props.stateData.articles}
+                    lengthKomentar={props.stateData.articles.length}
+                    totalResult={props.stateData.totalResult}
+                    toResult={props.stateData.toResult}
+                    page={props.page}
+                    setPage={props.setPage}
+                    isLoading={props.isLoading}
+
+                />
             </div>
         </div>
     )
