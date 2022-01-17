@@ -49,7 +49,6 @@ export default function CoursePlaying() {
         setRefresh(false);
     };
     const handleItemClick = (_materi, row) => {
-        console.log(_materi)
         handleRefresh();
         setstate({ activeItem: _materi.judul });
         setmateri(_materi);
@@ -61,7 +60,6 @@ export default function CoursePlaying() {
         })
 
         updateLastWatch(_materi)
-        console.log(tandaiselesai)
     };
 
     const updateLastWatch = (_materi) => {
@@ -93,7 +91,6 @@ export default function CoursePlaying() {
         axios
             .get(`${BaseUrl}terakhir-ditonton/${login.data.id}/${id}`, axiosConfig)
             .then((res) => {
-                console.log('tes', res.data.data.history[0])
                 setterakhirdilihat(res.data.data.history[0]);
                 setMateriOnload(res.data.data.history[0]);
             });
@@ -121,7 +118,6 @@ export default function CoursePlaying() {
     };
     const handleFormKomentar = (e) => {
         const { name, value } = e.target;
-
         setFormKomentar({
             ...formKomentar,
             [name]: value,
@@ -131,7 +127,8 @@ export default function CoursePlaying() {
             kelas_id: `${materi.kelas_id}`,
         });
     };
-    const submitKomentar = () => {
+    const submitKomentar = (e) => {
+        e.preventDefault()
         axios
             .post(`${BaseUrl}add-komentar`, formKomentar, axiosConfig)
             .then((res) => {
@@ -147,7 +144,7 @@ export default function CoursePlaying() {
         axios
             .post(`${BaseUrl}add-kelas-selesai`, tandaiselesai, axiosConfig)
             .then((res) => {
-                console.log(res)
+                getLastWatch();
             });
     }
     const handleFormChangeReview = (e) => {
@@ -193,6 +190,7 @@ export default function CoursePlaying() {
                 page={page}
                 setPage={setPage}
                 isLoading={isLoading}
+                selesaiKursus={selesaiKursus}
             />
         </div>
     )

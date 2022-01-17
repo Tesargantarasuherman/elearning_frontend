@@ -42,7 +42,11 @@ function CoursePlayingComponent(props) {
                 </div>
             </div>
             <div className={`${togleNav ? 'hide' : ''} right ${theme == 'dark' ? 'dark' : ''} `}>
-                <h1>{props.materi.judul}</h1>
+                <div className="header-player">
+                    <h1>{props.materi.judul}</h1>
+                    <button onClick={props.selesaiKursus}>Tandai Selesai</button>
+                </div>
+
                 <iframe
                     width={"100%"}
                     height={700}
@@ -60,6 +64,7 @@ function CoursePlayingComponent(props) {
                     page={props.page}
                     setPage={props.setPage}
                     isLoading={props.isLoading}
+                    theme={theme}
                 />
             </div>
         </div>

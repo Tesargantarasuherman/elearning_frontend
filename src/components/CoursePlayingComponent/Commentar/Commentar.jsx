@@ -2,7 +2,7 @@ import React from 'react'
 import './Commentar.css'
 function Commentar(props) {
     return (
-        <div>
+        <div className={`commentar ${props.theme == 'dark' ? 'dark' : ''}`}>
             <h1>
                 Komentar( {parseInt(props.totalResult)})
             </h1>
@@ -24,11 +24,17 @@ function Commentar(props) {
                     </button>
                 ) : null}
                 {props.toResult < props.totalResult ? (
-                    <button onClick={() => props.setPage((c) => c + 1)} style={{ padding: '20px' }}>
+                    <button onClick={() => props.setPage((c) => c + 1)}>
                         selanjutnya
                     </button>
                 ) : null}
             </div>
+            <form className='form-comment' onSubmit={props.submitKomentar}>
+                <textarea name="" rows="4" placeholder='Masukkan Komentar' name="isi_komentar"
+                    onChange={props.handleFormKomentar}
+                    value={props.formKomentar.isi_komentar}></textarea>
+                <button type="submit">Buat Komentar</button>
+            </form>
         </div>
     )
 }

@@ -82,8 +82,17 @@
   border-radius: 5px;
   color: #d43e2a;
 }
-.right.dark>h1 {
+.right.dark {
   color: white !important;
+}
+.header-player{
+  display: flex;
+  justify-content: space-between;
+}
+.header-player>button{
+  border-radius: 10px;
+  padding:10px 20px;
+  cursor:pointer;
 }
 @media only screen and (max-width: 768px) {
   .body-course-playing > div:nth-child(1) {
