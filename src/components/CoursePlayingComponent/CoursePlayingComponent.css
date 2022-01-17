@@ -1,7 +1,7 @@
 .body-course-playing {
   display: flex;
   justify-content: space-between;
-  max-height: 100vh;
+  min-height: 100vh;
   margin-top: 80px;
   transition: 0.4s;
 }
@@ -82,7 +82,9 @@
   border-radius: 5px;
   color: #d43e2a;
 }
-
+.right.dark>h1 {
+  color: white !important;
+}
 @media only screen and (max-width: 768px) {
   .body-course-playing > div:nth-child(1) {
     transition: 0.4s;

@@ -6,7 +6,6 @@ import Commentar from './Commentar/Commentar.jsx';
 function CoursePlayingComponent(props) {
     const { theme, setTheme } = useContext(ThemeContext);
     const [togleNav, settogleNav] = useState(false)
-    const [state, setstate] = useState('https://www.youtube.com/embed/JR9wsVYp8RQ')
     useEffect(() => {
 
     }, [])
@@ -42,7 +41,7 @@ function CoursePlayingComponent(props) {
                         })}
                 </div>
             </div>
-            <div className={`${togleNav ? 'hide' : ''} right`}>
+            <div className={`${togleNav ? 'hide' : ''} right ${theme == 'dark' ? 'dark' : ''} `}>
                 <h1>{props.materi.judul}</h1>
                 <iframe
                     width={"100%"}
@@ -50,7 +49,6 @@ function CoursePlayingComponent(props) {
                     src={`https://www.youtube.com/embed/${props.materi.link_video}`}
 
                 ></iframe>
-                <h1>1{state.duration}</h1>
                 <Commentar
                     handleFormKomentar={props.handleFormKomentar}
                     submitKomentar={props.submitKomentar}
@@ -62,7 +60,6 @@ function CoursePlayingComponent(props) {
                     page={props.page}
                     setPage={props.setPage}
                     isLoading={props.isLoading}
-
                 />
             </div>
         </div>
