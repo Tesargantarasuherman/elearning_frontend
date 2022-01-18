@@ -4,6 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useParams } from "react-router-dom";
 import BaseUrl from "../utils/BaseUrl";
+import API from '../services';
 export default function CoursePlaying() {
     const defaultData = {
         status: "ok",
@@ -83,9 +84,9 @@ export default function CoursePlaying() {
     }, [page, isRefresh, materi]);
 
     const getKursus = () => {
-        axios.get(`${BaseUrl}kursus/${1}/${login.data.id}`, axiosConfig).then((res) => {
-            setdata_class(res.data.data.data_kelas);
-        });
+        API.getCoursePlaying(id, login.data.id, axiosConfig).then(result => {
+            setdata_class(result.data.data_kelas);
+        })
     };
     const getLastWatch = () => {
         axios
@@ -105,7 +106,7 @@ export default function CoursePlaying() {
                 `${BaseUrl}komentar/${id}/${data ? data.kelas_id : materi.kelas_id}/${data ? data.materi_id : materi.id}?page=${page}`
             )
             .then((result) => {
-                setstateData((current) => {
+                setstateData(() => {
                     return {
                         ...result,
                         articles: [...result.data.data.data],

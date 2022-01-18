@@ -7,12 +7,13 @@ import BaseUrl from "../utils/BaseUrl";
 import axiosConfig from "../utils/Config";
 import { ToastContainer, toast } from "react-toastify";
 import LoginComponent from "../components/Login/LoginComponent";
+import API from "../services";
 function Login() {
   const [isSubmiting, setIsSubmiting] = useState(false);
   const [formLogin, setFormLogin] = useState({ email: "", password: null });
   const { login, setLogin } = useContext(AuthContext);
-  const [errLogin,setErrorLogin] =useState('')
-  const [errActive,setErrActive] =useState('unactive')
+  const [errLogin, setErrorLogin] = useState('')
+  const [errActive, setErrActive] = useState('unactive')
   const history = useHistory();
 
   const handleChangeFormLogin = (e) => {
@@ -30,26 +31,27 @@ function Login() {
   const handleLogin = (e) => {
     e.preventDefault()
     setIsSubmiting(true);
-    axios
-      .post(`${BaseUrl}login`, formLogin, axiosConfig)
-      .then((res) => {
-        toast.success("Berhasil Login");
-        setTimeout(() => {
-          localStorage.setItem("data_user", JSON.stringify(res.data.data));
-          setLogin(JSON.parse(localStorage.getItem("data_user")));
-          history.goBack();
-        }, 1000);
-      })
-      .catch((err) => {
-        console.log('err',errActive)
-        setErrorLogin('Password Salah');
-        setErrActive('active');
-        setIsSubmiting(false);
-      });
+    API.postLogin(formLogin).then(res => {
+      localStorage.setItem("data_user", JSON.stringify(res.data.data));
+      setLogin(JSON.parse(localStorage.getItem("data_user")));
+      history.goBack();
+    })
+    // axios
+    //   .post(`${BaseUrl}login`, formLogin, axiosConfig)
+    //   .then((res) => {
+    //     toast.success("Berhasil Login");
+
+    //   })
+    //   .catch((err) => {
+    //     console.log('err', errActive)
+    //     setErrorLogin('Password Salah');
+    //     setErrActive('active');
+    //     setIsSubmiting(false);
+    //   });
   };
 
   return (
-    <LoginComponent errActive={errActive} errLogin={errLogin} handleLogin={handleLogin} handleChangeFormLogin={handleChangeFormLogin}/>
+    <LoginComponent errActive={errActive} errLogin={errLogin} handleLogin={handleLogin} handleChangeFormLogin={handleChangeFormLogin} />
   );
 }
 export default Login;
