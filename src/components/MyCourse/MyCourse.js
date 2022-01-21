@@ -3,10 +3,10 @@ import './MyCourse.css'
 import imgClassCourse from '../../images/Rectangle 12-5.png'
 import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 function MyCourse() {
-    let history = useHistory();
+    const navigate = useNavigate();
     const { theme, setTheme } = useContext(ThemeContext);
 
     return (
@@ -38,7 +38,7 @@ function MyCourse() {
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
                         </div>
                         <div>
-                            <button onClick={() => history.push('/course/playing')} >
+                            <button onClick={() => navigate('/course/playing')} >
                                 <span className='price'>Lanjutkan Belajar</span>
                                 <span className='next'>Ke Kursus</span>
                             </button>
@@ -54,7 +54,7 @@ function MyCourse() {
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
                         </div>
                         <div>
-                            <button onClick={() => history.push('/course/playing')} >
+                            <button onClick={() => navigate('/course/playing')} >
                                 <span className='price'>Lanjutkan Belajar</span>
                                 <span className='next'>Ke Kursus</span>
                             </button>
@@ -70,7 +70,7 @@ function MyCourse() {
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
                         </div>
                         <div>
-                            <button onClick={() => history.push('/course/playing')} >
+                            <button onClick={() => navigate('/course/playing')} >
                                 <span className='price'>Lanjutkan Belajar</span>
                                 <span className='next'>Ke Kursus</span>
                             </button>

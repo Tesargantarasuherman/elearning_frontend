@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContex";
 import { AuthContext } from "../../context/AuthContext";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router-dom";
 import '../Navbar/Styles/Navbar.css'
 import Logo from '../../images/logo-ureshii.png'
 import Profile from '../../images/male.png'
@@ -11,7 +11,7 @@ import { LangContext } from "../../context/LangContext";
 import { ThemeContext } from '../../context/ThemeContext';
 
 const Navbar = (props) => {
-  let history = useHistory();
+  const navigate = useNavigate();
   const { theme, setTheme } = useContext(ThemeContext);
   const { t, i18n } = useTranslation();
   const { login, setLogin } = useContext(AuthContext);
@@ -28,7 +28,7 @@ const Navbar = (props) => {
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
           </a>
           <a href="">
-            <img src={Logo} onClick={() => history.push('/')} width={40}/>
+            <img src={Logo} onClick={() => navigate('/')} width={40}/>
           </a>
           <a href="">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
@@ -41,11 +41,11 @@ const Navbar = (props) => {
       </div> */}
       <nav className={`${theme == 'dark' ? 'dark' : ''} `}>
         <div className="navbar-left">
-          <img src={Logo} onClick={() => history.push('/')} />
+          <img src={Logo} onClick={() => navigate('/')} />
         </div>
         <div className="navbar-right">
           <ul>
-            <li onClick={() => history.push('/course')}>{t('Navbar.1')}</li>
+            <li onClick={() => navigate('/course')}>{t('Navbar.1')}</li>
             <li>
               <select value={lang} onChange={(e) => props.handleClick(e.target.value)}>
                 <option value="id">Indonesia</option>
@@ -69,7 +69,7 @@ const Navbar = (props) => {
                 <img src={Profile} />
                 <div className={`dropdown-content ${theme == 'dark' ? 'dark' : ''} `}>
                   <ul>
-                    <li onClick={() => history.push('/user')}>{t('Profile.1')}</li>
+                    <li onClick={() => navigate('/user')}>{t('Profile.1')}</li>
                     <li>{t('Profile.2')}</li>
                     <li>{t('Profile.3')}</li>
                   </ul>

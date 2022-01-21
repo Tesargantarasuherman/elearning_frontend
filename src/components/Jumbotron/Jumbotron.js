@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import '../Jumbotron/Styles/Jumbotron.css'
 import imgJumbotron from '../../images/BG3.png'
 import { useTranslation } from 'react-i18next';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 
 function Jumbotron() {
-    let history = useHistory();
+    const navigate = useNavigate();
 
     const { t, i18n } = useTranslation();
     const { theme, setTheme } = useContext(ThemeContext);
@@ -20,8 +20,8 @@ function Jumbotron() {
                     {t('Jumbotron.2')}
                 </h2>
                 <div>
-                    <button onClick={() => history.push("/register")}>Register</button>
-                    <button onClick={() => history.push("/login")}>Login</button>
+                    <button onClick={() => navigate("/register")}>Register</button>
+                    <button onClick={() => navigate("/login")}>Login</button>
                 </div>
             </div>
             <div className="jumbotron-right">

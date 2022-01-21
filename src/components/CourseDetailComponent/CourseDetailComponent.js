@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import './CourseDetailComponent.css'
 import LogoUserRating from '../../images/male.png'
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { ThemeContext } from '../../context/ThemeContext';
 
 function CourseDetailComponent() {
-    let history = useHistory();
+    const navigate = useNavigate();
     const { theme, setTheme } = useContext(ThemeContext);
 
     return (
@@ -39,7 +39,7 @@ function CourseDetailComponent() {
                     <div className="card-course-detail-component">
                         <img src="https://class.buildwithangga.com/storage/assets/thumbnails/thumbnail%20kelas%203d%20design%20blender%20buildwith%20angga.png" alt="" />
                         <h1>Rp.700.000</h1>
-                        <button onClick={() => history.push('/course/checkout')}>Beli Sekarang</button>
+                        <button onClick={() => navigate('/course/checkout')}>Beli Sekarang</button>
                     </div>
                 </div>
             </div>

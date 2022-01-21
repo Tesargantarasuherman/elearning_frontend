@@ -1,11 +1,11 @@
 import React from 'react'
 import './ClassCourse.css'
 import imgClassCourse from '../../images/Rectangle 12-5.png'
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
-export default function ClassCourse(props) {
-    let history = useHistory();
+ function ClassCourse(props) {
+    const navigate = useNavigate();
     const { theme, setTheme } = useContext(ThemeContext);
     return (
         <div className={`class-course ${theme == 'dark' ? 'dark' : ''} `}>
@@ -35,7 +35,7 @@ export default function ClassCourse(props) {
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
                                 </div>
                                 <div>
-                                    <button onClick={() => history.push('/course/detail')} >
+                                    <button onClick={() => navigate('/detail')} >
                                         <span className='price'>Rp. 20.000</span>
                                         <span className='next'>Selengkapnya</span>
                                     </button>
@@ -48,3 +48,4 @@ export default function ClassCourse(props) {
         </div>
     )
 }
+export default ClassCourse;

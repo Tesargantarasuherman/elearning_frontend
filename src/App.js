@@ -1,11 +1,11 @@
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
   Link,
   useRouteMatch,
   useParams,
-  useHistory,
+  HashRouter,
 } from "react-router-dom";
 
 import "semantic-ui-css/semantic.min.css";
@@ -31,22 +31,26 @@ import Course from "./pages/Course";
 import CoursePlaying from "./pages/CoursePlaying";
 import CourseDetail from "./pages/CourseDetail";
 import CourseCheckout from "./pages/CourseCheckout";
+import HomeAdmin from "./pages/admin/HomeAdmin";
+import Main from './routes/main';
 
 function App() {
   const [value, setValue] = useState(0);
   const [lang, setLang] = useState(localStorage.getItem("lang"));
   const [theme, setTheme] = useState(localStorage.getItem("theme"));
+  const [role, setRole] = useState(null);
   const [login, setLogin] = useState(
     JSON.parse(localStorage.getItem("data_user"))
   );
-  const history = useHistory();
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
     setLogin(JSON.parse(localStorage.getItem("data_user")));
     actionSetLang()
     localStorage.setItem("theme", theme)
+    setRole(login?.data?.role)
   }, [lang, theme]);
+
   const Logout = () => {
     setTimeout(() => {
       localStorage.removeItem("data_user");
@@ -69,49 +73,60 @@ function App() {
     i18n.changeLanguage(lang);
   }
   return (
-    <Router>
+    <>
       <CartContext.Provider value={{ value, setValue }}>
         <AuthContext.Provider value={{ login, setLogin }}>
           <LangContext.Provider value={{ lang, setLang }}>
             <ThemeContext.Provider value={{ theme, setTheme }}>
-              <Navbar Logout={Logout} handleClick={handleClick} theme={theme} setThemeAction={setThemeAction} />
-              <Switch>
-                <Route exact path="/">
-                  <Home />
-                </Route>
-                <Route exact path="/course">
-                  <Course />
-                </Route>
-                <Route path="/login">{login ? <Home /> : <Login />}</Route>
-                <Route path="/register">
-                  <Register />
-                </Route>
-                <Route path="/blog">
-                  <Blog />
-                </Route>
-                <Route path="/course/detail">
-                  <CourseDetail />
-                </Route>
-                <Route path="/course/checkout">
-                  <CourseCheckout />
-                </Route>
-                <Route path="/course/playing/:id">
-                  <CoursePlaying />
-                </Route>
-                {/* <Route path="/my-class/:id">
-                {login ? <MyClass /> : <Login />}
-              </Route> */}
-                {/* <Route path="/kursus/:id">
-                {login ? <DetailKursus /> : <Login />}
-              </Route> */}
-                <Route path="/user">{login ? <User /> : <Login />}</Route>
-                <Route component={NotFound} />
-              </Switch>
+              {/* <Navbar Logout={Logout} handleClick={handleClick} theme={theme} setThemeAction={setThemeAction} />
+                <Switch> */}
+              <BrowserRouter>
+                <Main Logout={Logout} handleClick={handleClick} theme={theme} setThemeAction={setThemeAction}/>
+                {/* <Route exact path="/">
+                    <Home />
+                  </Route>
+                  <Route path="/login">{login ? <Home /> : <Login />}</Route>
+                  <Route path="/register">
+                    <Register />
+                  </Route>
+                  <Route path="/course">
+                    <Course />
+                  </Route>
+                  <Route exact path="/detail" >
+                    <CourseDetail />
+                  </Route> */}
+
+                {/* <Route path="/blog">
+                    <Blog />
+                  </Route> */}
+                {/* {
+                    role == "admin" ?
+                      (
+                        <Route path="/admin">
+                          <HomeAdmin />
+                        </Route>
+                      )
+                      :
+                      (
+                        <>
+                          <Route path="/course/detail">
+                            <CourseDetail />
+                          </Route>
+                          <Route path="/course/checkout">
+                            <CourseCheckout />
+                          </Route>
+                        </>
+                      )
+                  }
+                  <Route exact component={NotFound} /> */}
+                {/* </Switch> */}
+              </BrowserRouter>
             </ThemeContext.Provider>
           </LangContext.Provider>
         </AuthContext.Provider>
       </CartContext.Provider>
-    </Router>
+    </>
+
   );
 }
 

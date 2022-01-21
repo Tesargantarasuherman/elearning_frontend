@@ -11,12 +11,12 @@ import {
   Divider,
 } from "semantic-ui-react";
 import { CartContext } from "../context/CartContex";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
 const RowClass = (props) => {
   const { t, i18n } = useTranslation();
-  const history = useHistory();
+  const navigate = useNavigate();
   const { value, setValue } = useContext(CartContext);
   const iconPlay = {
     position: "absolute",
@@ -63,7 +63,7 @@ const RowClass = (props) => {
                     {Class.harga ? `Rp. ${Class.harga}` :null}
                   </p>
                   <a href="#" className="btn btn-danger" onClick={() =>
-                    history.push(`/${props.url}/${Class.id_kursus}`)
+                    navigate(`/${props.url}/${Class.id_kursus}`)
                   }
                   >
                     
