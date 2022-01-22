@@ -35,8 +35,8 @@ import { useContext } from 'react';
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
                                 </div>
                                 <div>
-                                    <button onClick={() => navigate('/detail')} >
-                                        <span className='price'>Rp. 20.000</span>
+                                    <button onClick={() => navigate(`/course/detail/${course.id_kursus}`)} >
+                                        <span className='price'>Rp. 20.000 </span>
                                         <span className='next'>Selengkapnya</span>
                                     </button>
                                 </div>
