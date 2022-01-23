@@ -14,12 +14,12 @@ const home = [
     },
     {
         path: `${root}/login`,
-        component: <Login/>,
+        component: <Login />,
         navbar: true,
     },
     {
         path: `${root}/register`,
-        component: <Register/>,
+        component: <Register />,
         navbar: true,
     },
 ];

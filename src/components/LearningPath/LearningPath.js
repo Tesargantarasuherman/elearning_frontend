@@ -1,6 +1,8 @@
 import React from 'react'
 import './LearningPath.css'
-import imgLearningPath from '../../images/Rectangle 12-2.png'
+import imgLearningPath2 from '../../images/success.png'
+import imgLearningPath1 from '../../images/done.png'
+import imgLearningPath from '../../images/excellent.png'
 import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
 function LearningPath() {

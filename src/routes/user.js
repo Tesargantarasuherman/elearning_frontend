@@ -8,7 +8,6 @@ const user = [
     {
         path: `${root}`,
         component: <User />,
-        navbar: true,
         sidebar:true,
     },
     {
