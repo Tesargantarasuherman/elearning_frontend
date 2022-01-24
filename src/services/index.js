@@ -13,9 +13,9 @@ const Get = (path) => {
     })
     return promise
 }
-const Post =(path,data)=>{
+const Post = (path, data) => {
     const promise = new Promise((resolve, reject) => {
-        axios.post(`${RootPath}${path}`,data).then((result) => {
+        axios.post(`${RootPath}${path}`, data).then((result) => {
             resolve(result)
         }, (err) => {
             reject(err);
@@ -26,7 +26,7 @@ const Post =(path,data)=>{
 
 const getCoursePlaying = (idKursus, idUser, axiosConfig) => Get(`kursus/${idKursus}/${idUser}`, axiosConfig)
 // Post
-const postLogin = (data)=>Post('login',data)
+const postLogin = (data) => Post('login', data)
 const API = {
     getCoursePlaying,
     postLogin
