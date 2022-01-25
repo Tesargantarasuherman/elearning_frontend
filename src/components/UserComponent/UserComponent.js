@@ -17,7 +17,7 @@ function UserComponent(props) {
         setactive({ active: _uri[1] });
     }, [])
 
-// 
+    // 
     const toggleBtn = () => {
         settogleNav(!togleNav)
     }
@@ -39,7 +39,9 @@ function UserComponent(props) {
     };
     return (
         <>
-            <button onClick={toggleBtn}>=</button>
+            <button onClick={toggleBtn} className={`${togleNav ? 'back' : ''} btn-toggle-user`}>
+                <ion-icon name="menu-outline"></ion-icon>
+            </button>
             <div className={`user-component ${theme == 'dark' ? 'dark' : ''} `}>
                 <div className={`${togleNav ? 'back' : ''} left `}>
                     <div className="user-description">
@@ -51,8 +53,8 @@ function UserComponent(props) {
                     </div>
                     <div className="user-menu">
                         <ul>
-                            <li onClick={() => setactive({ active: "course" })} className={`${active.active =='course' ? 'active':''}`}><a href="#course">My Course</a> </li>
-                            <li onClick={() => setactive({ active: "profile" })} className={`${active.active =='profile' ? 'active':''}`}><a href="#profile">Profile</a> </li>
+                            <li onClick={() => setactive({ active: "course" })} className={`${active.active == 'course' ? 'active' : ''}`}><a href="#course">My Course</a> </li>
+                            <li onClick={() => setactive({ active: "profile" })} className={`${active.active == 'profile' ? 'active' : ''}`}><a href="#profile">Profile</a> </li>
                             <li>Logout</li>
                         </ul>
                     </div>

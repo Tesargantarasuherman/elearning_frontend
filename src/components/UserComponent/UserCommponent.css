@@ -1,5 +1,4 @@
 .user-component{
-    padding-top:60px;
     height:100vh;
     display:flex;
     justify-content: space-between;
@@ -16,6 +15,33 @@
     left: -350px;
     transition: 2s;
 }
+.btn-toggle-user{
+    right: 0;
+    padding: 10px 20px;
+    background-color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 24px;
+    color: white;
+    background-color:  #D43E2A;
+    min-width: 340px;
+    margin:10px;
+    border-radius:5px;
+}
+.btn-toggle-user.back{
+    left: -300px;
+    transition: 2s;
+    position: fixed;
+
+}
+.btn-toggle-user>ion-icon{
+    margin-left:280px;
+}
+
 
 .user-component>div:nth-child(1){
     flex:1;
