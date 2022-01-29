@@ -2,6 +2,7 @@
     height:100vh;
     display:flex;
     justify-content: space-between;
+    position:relative;
 }
 .user-component.dark{
     background-color:black;
@@ -10,15 +11,14 @@
 .user-component.dark>.left{
     background-color: rgb(24,24,24);
 }
-.user-component>.back{
+.user-component>.left.back{
     position: fixed;
     left: -350px;
     transition: 2s;
 }
-.btn-toggle-user{
-    right: 0;
+.user-component>.left>div>button{
+    left: 10px;  
     padding: 10px 20px;
-    background-color: white;
     border: none;
     text-align: center;
     text-decoration: none;
@@ -27,19 +27,54 @@
     font-weight: 500;
     font-size: 24px;
     color: white;
-    background-color:  #D43E2A;
-    min-width: 340px;
+    max-width: 320px;
     margin:10px;
     border-radius:5px;
+    background-color:  #D43E2A;
+    z-index: 99999 !important;
 }
-.btn-toggle-user.back{
-    left: -300px;
+.user-component>.left.back>div>button{
+    left: 10px;  
+    position: fixed;
+    padding: 10px 20px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 24px;
+    color: white;
+    max-width: 320px;
+    margin:10px;
+    border-radius:5px;
+    background-color:  #D43E2A;
+    z-index: 99999 !important;
+}
+/* .btn-toggle-user{
+    right: 0;
+    padding: 10px 20px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 24px;
+    color: white;
+    max-width: 320px;
+    margin:10px;
+    border-radius:5px;
+} */
+.user-setting.back{
+    left: -100px;
     transition: 2s;
     position: fixed;
 
 }
-.btn-toggle-user>ion-icon{
-    margin-left:280px;
+.user-component>.btn-toggle-user{
+    position:absolute;
+    left:50;
 }
 
 

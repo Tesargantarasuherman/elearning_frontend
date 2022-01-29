@@ -7,6 +7,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 
 function UserComponent(props) {
     const { theme, setTheme } = useContext(ThemeContext);
+    const [lang, setLang] = useState(localStorage.getItem("lang"));
     const [togleNav, settogleNav] = useState(false)
     const [active, setactive] = useState({ active: null });
     const [url, setUrl] = useState('')
@@ -17,6 +18,18 @@ function UserComponent(props) {
         setactive({ active: _uri[1] });
     }, [])
 
+    const setThemeAction = () => {
+        if (theme == "dark") {
+            setTheme("light");
+        }
+        else {
+            setTheme("dark");
+        }
+    }
+    function handleClick(_lang) {
+        localStorage.setItem("lang", _lang)
+        setLang(_lang)
+    }
     // 
     const toggleBtn = () => {
         settogleNav(!togleNav)
@@ -39,11 +52,27 @@ function UserComponent(props) {
     };
     return (
         <>
-            <button onClick={toggleBtn} className={`${togleNav ? 'back' : ''} btn-toggle-user`}>
-                <ion-icon name="menu-outline"></ion-icon>
-            </button>
             <div className={`user-component ${theme == 'dark' ? 'dark' : ''} `}>
                 <div className={`${togleNav ? 'back' : ''} left `}>
+                    <div>
+                        <button onClick={toggleBtn} className={`btn-toggle-user`}>
+                            <ion-icon name="menu-outline"></ion-icon>
+                        </button>
+                        {
+                            theme == 'dark' ? (<label className="switch">
+                                <input type="checkbox" onClick={setThemeAction} checked />
+                                <span className="slider round"></span>
+                            </label>)
+                                : (<label className="switch">
+                                    <input type="checkbox" onClick={setThemeAction} />
+                                    <span className="slider round"></span>
+                                </label>)
+                        }
+                        <select value={lang} onChange={(e) => handleClick(e.target.value)}>
+                            <option value="id">Indonesia</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
                     <div className="user-description">
                         <img src={imgProfile} alt="" />
                         <div>
