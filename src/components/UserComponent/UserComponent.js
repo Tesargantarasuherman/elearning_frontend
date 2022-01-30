@@ -4,8 +4,10 @@ import imgProfile from '../../images/male.png'
 import MyCourse from '../MyCourse/MyCourse'
 import Profile from '../Profile/Profile'
 import { ThemeContext } from '../../context/ThemeContext';
+import { useTranslation } from 'react-i18next';
 
 function UserComponent(props) {
+    const { t, i18n } = useTranslation();
     const { theme, setTheme } = useContext(ThemeContext);
     const [lang, setLang] = useState(localStorage.getItem("lang"));
     const [togleNav, settogleNav] = useState(false)
@@ -15,8 +17,9 @@ function UserComponent(props) {
         let uri_ = window.location.href;
         let _uri = [];
         _uri = uri_.split('#')
+        actionSetLang()
         setactive({ active: _uri[1] });
-    }, [])
+    }, [lang, theme])
 
     const setThemeAction = () => {
         if (theme == "dark") {
@@ -25,6 +28,9 @@ function UserComponent(props) {
         else {
             setTheme("dark");
         }
+    }
+    function actionSetLang() {
+        i18n.changeLanguage(lang);
     }
     function handleClick(_lang) {
         localStorage.setItem("lang", _lang)
@@ -82,8 +88,8 @@ function UserComponent(props) {
                     </div>
                     <div className="user-menu">
                         <ul>
-                            <li onClick={() => setactive({ active: "course" })} className={`${active.active == 'course' ? 'active' : ''}`}><a href="#course">My Course</a> </li>
-                            <li onClick={() => setactive({ active: "profile" })} className={`${active.active == 'profile' ? 'active' : ''}`}><a href="#profile">Profile</a> </li>
+                            <li onClick={() => setactive({ active: "course" })} className={`${active.active == 'course' ? 'active' : ''}`}><a href="#course">{t('User.1')}</a> </li>
+                            <li onClick={() => setactive({ active: "profile" })} className={`${active.active == 'profile' ? 'active' : ''}`}><a href="#profile">{t('User.2')}</a> </li>
                             <li>Logout</li>
                         </ul>
                     </div>

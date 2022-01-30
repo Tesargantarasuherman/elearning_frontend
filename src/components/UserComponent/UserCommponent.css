@@ -1,5 +1,5 @@
 .user-component {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -100,8 +100,8 @@
 .user-component > div:nth-child(1) {
   flex: 1;
   background-color: #d43e2a;
-  height: 98vh;
-  margin: 10px 0px 0px 10px;
+  min-height: 98vh;
+  margin: 10px 0px 10px 10px;
   border-radius: 10px;
 }
 .user-component > div:nth-child(2) {
@@ -145,4 +145,9 @@
 }
 .user-menu > ul > li > a {
   color: white;
+}
+@media only screen and (max-width: 768px) {
+    .user-component > div:nth-child(2) {
+        margin-top:100px;
+      }
 }
