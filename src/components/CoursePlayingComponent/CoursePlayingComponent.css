@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   min-height: 100vh;
-  margin-top: 80px;
   transition: 0.4s;
 }
 .body-course-playing.dark {
@@ -16,7 +15,6 @@
   flex: 1;
   background-color: #d43e2a;
   min-height: 95vh;
-  overflow-y: scroll;
 }
 .body-course-playing.dark > div:nth-child(1) {
   background-color: black;
@@ -40,12 +38,15 @@
   font-weight: 500;
   font-size: 20px;
   color: #d43e2a;
+  border-radius: 5px;
+  margin:5px;
 }
 .left.hide {
   position: fixed;
   left: -330px !important;
   transition: 0.5s;
   overflow-y: hidden;
+  height: 100vh;
 }
 
 .list-playing {
@@ -99,7 +100,6 @@
     transition: 0.4s;
     flex: 4;
     background-color: #d43e2a;
-    min-height: 95vh;
     overflow-y: scroll;
   }
   .body-course-playing.dark > div:nth-child(1) {

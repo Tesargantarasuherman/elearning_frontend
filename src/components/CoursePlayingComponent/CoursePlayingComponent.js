@@ -16,7 +16,9 @@ function CoursePlayingComponent(props) {
         <div className={`body-course-playing ${theme == 'dark' ? 'dark' : ''} `}>
             <div className={`${togleNav ? 'hide' : ''} left `}>
                 <div className="body-btn-toggle">
-                    <button className="btn-toggle" onClick={toggleBtn}>X</button>
+                    <button className="btn-toggle" onClick={toggleBtn}>
+                        <ion-icon name="menu-outline"></ion-icon>
+                    </button>
                 </div>
                 <div className={`${togleNav ? 'hide' : ''} list-playing`}>
                     {

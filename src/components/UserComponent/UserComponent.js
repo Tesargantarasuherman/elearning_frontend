@@ -12,7 +12,6 @@ function UserComponent(props) {
     const [lang, setLang] = useState(localStorage.getItem("lang"));
     const [togleNav, settogleNav] = useState(false)
     const [active, setactive] = useState({ active: null });
-    const [url, setUrl] = useState('')
     useEffect(() => {
         let uri_ = window.location.href;
         let _uri = [];
@@ -83,7 +82,6 @@ function UserComponent(props) {
                         <img src={imgProfile} alt="" />
                         <div>
                             <p>Tesar Gantara Suherman</p>
-                            <p>{url}</p>
                         </div>
                     </div>
                     <div className="user-menu">

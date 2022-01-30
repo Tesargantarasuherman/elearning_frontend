@@ -1,6 +1,7 @@
 import Course from "../pages/Course";
 import CourseDetail from "../pages/CourseDetail";
 import CourseCheckout from "../pages/CourseCheckout";
+import CoursePlaying from "../pages/CoursePlaying";
 
 const root = "/course";
 
@@ -21,6 +22,11 @@ const course = [
         path: `${root}/checkout/:id`,
         component: <CourseCheckout />,
         navbar: true,
+    },
+    {
+        path: `${root}/playing/:id`,
+        component: <CoursePlaying />,
+        navbar: false,
     },
 ];
 
