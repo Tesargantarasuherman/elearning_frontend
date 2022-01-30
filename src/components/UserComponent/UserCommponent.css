@@ -1,55 +1,76 @@
-.user-component{
-    height:100vh;
-    display:flex;
-    justify-content: space-between;
-    position:relative;
+.user-component {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
-.user-component.dark{
-    background-color:black;
-    color:white;
+.user-component > .left > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.user-component.dark>.left{
-    background-color: rgb(24,24,24);
+/* .user-component > .left > div>button:nth-child(1),.user-component > .left > div>button:nth-child(2) {
+    flex:1;
+} */
+.user-component > .left > div > label {
+  margin: 0px 20px;
 }
-.user-component>.left.back{
-    position: fixed;
-    left: -350px;
-    transition: 2s;
+.user-component > .left > div > select {
+  flex: 2;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #d43e2a;
+  color: white;
+  cursor:pointer;
 }
-.user-component>.left>div>button{
-    left: 10px;  
-    padding: 10px 20px;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 24px;
-    color: white;
-    max-width: 320px;
-    margin:10px;
-    border-radius:5px;
-    background-color:  #D43E2A;
-    z-index: 99999 !important;
+.user-component.dark {
+  background-color: black;
+  color: white;
 }
-.user-component>.left.back>div>button{
-    left: 10px;  
-    position: fixed;
-    padding: 10px 20px;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 24px;
-    color: white;
-    max-width: 320px;
-    margin:10px;
-    border-radius:5px;
-    background-color:  #D43E2A;
-    z-index: 99999 !important;
+.user-component.dark > .left {
+  background-color: rgb(24, 24, 24);
+}
+.user-component > .left.back {
+  position: fixed;
+  left: -350px;
+  transition: 2s;
+}
+.user-component > .left > div > button {
+  left: 20px;
+  top: 10px;
+  padding: 2px 5px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  max-width: 320px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #d43e2a;
+  z-index: 99999 !important;
+}
+.user-component > .left > div > button > ion-icon {
+  font-size: 24px;
+}
+.user-component > .left.back > div > button {
+  left: 10px;
+  position: fixed;
+  padding: 10px 20px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 24px;
+  color: white;
+  max-width: 320px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #d43e2a;
+  z-index: 99999 !important;
 }
 /* .btn-toggle-user{
     right: 0;
@@ -66,63 +87,62 @@
     margin:10px;
     border-radius:5px;
 } */
-.user-setting.back{
-    left: -100px;
-    transition: 2s;
-    position: fixed;
+.user-setting.back {
+  left: -100px;
+  transition: 2s;
+  position: fixed;
+}
+.user-component > .btn-toggle-user {
+  position: absolute;
+  left: 50;
+}
 
+.user-component > div:nth-child(1) {
+  flex: 1;
+  background-color: #d43e2a;
+  height: 98vh;
+  margin: 10px 0px 0px 10px;
+  border-radius: 10px;
 }
-.user-component>.btn-toggle-user{
-    position:absolute;
-    left:50;
+.user-component > div:nth-child(2) {
+  flex: 4;
+}
+.user-description {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:0px 10px;
 }
 
-
-.user-component>div:nth-child(1){
-    flex:1;
-    background-color:  #D43E2A;
-    height:90vh;
-    margin:10px 0px 0px 10px;
-    border-radius: 10px;
+.user-description > div {
+  font-size: 16px;
+  color: white;
+  font-weight: 500;
+  margin: 0px 20px;
+  align-items: center;
 }
-.user-component>div:nth-child(2){
-    flex:4;
+.user-description > img {
+  border-radius: 50%;
+  width: 60px;
 }
-.user-description{
-    margin-top:10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.user-menu {
+  display: block;
+  margin: 50px 0px;
 }
-.user-description>div{
-  margin:0px 20px;
+.user-menu > ul {
+  list-style: none;
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
 }
-.user-description>div{
-    font-size:16px;
-    color:white;
-    font-weight:500;
+.user-menu > ul > li {
+  margin: 20px 20px;
+  cursor: pointer;
 }
-.user-description>img{
-    border-radius: 50%;
-    width:80px;
+.active > a {
+  border-bottom: solid 1px white;
 }
-.user-menu{
-    display: block;
-    margin:50px 0px;
-}
-.user-menu>ul{
-    list-style: none;
-    font-size:18px;
-    color:white;
-    font-weight:500;
-}
-.user-menu>ul>li{
-    margin:20px 20px;
-    cursor: pointer;
-}
-.active>a{
-    border-bottom: solid 1px white;
-}
-.user-menu>ul>li>a{
-    color:white;
+.user-menu > ul > li > a {
+  color: white;
 }

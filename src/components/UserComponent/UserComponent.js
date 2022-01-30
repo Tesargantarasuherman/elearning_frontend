@@ -58,6 +58,10 @@ function UserComponent(props) {
                         <button onClick={toggleBtn} className={`btn-toggle-user`}>
                             <ion-icon name="menu-outline"></ion-icon>
                         </button>
+                        <select value={lang} onChange={(e) => handleClick(e.target.value)}>
+                            <option value="id">Indonesia</option>
+                            <option value="en">English</option>
+                        </select>
                         {
                             theme == 'dark' ? (<label className="switch">
                                 <input type="checkbox" onClick={setThemeAction} checked />
@@ -68,10 +72,6 @@ function UserComponent(props) {
                                     <span className="slider round"></span>
                                 </label>)
                         }
-                        <select value={lang} onChange={(e) => handleClick(e.target.value)}>
-                            <option value="id">Indonesia</option>
-                            <option value="en">English</option>
-                        </select>
                     </div>
                     <div className="user-description">
                         <img src={imgProfile} alt="" />
