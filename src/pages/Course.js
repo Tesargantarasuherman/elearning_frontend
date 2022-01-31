@@ -7,9 +7,11 @@ function Course() {
     const [dataCourse, setDataCourse] = useState([]);
 
     useEffect(() => {
-      axios.get(`${BaseUrl}kursus`).then((res) => {
-        setDataCourse(res.data.data);
-      });
+      setTimeout(() => {        
+        axios.get(`${BaseUrl}kursus`).then((res) => {
+          setDataCourse(res.data.data);
+        });
+      }, 3000);
     }, []);
     return (
         <ClassCourse dataCourse={dataCourse}/>

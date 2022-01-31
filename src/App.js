@@ -33,6 +33,7 @@ import CourseDetail from "./pages/CourseDetail";
 import CourseCheckout from "./pages/CourseCheckout";
 import HomeAdmin from "./pages/admin/HomeAdmin";
 import Main from './routes/main';
+import { Offline, Online } from "react-detect-offline";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -74,6 +75,9 @@ function App() {
   }
   return (
     <>
+      <div>
+        <Offline>Only shown offline (surprise!)</Offline>
+      </div>
       <CartContext.Provider value={{ value, setValue }}>
         <AuthContext.Provider value={{ login, setLogin }}>
           <LangContext.Provider value={{ lang, setLang }}>
@@ -81,7 +85,7 @@ function App() {
               {/* <Navbar Logout={Logout} handleClick={handleClick} theme={theme} setThemeAction={setThemeAction} />
                 <Switch> */}
               <BrowserRouter>
-                <Main Logout={Logout} handleClick={handleClick} theme={theme} setThemeAction={setThemeAction}/>
+                <Main Logout={Logout} handleClick={handleClick} theme={theme} setThemeAction={setThemeAction} />
                 {/* <Route exact path="/">
                     <Home />
                   </Route>

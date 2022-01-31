@@ -1,6 +1,7 @@
 .class-course {
-  margin-top:80px;
+  margin-top: 80px;
   transition: 0.4s;
+  min-height: 100vh;
 }
 .class-course.dark {
   background-color: black;
@@ -40,7 +41,7 @@
   cursor: pointer;
 }
 .btn-category-class > button:nth-child(2) {
-  margin:0px 20px;
+  margin: 0px 20px;
 }
 .btn-category-class > button.active {
   border: #d43e2a solid 2px;
@@ -53,8 +54,13 @@
   flex-wrap: wrap;
   width: 100%;
 }
+.loader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .data-class-course > * {
-  background-color: rgb(246,248,253);
+  background-color: rgb(246, 248, 253);
   max-width: 346px;
   min-height: 450px;
   flex: 1;
@@ -63,16 +69,16 @@
   border-radius: 5px;
 }
 .data-class-course.dark > * {
-  background-color: rgb(24,24,24);
+  background-color: rgb(24, 24, 24);
 }
 .data-class-course > * > div:nth-child(1) {
-  padding: 0px 20px ;
+  padding: 0px 20px;
 }
 .data-class-course > * > div > h3 {
-  padding: 0px 10px ;
+  padding: 0px 10px;
 }
 .data-class-course > * > div > p {
-  padding: 0px 10px ;
+  padding: 0px 10px;
 }
 
 .data-class-course > * > div > button {
@@ -87,21 +93,19 @@
   background-color: #d43e2a;
   cursor: pointer;
 }
-.data-class-course > * > div > button>.next {
+.data-class-course > * > div > button > .next {
   display: none;
 }
-.data-class-course > * > div > button:hover .next{
+.data-class-course > * > div > button:hover .next {
   display: block;
-
 }
-.data-class-course > * > div > button:hover .price{
+.data-class-course > * > div > button:hover .price {
   display: none;
-
 }
 
 .data-class-course > div > .type-class-course {
-  position: absolute ;
-  top: 5% ;
+  position: absolute;
+  top: 5%;
   right: 5%;
   background-color: white;
   padding: 2px 5px;
@@ -116,7 +120,7 @@
 }
 /*  */
 
-.alert.visible{
+.alert.visible {
   display: block;
 }
 @media only screen and (min-width: 960px) {
