@@ -51,8 +51,6 @@ function ClassCourse(props) {
                 :
                 <div className='loader'>
                     <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
                 </div>
             }
         </div>
