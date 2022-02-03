@@ -82,48 +82,8 @@ function App() {
         <AuthContext.Provider value={{ login, setLogin }}>
           <LangContext.Provider value={{ lang, setLang }}>
             <ThemeContext.Provider value={{ theme, setTheme }}>
-              {/* <Navbar Logout={Logout} handleClick={handleClick} theme={theme} setThemeAction={setThemeAction} />
-                <Switch> */}
               <BrowserRouter>
                 <Main Logout={Logout} handleClick={handleClick} theme={theme} setThemeAction={setThemeAction} />
-                {/* <Route exact path="/">
-                    <Home />
-                  </Route>
-                  <Route path="/login">{login ? <Home /> : <Login />}</Route>
-                  <Route path="/register">
-                    <Register />
-                  </Route>
-                  <Route path="/course">
-                    <Course />
-                  </Route>
-                  <Route exact path="/detail" >
-                    <CourseDetail />
-                  </Route> */}
-
-                {/* <Route path="/blog">
-                    <Blog />
-                  </Route> */}
-                {/* {
-                    role == "admin" ?
-                      (
-                        <Route path="/admin">
-                          <HomeAdmin />
-                        </Route>
-                      )
-                      :
-                      (
-                        <>
-                          <Route path="/course/detail">
-                            <CourseDetail />
-                          </Route>
-                          <Route path="/course/checkout">
-                            <CourseCheckout />
-                          </Route>
-                        </>
-                      )
-                  }
-                  <Route exact component={NotFound} /> */}
-                {/* </Switch> */}
               </BrowserRouter>
             </ThemeContext.Provider>
           </LangContext.Provider>

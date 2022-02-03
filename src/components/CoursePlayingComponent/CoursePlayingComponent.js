@@ -3,7 +3,11 @@ import './CoursePlayingComponent.css'
 import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
 import Commentar from './Commentar/Commentar.jsx';
+import { useTranslation } from 'react-i18next';
+
 function CoursePlayingComponent(props) {
+    const { t, i18n } = useTranslation();
+    const [lang, setLang] = useState(localStorage.getItem("lang"));
     const { theme, setTheme } = useContext(ThemeContext);
     const [togleNav, settogleNav] = useState(false)
     useEffect(() => {
@@ -12,10 +16,42 @@ function CoursePlayingComponent(props) {
     const toggleBtn = () => {
         settogleNav(!togleNav)
     }
+    function actionSetLang() {
+        i18n.changeLanguage(lang);
+    }
+    function handleClick(_lang) {
+        localStorage.setItem("lang", _lang)
+        setLang(_lang)
+    }
+    const setThemeAction = () => {
+        if (theme == "dark") {
+            setTheme("light");
+        }
+        else {
+            setTheme("dark");
+        }
+    }
     return (
         <div className={`body-course-playing ${theme == 'dark' ? 'dark' : ''} `}>
             <div className={`${togleNav ? 'hide' : ''} left `}>
                 <div className="body-btn-toggle">
+                    <button className="btn-toggle">
+                        <ion-icon name="return-up-back-outline"></ion-icon>
+                    </button>
+                    <select value={lang} onChange={(e) => handleClick(e.target.value)}>
+                        <option value="id">Indonesia</option>
+                        <option value="en">English</option>
+                    </select>
+                    {
+                        theme == 'dark' ? (<label className="switch">
+                            <input type="checkbox" onClick={setThemeAction} checked />
+                            <span className="slider round"></span>
+                        </label>)
+                            : (<label className="switch">
+                                <input type="checkbox" onClick={setThemeAction} />
+                                <span className="slider round"></span>
+                            </label>)
+                    }
                     <button className="btn-toggle" onClick={toggleBtn}>
                         <ion-icon name="menu-outline"></ion-icon>
                     </button>

@@ -72,21 +72,6 @@
   background-color: #d43e2a;
   z-index: 99999 !important;
 }
-/* .btn-toggle-user{
-    right: 0;
-    padding: 10px 20px;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 24px;
-    color: white;
-    max-width: 320px;
-    margin:10px;
-    border-radius:5px;
-} */
 .user-setting.back {
   left: -100px;
   transition: 2s;

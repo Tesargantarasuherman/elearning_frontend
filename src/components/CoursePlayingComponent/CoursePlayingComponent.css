@@ -24,11 +24,19 @@
 }
 .body-btn-toggle {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+.body-course-playing > .left > .body-btn-toggle > select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #d43e2a;
+  color: white;
+  cursor:pointer;
 }
 .btn-toggle {
   right: 0;
-  padding: 10px 20px;
+  padding: 5px 10px;
   background-color: white;
   border: none;
   text-align: center;
@@ -36,17 +44,26 @@
   display: inline-block;
   cursor: pointer;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   color: #d43e2a;
   border-radius: 5px;
   margin:5px;
 }
 .left.hide {
   position: fixed;
-  left: -330px !important;
+  left: -400px !important;
   transition: 0.5s;
   overflow-y: hidden;
   height: 100vh;
+}
+.left.hide>.body-btn-toggle>.btn-toggle {
+  left: 0px !important;
+  top:5px;
+  padding: 10px 20px;
+  position: fixed;
+  background-color: #d43e2a;
+  color:white;
+  
 }
 
 .list-playing {
@@ -89,6 +106,14 @@
 .header-player{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+}
+.header-player>h1{
+  align-items: center;
+  text-align: center;
+  padding-top: 20px;
 }
 .header-player>button{
   border-radius: 10px;
