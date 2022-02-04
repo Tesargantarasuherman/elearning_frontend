@@ -92,6 +92,7 @@ export default function CoursePlaying() {
         axios
             .get(`${BaseUrl}terakhir-ditonton/${login.data.id}/${id}`, axiosConfig)
             .then((res) => {
+                console.log(res.data.data.history[0])
                 setterakhirdilihat(res.data.data.history[0]);
                 setMateriOnload(res.data.data.history[0]);
             });
@@ -192,6 +193,7 @@ export default function CoursePlaying() {
                 setPage={setPage}
                 isLoading={isLoading}
                 selesaiKursus={selesaiKursus}
+                terakhirdilihat={terakhirdilihat}
             />
         </div>
     )

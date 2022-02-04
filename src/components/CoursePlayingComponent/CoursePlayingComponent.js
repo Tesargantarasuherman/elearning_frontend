@@ -65,12 +65,15 @@ function CoursePlayingComponent(props) {
                                     <ul>
                                         {clas.materi.map((materi, row) => {
                                             return (
-                                                <li><button onClick={() => props.handleItemClick(materi, row)}>
-                                                    {materi.judul}
-                                                    {materi.kelas_selesai.map(kelas_selesai => {
-                                                        return (
-                                                            kelas_selesai.user_id == props.login.data.id ? <ion-icon name="checkmark-circle-outline"></ion-icon> : '')
-                                                    })}</button></li>
+                                                <li>
+                                                    <button onClick={() => props.handleItemClick(materi, row)} className={`${props.terakhirdilihat.judul == materi.judul ? 'play-active' : ''} `}>
+                                                        <p>{materi.judul}</p>
+                                                        {materi.kelas_selesai.map(kelas_selesai => {
+                                                            return (
+                                                                kelas_selesai.user_id == props.login.data.id ? <ion-icon name="checkmark-circle-outline"></ion-icon> : '')
+                                                        })}
+                                                    </button>
+                                                </li>
                                             )
                                         })}
                                     </ul>

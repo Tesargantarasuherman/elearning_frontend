@@ -1,3 +1,9 @@
+.commentar {
+  margin-top: 50px;
+}
+.content-comment {
+  font-weight: bold;
+}
 .btn-nav-comment {
   display: flex;
   justify-content: space-between;
@@ -5,7 +11,12 @@
 .btn-nav-comment > button {
   padding: 10px 20px;
   border-radius: 5px;
-  cursor:pointer;
+  cursor: pointer;
+  background-color: #d43e2a !important;
+  color: white !important;
+}
+.time-comment {
+  font-style: italic;
 }
 .form-comment {
   width: 50%;
@@ -16,16 +27,29 @@
 .form-comment > textarea {
   flex: 3;
   border: solid 1px black;
-  border-radius:10px 0px 0px 10px;
-}
-.form-comment > textarea::placeholder {
-    
+  border-radius: 5px 0px 0px 5px;
+  padding: 10px 0px 0px 20px;
 }
 .form-comment > button {
   flex: 1;
-  border-radius:0px 10px 10px 0px;
-  cursor:pointer;
+  border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
+  background-color: #d43e2a !important;
+  color: white !important;
+  font-size: 16px;
+  font-weight: bold;
 }
 .commentar.dark {
   color: white;
+}
+@media only screen and (max-width: 768px) {
+  .form-comment{
+    width: 100%;
+  }
+  .form-comment > textarea {
+    flex: 2;
+  }
+  .form-comment > button {
+    font-size: 12px;
+  }
 }

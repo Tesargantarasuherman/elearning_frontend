@@ -85,20 +85,33 @@
 }
 .list-playing > ul > li > button {
   padding: 5px 20px;
-  min-width: 200px;
-  min-height: 30px;
+  min-width: 300px;
+  height: 30px;
   text-align: center;
   background-color: white;
   margin: 2px 0px;
   border: none;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display:flex;
+  justify-content: space-between;
   cursor: pointer;
   font-weight: 500;
   font-size: 16px;
   border-radius: 5px;
   color: #d43e2a;
+  text-transform: capitalize;
+  margin-bottom:5px;
+}
+.list-playing > ul > li > button>{
+  text-align: end !;
+}
+.list-playing > ul > li > button.play-active{
+  background-color:  #d43e2a!important;
+  color:   white!important;
+  border:solid 1px white;
+  border-radius: 5px;
+
 }
 .right.dark {
   color: white !important;
@@ -114,6 +127,7 @@
   align-items: center;
   text-align: center;
   padding-top: 20px;
+  text-transform: capitalize;
 }
 .header-player>button{
   border-radius: 10px;
@@ -123,6 +137,7 @@
   color: white !important;
 
 }
+
 @media only screen and (max-width: 768px) {
   .body-course-playing > div:nth-child(1) {
     transition: 0.4s;
@@ -152,6 +167,9 @@
   }
   .right.hide {
     margin-left: 80px;
+  }
+  .left.hide {
+    left: -450px !important;
   }
 }
 @media only screen and (min-width: 960px) {
