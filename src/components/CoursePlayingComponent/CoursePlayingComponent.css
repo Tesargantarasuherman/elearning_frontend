@@ -119,6 +119,9 @@
   border-radius: 10px;
   padding:10px 20px;
   cursor:pointer;
+  background-color: #d43e2a;
+  color: white !important;
+
 }
 @media only screen and (max-width: 768px) {
   .body-course-playing > div:nth-child(1) {
@@ -132,6 +135,17 @@
   }
   .body-course-playing > div:nth-child(2) {
     flex: 6;
+  }
+  .class-player{
+    height: 300px !important;
+  }
+  .header-player>h1{
+    font-size: 14px !important;
+  }
+  .header-player>button{
+    border-radius: 5px;
+    padding:5px 10px;
+    font-size: 14px !important;
   }
   .right {
     margin: 20px;

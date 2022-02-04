@@ -89,7 +89,7 @@ function CoursePlayingComponent(props) {
                     width={"100%"}
                     height={700}
                     src={`https://www.youtube.com/embed/${props.materi.link_video}`}
-
+                    className='class-player'
                 ></iframe>
                 <Commentar
                     handleFormKomentar={props.handleFormKomentar}
