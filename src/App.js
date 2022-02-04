@@ -1,37 +1,14 @@
 import {
   BrowserRouter,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams,
-  HashRouter,
 } from "react-router-dom";
-
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
 import { CartContext } from "./context/CartContex";
 import { AuthContext } from "./context/AuthContext";
 import { useEffect, useState } from "react";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Blog from "./pages/Blog";
-// import MyClass from "./pages/MyClass";
-import User from "./pages/User";
-// import KursusSaya from "./pages/KursusSaya";
-// import DetailKursus from "./pages/DetailKursus";
-import NotFound from "./pages/NotFound";
-import { ToastContainer, toast } from "react-toastify";
 import { useTranslation } from 'react-i18next';
 import { LangContext } from "./context/LangContext";
 import { ThemeContext } from "./context/ThemeContext";
-import Register from "./pages/Register";
-import Course from "./pages/Course";
-import CoursePlaying from "./pages/CoursePlaying";
-import CourseDetail from "./pages/CourseDetail";
-import CourseCheckout from "./pages/CourseCheckout";
-import HomeAdmin from "./pages/admin/HomeAdmin";
 import Main from './routes/main';
 import { Offline, Online } from "react-detect-offline";
 
