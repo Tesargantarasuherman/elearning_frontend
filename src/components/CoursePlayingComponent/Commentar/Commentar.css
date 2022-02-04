@@ -23,6 +23,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
+  min-height: 60px;
 }
 .form-comment > textarea {
   flex: 3;

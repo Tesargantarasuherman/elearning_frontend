@@ -86,8 +86,8 @@ function UserComponent(props) {
                     </div>
                     <div className="user-menu">
                         <ul>
-                            <li onClick={() => setactive({ active: "course" })} className={`${active.active == 'course' ? 'active' : ''}`}><a href="#course">{t('User.1')}</a> </li>
-                            <li onClick={() => setactive({ active: "profile" })} className={`${active.active == 'profile' ? 'active' : ''}`}><a href="#profile">{t('User.2')}</a> </li>
+                            <li onClick={() => setactive({ active: "course" })} className={`${active.active == 'course' ? 'active' : ''}`}><a href="#course">{t('User.2')}</a> </li>
+                            <li onClick={() => setactive({ active: "profile" })} className={`${active.active == 'profile' ? 'active' : ''}`}><a href="#profile">{t('User.1')}</a> </li>
                             <li>Logout</li>
                         </ul>
                     </div>
