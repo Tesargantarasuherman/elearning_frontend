@@ -47,11 +47,11 @@ function UserComponent(props) {
                 );
             case "course":
                 return (
-                    <MyCourse />
+                    <MyCourse courseActive={props.courseActive}/>
                 );
             default:
                 return (
-                    <MyCourse />
+                    <MyCourse courseActive={props.courseActive}/>
                 );
         }
     };
@@ -81,7 +81,7 @@ function UserComponent(props) {
                     <div className="user-description">
                         <img src={imgProfile} alt="" />
                         <div>
-                            <p>Tesar Gantara Suherman</p>
+                            <p>{props.data_user.nama}</p>
                         </div>
                     </div>
                     <div className="user-menu">

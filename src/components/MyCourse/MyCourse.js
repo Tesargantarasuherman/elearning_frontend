@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 import { useNavigate } from "react-router-dom";
 
-function MyCourse() {
+function MyCourse({courseActive}) {
     const navigate = useNavigate();
     const { theme, setTheme } = useContext(ThemeContext);
 
@@ -28,54 +28,27 @@ function MyCourse() {
                     </button>
                 </div>
                 <div className={`row-my-course ${theme == 'dark' ? 'dark' : ''} `}>
-                    <div>
-                        <div className='type-class-course'>
-                            Premium
-                        </div>
-                        <img src={imgClassCourse} alt="" />
-                        <div>
-                            <h3>Lorem, ipsum dolor.</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
-                        </div>
-                        <div>
-                            <button onClick={() => navigate('/course/playing')} >
-                                <span className='price'>Lanjutkan Belajar</span>
-                                <span className='next'>Ke Kursus</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div>
-                        <div className='type-class-course'>
-                            Premium
-                        </div>
-                        <img src={imgClassCourse} alt="" />
-                        <div>
-                            <h3>Lorem, ipsum dolor.</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
-                        </div>
-                        <div>
-                            <button onClick={() => navigate('/course/playing')} >
-                                <span className='price'>Lanjutkan Belajar</span>
-                                <span className='next'>Ke Kursus</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div>
-                        <div className='type-class-course'>
-                            Premium
-                        </div>
-                        <img src={imgClassCourse} alt="" />
-                        <div>
-                            <h3>Lorem, ipsum dolor.</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
-                        </div>
-                        <div>
-                            <button onClick={() => navigate('/course/playing')} >
-                                <span className='price'>Lanjutkan Belajar</span>
-                                <span className='next'>Ke Kursus</span>
-                            </button>
-                        </div>
-                    </div>
+                    {
+                        courseActive.map(active => {
+                            return (
+                                <div>
+                                    <div className='type-class-course'>
+                                    {active.tipe_kursus}
+                                    </div>
+                                    <img src={imgClassCourse} alt="" />
+                                    <div>
+                                        <h3>{active.nama_kursus}.</h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, facere!</p>
+                                    </div>
+                                    <div>
+                                        <button  onClick={() => navigate(`/course/playing/${active.id_kursus}`)} >
+                                            <span className='price'>Lanjutkan Belajar</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </div>
