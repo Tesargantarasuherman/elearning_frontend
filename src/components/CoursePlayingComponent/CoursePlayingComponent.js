@@ -4,8 +4,10 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
 import Commentar from './Commentar/Commentar.jsx';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from "react-router-dom";
 
 function CoursePlayingComponent(props) {
+    const navigate = useNavigate();
     const { t, i18n } = useTranslation();
     const [lang, setLang] = useState(localStorage.getItem("lang"));
     const { theme, setTheme } = useContext(ThemeContext);
@@ -35,7 +37,7 @@ function CoursePlayingComponent(props) {
         <div className={`body-course-playing ${theme == 'dark' ? 'dark' : ''} `}>
             <div className={`${togleNav ? 'hide' : ''} left `}>
                 <div className="body-btn-toggle">
-                    <button className="btn-toggle">
+                    <button className="btn-toggle" onClick={() => navigate(`/user`)}>
                         <ion-icon name="return-up-back-outline"></ion-icon>
                     </button>
                     <select value={lang} onChange={(e) => handleClick(e.target.value)}>

@@ -18,13 +18,10 @@ function MyCourse({courseActive}) {
             <div className="my-course-body">
                 <div className="btn-type-my-course">
                     <button>
-                        lorem
+                        Menunggu Pembayaran
                     </button>
                     <button className="active-course">
-                        lorem
-                    </button>
-                    <button>
-                        lorem
+                        Kursus aktif
                     </button>
                 </div>
                 <div className={`row-my-course ${theme == 'dark' ? 'dark' : ''} `}>
@@ -43,6 +40,7 @@ function MyCourse({courseActive}) {
                                     <div>
                                         <button  onClick={() => navigate(`/course/playing/${active.id_kursus}`)} >
                                             <span className='price'>Lanjutkan Belajar</span>
+                                            <span className='next'>Ke Kursus</span>
                                         </button>
                                     </div>
                                 </div>

@@ -13,7 +13,7 @@ function Commentar(props) {
                         <>
                             <h2>{komentar.user.nama}</h2>
                             <p className='content-comment'>{komentar.isi_komentar}</p>
-                            <p className='time-comment'>{moment(komentar.created_at).startOf('hour').fromNow()}</p>
+                            <p className='time-comment'>{moment(komentar.created_at).calendar()}</p>
                         </>
                     );
                 })
