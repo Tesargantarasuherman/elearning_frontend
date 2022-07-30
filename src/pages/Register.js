@@ -27,7 +27,7 @@ function Register() {
         });
       };
     return (
-        <RegiserComponent handleChangeFormRegister={null} handleRegister={null}/>
+        <RegiserComponent handleChangeFormRegister={handleChangeFormRegister} handleRegister={handleRegister}/>
     )
 }
 

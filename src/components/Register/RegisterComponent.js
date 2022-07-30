@@ -22,7 +22,7 @@ const RegiserComponent =(props)=> {
                 <form onSubmit={props.handleRegister} className='form-register'>
                     <div className="form-group-register">
                         <div className="label">{t('Register.7')}</div>
-                        <input type="email" placeholder={`${t('Register.6')} ${t('Register.7')}`}name="nama" onChange={props.handleChangeFormRegister}/>
+                        <input type="text" placeholder={`${t('Register.6')} ${t('Register.7')}`}name="nama" onChange={props.handleChangeFormRegister}/>
                     </div>
                     <div className="form-group-register">
                         <div className="label">{t('Register.3')}</div>
