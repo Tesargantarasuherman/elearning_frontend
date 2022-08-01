@@ -10,6 +10,7 @@ import { LangContext } from "./context/LangContext";
 import { ThemeContext } from "./context/ThemeContext";
 import Main from './routes/main';
 import { Offline, Online } from "react-detect-offline";
+import history from "./utils/History";
 
 function App() {
   const [value, setValue] = useState(0);
