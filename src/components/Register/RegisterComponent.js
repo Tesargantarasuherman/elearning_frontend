@@ -30,10 +30,13 @@ class RegiserComponent extends React.Component {
             </div>
         )
     }
-    renderFailed =(param)=>{
-        if(param.isError){
+
+    componentDidUpdate(prevProps) {
+        if(
+            prevProps.register.errorMessage !== this.props.register.errorMessage
+        ){
             return(
-                toast.error(param.errorMessage, {
+                toast.error(this.props.register.errorMessage, {
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -43,11 +46,27 @@ class RegiserComponent extends React.Component {
                     progress: undefined,
                 })            
             )
-        }
+        }       
     }
+
+    // renderFailed =(param)=>{
+    //     if(param.isError){
+    //         return(
+    //             toast.error(param.errorMessage, {
+    //                 position: "top-right",
+    //                 autoClose: 5000,
+    //                 hideProgressBar: false,
+    //                 closeOnClick: true,
+    //                 pauseOnHover: true,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //             })            
+    //         )
+    //     }
+    // }
     onSubmit = (formValues) => {
         this.props.Register(formValues);
-        this.renderFailed(this.props.register);
+        // this.renderFailed(this.props.register);
     }
     componentDidMount(){
         
