@@ -11,6 +11,7 @@ import { ThemeContext } from "./context/ThemeContext";
 import Main from './routes/main';
 import { Offline, Online } from "react-detect-offline";
 import history from "./utils/History";
+import { ToastContainer} from "react-toastify";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -52,6 +53,7 @@ function App() {
   }
   return (
     <>
+    <ToastContainer />
       <div>
         <Offline>Only shown offline (surprise!)</Offline>
       </div>

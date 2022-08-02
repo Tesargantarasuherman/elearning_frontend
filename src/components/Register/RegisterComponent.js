@@ -7,7 +7,6 @@ import { useContext } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { Register } from '../../actions';
-import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 class RegiserComponent extends React.Component {
@@ -20,61 +19,23 @@ class RegiserComponent extends React.Component {
             )
         }
     }
-    renderInput = ({ input, title, label, meta }) => {
+    renderInput = ({ input, title, label, meta,type }) => {
         const className = `field ${meta.error && meta.touched ? 'error' : ''}`
         return (
             <div className={className}>
                 <label>{title}</label>
-                <input {...input} placeholder={label} autoComplete="off" />
+                <input {...input} placeholder={label} autoComplete="off" type={type}/>
                 {this.renderError(meta)}
             </div>
         )
     }
 
-    componentDidUpdate(prevProps) {
-        if(
-            prevProps.register.errorMessage !== this.props.register.errorMessage
-        ){
-            return(
-                toast.error(this.props.register.errorMessage, {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                })            
-            )
-        }       
-    }
-
-    // renderFailed =(param)=>{
-    //     if(param.isError){
-    //         return(
-    //             toast.error(param.errorMessage, {
-    //                 position: "top-right",
-    //                 autoClose: 5000,
-    //                 hideProgressBar: false,
-    //                 closeOnClick: true,
-    //                 pauseOnHover: true,
-    //                 draggable: true,
-    //                 progress: undefined,
-    //             })            
-    //         )
-    //     }
-    // }
     onSubmit = (formValues) => {
         this.props.Register(formValues);
-        // this.renderFailed(this.props.register);
-    }
-    componentDidMount(){
-        
-    }
+    }        
     render() {
         return (
             <div className={`register`}>
-                <ToastContainer />
                 <div className="register-body">
                     <div className="image-register">
                         <img src={Logo} />
@@ -84,10 +45,10 @@ class RegiserComponent extends React.Component {
                         <h2>Register</h2>
                     </div>
                     <form onSubmit={this.props.handleSubmit(this.onSubmit)} className='form-register ui form error'>
-                        <Field title="Nama" name="nama" component={this.renderInput} label="Masukkan Nama" />
-                        <Field title="Email" name="email" component={this.renderInput} label="Masukkan Email" />
-                        <Field title="Password" name="password" component={this.renderInput} label="Masukkan Password" />
-                        <Field title="Konfirmasi Password" name="password_confirmation" component={this.renderInput} label="Masukkan Konfirmasi Password" />
+                        <Field title="Nama" name="nama" type="text" component={this.renderInput} label="Masukkan Nama" />
+                        <Field title="Email" name="email" type="email" component={this.renderInput} label="Masukkan Email" />
+                        <Field title="Password" name="password" type="password" component={this.renderInput} label="Masukkan Password" />
+                        <Field title="Konfirmasi Password" type="password" name="password_confirmation" component={this.renderInput} label="Masukkan Konfirmasi Password" />
                         <button type="submit" className="btn-register">Register</button>
                     </form>
                 </div>
@@ -118,7 +79,7 @@ const formWrapped = reduxForm({
     validate: validate
 })(RegiserComponent);
 const mapStateToProps = (state) => ({
-    register: state.auth
+    
 })
 
 const mapDispatchToProps = {

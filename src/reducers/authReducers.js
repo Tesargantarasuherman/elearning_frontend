@@ -1,4 +1,4 @@
-import { ERROR_REGISTER, REGISTER, SIGN_IN, SIGN_OUT } from '../actions/types';
+import {REGISTER, SIGN_IN, SIGN_OUT } from '../actions/types';
 
 const INTIAL_STATE = {
   isSignedIn: null,
@@ -11,8 +11,6 @@ export default (state = INTIAL_STATE, action) => {
   switch (action.type) {
     case REGISTER:
       return { ...state, isSignedIn: true, userId: action.payload, errorMessage: null};
-    case ERROR_REGISTER:
-      return { ...state, isSignedIn: false,isError:true, errorMessage: action.payload, userId: null };
     case SIGN_IN:
       return { ...state, isSignedIn: true, userId: action.payload, errorMessage: null};
     case SIGN_OUT:
