@@ -37,8 +37,8 @@ export class Navbar extends Component {
               </select>
             </li>
             <li>
-            <button onClick={()=>this._setTheme('light')}>Light</button>
-            <button onClick={()=>this._setTheme('dark')}>Dark</button>
+            <button onClick={()=>this._setTheme('light')} className={`btn-theme ${this.props.theme.theme == 'light' ? 'active' : ''}`}>Light</button> 
+            <button onClick={()=>this._setTheme('dark')} className={`btn-theme ${this.props.theme.theme == 'dark' ? 'active' : ''}`}>Dark</button>
               {/* {
                 props.theme == 'dark' ? (<label className="switch">
                   <input type="checkbox" onClick={props.setThemeAction} checked />
