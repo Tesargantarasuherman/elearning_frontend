@@ -201,16 +201,6 @@ main p {
   justify-content: center;
   align-items: center;
 }
-.btn-theme{
-  border: 2px white solid;
-  padding:5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin:0px 5px;
-}
-.btn-theme.active{
-  background-color: #d43e2a;
-}
 @media screen and (min-width: 760px) {
   .bottom-nav {
     width: 100%;
