@@ -2,7 +2,7 @@ import axios from 'axios'
 import course from "../apis/course";
 import BaseUrl from '../utils/BaseUrl';
 import history from "../utils/History";
-import {REGISTER, SIGN_IN, SIGN_OUT } from "./types";
+import {REGISTER, SIGN_IN, SIGN_OUT,SET_THEME } from "./types";
 import { ToastContainer, toast } from "react-toastify";
 
 
@@ -41,4 +41,8 @@ export const signIn = (userId)=>{
         type:SIGN_IN,
         payload:userId
     }
+}
+export const setTheme = (theme)=>(dispatch)=>{
+    dispatch({type:SET_THEME,payload:theme})
+    localStorage.setItem('theme',theme)
 }
