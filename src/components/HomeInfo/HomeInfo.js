@@ -4,13 +4,14 @@ import ImgHomeInfo from '../../images/Rectangle 12-1.png'
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
+import { connect } from 'react-redux'
 
-export default function HomeInfo() {
+export const HomeInfo =(props)=> {
     const { t, i18n } = useTranslation();
     const { theme, setTheme } = useContext(ThemeContext);
 
     return (
-        <div className={`home-info ${theme == 'dark' ? 'dark' : ''} `}>
+        <div className={`home-info ${props.theme.theme == 'dark' ? 'dark' : ''} `}>
             <h1>{t('HomeInfo.1')}</h1>
             <div className="home-info-body">
                 <div>
@@ -23,3 +24,10 @@ export default function HomeInfo() {
         </div>
     )
 }
+const mapStateToProps = (state) => ({
+    theme: state.theme
+})
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeInfo)

@@ -5,11 +5,13 @@ import imgLearningPath1 from '../../images/done.png'
 import imgLearningPath from '../../images/excellent.png'
 import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
-function LearningPath() {
+import { connect } from 'react-redux'
+
+export const LearningPath = (props) => {
     const { theme, setTheme } = useContext(ThemeContext);
 
     return (
-        <div className={`learning-path ${theme == 'dark' ? 'dark' : ''} `}>
+        <div className={`learning-path ${props.theme.theme == 'dark' ? 'dark' : ''} `}>
             <h1>Core practice learning language</h1>
             <div className="learning-path-body-card">
                 <div className="learning-path-card">
@@ -32,4 +34,10 @@ function LearningPath() {
     )
 }
 
-export default LearningPath
+const mapStateToProps = (state) => ({
+    theme: state.theme
+})
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LearningPath)

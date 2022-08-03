@@ -2,11 +2,13 @@ import React from 'react'
 import './HomeBenefit.css'
 import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
-function HomeBenefit() {
+import { connect } from 'react-redux'
+
+export const HomeBenefit = (props) => {
     const { theme, setTheme } = useContext(ThemeContext);
 
     return (
-        <div className={`home-benefit ${theme == 'dark' ? 'dark' : ''} `}>
+        <div className={`home-benefit ${props.theme == 'dark' ? 'dark' : ''} `}>
             <div>
                 <h1>Benefit Yang Kami Tawarkan</h1>
                 <p>Belajar bersama platform ureshii lebih berkualitas dapat diakses kapan pun dan dimana saja.</p>
@@ -32,4 +34,12 @@ function HomeBenefit() {
     )
 }
 
-export default HomeBenefit
+const mapStateToProps = (state) => ({
+    theme: state.theme.theme
+})
+
+const mapDispatchToProps = {
+    
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeBenefit)

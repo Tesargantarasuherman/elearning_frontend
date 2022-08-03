@@ -2,8 +2,9 @@ import React, { useEffect } from 'react'
 import './FAQ.css'
 import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
-function FAQ() {
-  const { theme, setTheme } = useContext(ThemeContext);
+import { connect } from 'react-redux'
+
+export const FAQ = (props) => {
 
     useEffect(() => {
         var acc = document.getElementsByClassName("accordion");
@@ -24,30 +25,36 @@ function FAQ() {
         }
     }, [])
     return (
-      <div className={`faq ${theme == 'dark' ? 'dark' : ''} `}>
+      <div className={`faq ${props.theme == 'dark' ? 'dark' : ''} `}>
       <h1>FAQ</h1>
             <p>Berdasarkan pertanyaan yang sering ditanyakan</p>
 
-            <button className={`accordion ${theme == 'dark' ? 'dark' : ''} `}>loremipsun</button>
-            <div className={`panel ${theme == 'dark' ? 'dark' : ''} `}>
+            <button className={`accordion ${props.theme == 'dark' ? 'dark' : ''} `}>loremipsun</button>
+            <div className={`panel ${props.theme == 'dark' ? 'dark' : ''} `}>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
 
-            <button className={`accordion ${theme == 'dark' ? 'dark' : ''} `}>Lorem ipsum dolor sit amet</button>
-            <div className={`panel ${theme == 'dark' ? 'dark' : ''} `}>
+            <button className={`accordion ${props.theme == 'dark' ? 'dark' : ''} `}>Lorem ipsum dolor sit amet</button>
+            <div className={`panel ${props.theme == 'dark' ? 'dark' : ''} `}>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
 
-            <button className={`accordion ${theme == 'dark' ? 'dark' : ''} `}>Pertanyaan Lorem ipsum dolor sit amet</button>
-            <div className={`panel ${theme == 'dark' ? 'dark' : ''} `}>
+            <button className={`accordion ${props.theme == 'dark' ? 'dark' : ''} `}>Pertanyaan Lorem ipsum dolor sit amet</button>
+            <div className={`panel ${props.theme == 'dark' ? 'dark' : ''} `}>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
 
-            <button className={`accordion ${theme == 'dark' ? 'dark' : ''} `}>Pertanyaan sed do eiusmod tempor</button>
-            <div className={`panel ${theme == 'dark' ? 'dark' : ''} `}>
+            <button className={`accordion ${props.theme == 'dark' ? 'dark' : ''} `}>Pertanyaan sed do eiusmod tempor</button>
+            <div className={`panel ${props.theme == 'dark' ? 'dark' : ''} `}>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
         </div>
     )
 }
-export default FAQ
+const mapStateToProps = (state) => ({
+  theme: state.theme.theme
+})
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FAQ)

@@ -10,7 +10,6 @@ export const Jumbotron = (props) => {
     const navigate = useNavigate();
 
     const { t, i18n } = useTranslation();
-    const { theme, setTheme } = useContext(ThemeContext);
   return (
     <section className={`jumbotron ${props.theme.theme == 'dark' ? 'dark' : ''} `}>
         <div className='jumbotron-left'>
