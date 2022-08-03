@@ -35,7 +35,7 @@ class RegiserComponent extends React.Component {
     }        
     render() {
         return (
-            <div className={`register`}>
+            <div className={`register ${this.props.theme.theme == 'dark' ? 'dark' : ''} `}>
                 <div className="register-body">
                     <div className="image-register">
                         <img src={Logo} />
@@ -79,7 +79,7 @@ const formWrapped = reduxForm({
     validate: validate
 })(RegiserComponent);
 const mapStateToProps = (state) => ({
-    
+    theme : state.theme
 })
 
 const mapDispatchToProps = {
