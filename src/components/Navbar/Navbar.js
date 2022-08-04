@@ -16,6 +16,7 @@ export const Navbar = (props) => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const { lang, setLang } = useContext(LangContext);
+  
   function handleClick(_lang) {
     localStorage.setItem("lang", _lang)
     setLang(_lang)

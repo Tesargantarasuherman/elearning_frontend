@@ -9,8 +9,10 @@ import { connect } from 'react-redux';
 import { Register } from '../../actions';
 import 'react-toastify/dist/ReactToastify.css';
 
-class RegiserComponent extends React.Component {
-    renderError = ({ error, touched }) => {
+export const RegiserComponent = (props) => {
+    const { t, i18n } = useTranslation();
+
+    const renderError = ({ error, touched }) => {
         if (touched && error) {
             return (
                 <div className="ui error message">
@@ -19,42 +21,40 @@ class RegiserComponent extends React.Component {
             )
         }
     }
-    renderInput = ({ input, title, label, meta,type }) => {
+    const renderInput = ({ input, title, label, meta, type }) => {
         const className = `field ${meta.error && meta.touched ? 'error' : ''}`
         return (
             <div className={className}>
                 <label>{title}</label>
-                <input {...input} placeholder={label} autoComplete="off" type={type}/>
-                {this.renderError(meta)}
+                <input {...input} placeholder={label} autoComplete="off" type={type} />
+                {renderError(meta)}
             </div>
         )
     }
 
-    onSubmit = (formValues) => {
-        this.props.Register(formValues);
-    }        
-    render() {
-        return (
-            <div className={`register ${this.props.theme.theme == 'dark' ? 'dark' : ''} `}>
-                <div className="register-body">
-                    <div className="image-register">
-                        <img src={Logo} />
-                    </div>
-                    <div className="desc-register">
-                        <h1>Register</h1>
-                        <h2>Register</h2>
-                    </div>
-                    <form onSubmit={this.props.handleSubmit(this.onSubmit)} className='form-register ui form error'>
-                        <Field title="Nama" name="nama" type="text" component={this.renderInput} label="Masukkan Nama" />
-                        <Field title="Email" name="email" type="email" component={this.renderInput} label="Masukkan Email" />
-                        <Field title="Password" name="password" type="password" component={this.renderInput} label="Masukkan Password" />
-                        <Field title="Konfirmasi Password" type="password" name="password_confirmation" component={this.renderInput} label="Masukkan Konfirmasi Password" />
-                        <button type="submit" className="btn-register">Register</button>
-                    </form>
-                </div>
-            </div>
-        )
+    const onSubmit = (formValues) => {
+        props.Register(formValues);
     }
+    return (
+        <div className={`register ${props.theme.theme == 'dark' ? 'dark' : ''} `}>
+            <div className="register-body">
+                <div className="image-register">
+                    <img src={Logo} />
+                </div>
+                <div className="desc-register">
+                    <h1>{t('Register.1')}</h1>
+                    <h2>{t('Register.2')}</h2>
+                </div>
+                <form onSubmit={props.handleSubmit(onSubmit)} className='form-register ui form error'>
+                    <Field title="Nama" name="nama" type="text" component={renderInput} label="Masukkan Nama" />
+                    <Field title="Email" name="email" type="email" component={renderInput} label="Masukkan Email" />
+                    <Field title="Password" name="password" type="password" component={renderInput} label="Masukkan Password" />
+                    <Field title="Konfirmasi Password" type="password" name="password_confirmation" component={renderInput} label="Masukkan Konfirmasi Password" />
+                    <button type="submit" className="btn-register">Register</button>
+                </form>
+            </div>
+        </div>
+    )
 }
 // Validate Form Redux
 const validate = (formValues) => {
@@ -79,7 +79,7 @@ const formWrapped = reduxForm({
     validate: validate
 })(RegiserComponent);
 const mapStateToProps = (state) => ({
-    theme : state.theme
+    theme: state.theme
 })
 
 const mapDispatchToProps = {
