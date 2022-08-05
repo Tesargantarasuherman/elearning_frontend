@@ -2,8 +2,9 @@ import axios from 'axios'
 import course from "../apis/course";
 import BaseUrl from '../utils/BaseUrl';
 import history from "../utils/History";
-import {REGISTER, SIGN_IN, SIGN_OUT,SET_THEME } from "./types";
+import {REGISTER, SIGN_IN, SIGN_OUT,SET_THEME, GET_LANGUAGE, SET_LANGUAGE } from "./types";
 import { ToastContainer, toast } from "react-toastify";
+import { useTranslation } from 'react-i18next';
 
 
 export const Register = (formValues)=>(dispatch)=>{
@@ -45,4 +46,8 @@ export const signIn = (userId)=>{
 export const setTheme = (theme)=>(dispatch)=>{
     dispatch({type:SET_THEME,payload:theme})
     localStorage.setItem('theme',theme)
+}
+export const setLanguage = (language)=>(dispatch)=>{
+    dispatch({type:SET_LANGUAGE,payload:language})
+    localStorage.setItem('language',language)
 }

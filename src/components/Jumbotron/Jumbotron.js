@@ -39,27 +39,3 @@ const mapDispatchToProps = {}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Jumbotron)
 
-// function Jumbotron() {
-
-//     return (
-//         <section className={`jumbotron ${theme == 'dark' ? 'dark' : ''} `}>
-//             <div className='jumbotron-left'>
-//                 <h1>
-//                     <strong>{t('Jumbotron.1')}</strong>
-//                 </h1>
-//                 <h2>
-//                     {t('Jumbotron.2')}
-//                 </h2>
-//                 <div>
-//                     <button onClick={() => navigate("/register")}>Register</button>
-//                     <button onClick={() => navigate("/login")}>Login</button>
-//                 </div>
-//             </div>
-//             <div className="jumbotron-right">
-//                 <img src={imgJumbotron} />
-//             </div>
-//         </section>
-//     )
-// }
-
-// export default Jumbotron
