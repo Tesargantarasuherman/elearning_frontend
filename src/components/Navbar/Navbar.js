@@ -16,7 +16,7 @@ import { useEffect } from "react";
 export const Navbar = (props) => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
-  
+
   useEffect(() => {
     actionSetLang(props.language);
   }, [])
@@ -31,7 +31,24 @@ export const Navbar = (props) => {
     actionSetLang(language);
     props.setLanguage(language)
   }
-
+  const renderOptionTheme=()=>{
+    if(props.theme.theme == 'dark'){
+      return (
+        <label className="switch">
+          <input type="checkbox" onClick={() => _setTheme('light')} checked />
+          <span className="slider round"></span>
+        </label>
+      )
+    }
+    else{
+      return(
+        <label className="switch">
+          <input type="checkbox" onClick={() => _setTheme('dark')} />
+          <span className="slider round"></span>
+        </label>
+      )
+    }
+  }
   return (
     <>
       <nav className={`${props.theme.theme == 'dark' ? 'dark' : ''} `}>
@@ -48,16 +65,7 @@ export const Navbar = (props) => {
               </select>
             </li>
             <li>
-              {
-                props.theme.theme == 'dark' ? (<label className="switch">
-                  <input type="checkbox" onClick={() => _setTheme('light')} checked />
-                  <span className="slider round"></span>
-                </label>)
-                  : (<label className="switch">
-                    <input type="checkbox" onClick={() => _setTheme('dark')} />
-                    <span className="slider round"></span>
-                  </label>)
-              }
+              {renderOptionTheme()}
             </li>
             <li>
               <div className="dropdown">

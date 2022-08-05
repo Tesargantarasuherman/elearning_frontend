@@ -15,7 +15,6 @@ import { ToastContainer} from "react-toastify";
 
 function App() {
   const [value, setValue] = useState(0);
-  const [lang, setLang] = useState(localStorage.getItem("lang"));
   const [theme, setTheme] = useState(localStorage.getItem("theme"));
   const [role, setRole] = useState(null);
   const [login, setLogin] = useState(
@@ -25,10 +24,9 @@ function App() {
 
   useEffect(() => {
     setLogin(JSON.parse(localStorage.getItem("data_user")));
-    actionSetLang()
     localStorage.setItem("theme", theme)
     setRole(login?.data?.role)
-  }, [lang, theme]);
+  }, [theme]);
 
   const Logout = () => {
     setTimeout(() => {
@@ -36,10 +34,7 @@ function App() {
       setLogin(null);
     }, 1000);
   };
-  function handleClick(_lang) {
-    localStorage.setItem("lang", _lang)
-    setLang(_lang)
-  }
+
   const setThemeAction = () => {
     if (theme == "dark") {
       setTheme("light");
@@ -47,9 +42,6 @@ function App() {
     else {
       setTheme("dark");
     }
-  }
-  function actionSetLang() {
-    i18n.changeLanguage(lang);
   }
   return (
     <>
@@ -59,10 +51,10 @@ function App() {
       </div>
       <CartContext.Provider value={{ value, setValue }}>
         <AuthContext.Provider value={{ login, setLogin }}>
-          <LangContext.Provider value={{ lang, setLang }}>
+          <LangContext.Provider >
             <ThemeContext.Provider value={{ theme, setTheme }}>
               <BrowserRouter>
-                <Main Logout={Logout} handleClick={handleClick} theme={theme} setThemeAction={setThemeAction} />
+                <Main Logout={Logout} theme={theme} setThemeAction={setThemeAction} />
               </BrowserRouter>
             </ThemeContext.Provider>
           </LangContext.Provider>
