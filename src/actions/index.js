@@ -37,11 +37,10 @@ export const Register = (formValues)=>(dispatch)=>{
     })
   // navigating get user back to user route
 }
-export const signIn = (userId)=>{
-    return{
-        type:SIGN_IN,
-        payload:userId
-    }
+export const signIn = (formValues)=>(dispatch)=>{
+    axios.post(`${BaseUrl}login`,formValues).then(res=>{
+        dispatch({type:SIGN_IN,payload:res.data})
+    })
 }
 export const setTheme = (theme)=>(dispatch)=>{
     dispatch({type:SET_THEME,payload:theme})

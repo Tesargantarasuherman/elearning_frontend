@@ -12,6 +12,7 @@ const course = [
         path: `${root}`,
         component: <Course />,
         navbar: true,
+        auth:true,
     },
     {
         path: `${root}/detail/:id`,

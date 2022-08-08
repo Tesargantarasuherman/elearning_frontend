@@ -12,8 +12,7 @@ function Main(props) {
 
                 {routes.map((route) => {
                     if (route.navbar)
-                        return <Route path={route.path} element={<Navbar Logout={props.Logout} theme={props.theme} setThemeAction={props.setThemeAction} />
-                        } />;
+                        return <Route path={route.path} element={<Navbar  />} />;
                 })}
             </Routes>
 
@@ -24,7 +23,6 @@ function Main(props) {
                     if (route.sidebar)
                         return <Route path={route.path} element={<Sidebar />} />;
                 })}
-                {/* <Route path="/" element={<Sidebar />} /> */}
             </Routes>
 
             {/* Render Page */}
