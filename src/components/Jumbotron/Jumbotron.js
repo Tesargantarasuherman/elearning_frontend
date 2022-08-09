@@ -5,11 +5,17 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 import { connect } from 'react-redux'
+import { validationUser } from "../../actions";
+import { useEffect } from "react";
 
 export const Jumbotron = (props) => {
     const navigate = useNavigate();
 
     const { t, i18n } = useTranslation();
+
+    useEffect(() => {
+       props.validationUser()
+      }, []);
   return (
     <section className={`jumbotron ${props.theme.theme == 'dark' ? 'dark' : ''} `}>
         <div className='jumbotron-left'>
@@ -35,7 +41,9 @@ const mapStateToProps = (state) => ({
     theme: state.theme
 })
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+    validationUser
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Jumbotron)
 

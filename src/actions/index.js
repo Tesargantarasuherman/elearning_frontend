@@ -1,7 +1,7 @@
 import axios from 'axios'
 import BaseUrl from '../utils/BaseUrl';
 import history from "../utils/History";
-import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE } from "./types";
+import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE, VALIDATION } from "./types";
 import { toast } from "react-toastify";
 
 
@@ -39,7 +39,8 @@ export const Register = (formValues) => (dispatch) => {
 }
 export const signIn = (formValues) => (dispatch) => {
     axios.post(`${BaseUrl}login`, formValues).then(res => {
-        dispatch({ type: SIGN_IN, payload: res.data })
+        dispatch({ type: SIGN_IN, payload: res.data?.data?.data })
+        localStorage.setItem('_token',res.data.data.token)
         return (
             toast.success('Login Berhasil', {
                 position: "top-right",
@@ -75,7 +76,13 @@ export const setLanguage = (language) => (dispatch) => {
     localStorage.setItem('language', language)
 }
 export const validationUser= (token) => (dispatch) => {
-    axios.post(`${BaseUrl}validasi`, formValues).then(res => {
-        dispatch({ type: SIGN_IN, payload: res.data })
+
+    let _token = {
+        "token":localStorage.getItem('_token')
+    }
+    axios.post(`${BaseUrl}validasi`, _token).then(res => {
+        dispatch({ type: VALIDATION, payload: res.data?.data?.data  })
+    }).catch(err=>{
+        dispatch({ type: VALIDATION, payload:null })
     })
 }
