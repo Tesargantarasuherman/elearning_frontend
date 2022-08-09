@@ -13,14 +13,15 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducers, composeEnhancers(applyMiddleware(reduxThunk)));
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Suspense fallback={(
-      <div className="loading">
-        <img src={Logo} alt="" />
-      </div>
-    )}>
-      <App />
-    </Suspense>  </Provider>,
+    <Provider store={store}>
+      <Suspense fallback={(
+        <div className="loading">
+          <img src={Logo} alt="" />
+        </div>
+      )}>
+        <App />
+      </Suspense> 
+    </Provider>,
   document.querySelector('#root')
 );
 

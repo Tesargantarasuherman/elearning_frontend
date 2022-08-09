@@ -14,31 +14,42 @@ export const Jumbotron = (props) => {
     const { t, i18n } = useTranslation();
 
     useEffect(() => {
-       props.validationUser()
-      }, []);
-  return (
-    <section className={`jumbotron ${props.theme.theme == 'dark' ? 'dark' : ''} `}>
-        <div className='jumbotron-left'>
-            <h1>
-                <strong>{t('Jumbotron.1')}</strong>
-            </h1>
-            <h2>
-                {t('Jumbotron.2')}
-            </h2>
-            <div>
-                <button onClick={() => navigate("/register")}>Register</button>
-                <button onClick={() => navigate("/login")}>Login</button>
+        props.validationUser()
+    }, []);
+
+    const returnButton =()=> {
+        if (!props.isSignedIn) {
+            return (
+                <>
+                    <button onClick={() => navigate("/register")}>Register</button>
+                    <button onClick={() => navigate("/login")}>Login</button>
+                </>
+            )
+        }
+    }
+    return (
+        <section className={`jumbotron ${props.theme.theme == 'dark' ? 'dark' : ''} `}>
+            <div className='jumbotron-left'>
+                <h1>
+                    <strong>{t('Jumbotron.1')}</strong>
+                </h1>
+                <h2>
+                    {t('Jumbotron.2')}
+                </h2>
+                <div>
+                    {returnButton()}
+                </div>
             </div>
-        </div>
-        <div className="jumbotron-right">
-            <img src={imgJumbotron} />
-        </div>
-    </section>
-  )
+            <div className="jumbotron-right">
+                <img src={imgJumbotron} />
+            </div>
+        </section>
+    )
 }
 
 const mapStateToProps = (state) => ({
-    theme: state.theme
+    theme: state.theme,
+    isSignedIn: state.auth.isSignedIn
 })
 
 const mapDispatchToProps = {

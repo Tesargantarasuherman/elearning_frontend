@@ -24,7 +24,6 @@ export const Home = (props) => {
     const [dataClass, setDataClass] = useState([]);
   
     useEffect(() => {
-      console.log(props)
       axios.get(`${BaseUrl}kursus`).then((res) => {
         setDataClass(res.data.data);
       });
