@@ -1,5 +1,5 @@
 import {
-  BrowserRouter,
+  BrowserRouter as Router,
 } from "react-router-dom";
 import "./App.css";
 import { CartContext } from "./context/CartContex";
@@ -12,6 +12,7 @@ import Main from './routes/main';
 import { Offline, Online } from "react-detect-offline";
 import history from "./utils/History";
 import { ToastContainer} from "react-toastify";
+import History from "./utils/History";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -53,9 +54,9 @@ function App() {
         <AuthContext.Provider value={{ login, setLogin }}>
           <LangContext.Provider >
             <ThemeContext.Provider value={{ theme, setTheme }}>
-              <BrowserRouter>
+              <Router history={History}>
                 <Main Logout={Logout} theme={theme} setThemeAction={setThemeAction} />
-              </BrowserRouter>
+              </Router>
             </ThemeContext.Provider>
           </LangContext.Provider>
         </AuthContext.Provider>

@@ -7,6 +7,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { useContext } from 'react';
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form';
+import { signIn } from '../../actions';
 
 export const LoginComponent = (props) => {
     const { t, i18n } = useTranslation();
@@ -31,7 +32,8 @@ export const LoginComponent = (props) => {
         )
     }
     const onSubmit = (formValues) => {
-        
+        props.signIn(formValues);
+
     }
   return (
         <div className={`login ${props.theme == 'dark' ? 'dark' : ''} `}>
@@ -71,7 +73,9 @@ const mapStateToProps = (state) => ({
     theme: state.theme.theme
 })
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+    signIn
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(formWrapped)
 {/* <div className="login-body">
