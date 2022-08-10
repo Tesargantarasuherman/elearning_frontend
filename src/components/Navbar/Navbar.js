@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { LangContext } from "../../context/LangContext";
 import { ThemeContext } from '../../context/ThemeContext';
 import { connect } from 'react-redux'
-import {setLanguage, setTheme, validationUser } from "../../actions";
+import {setLanguage, setTheme, signOut, validationUser } from "../../actions";
 import { useEffect } from "react";
 
 export const Navbar = (props) => {
@@ -59,7 +59,7 @@ export const Navbar = (props) => {
                   <ul>
                     <li onClick={() => navigate('/user')}>{t('Profile.1')}</li>
                     <li>{t('Profile.2')}</li>
-                    <li>{t('Profile.3')}</li>
+                    <li onClick={()=>props.signOut()}>{t('Profile.3')}</li>
                   </ul>
                 </div>
               </div>
@@ -105,7 +105,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   setTheme,
   setLanguage,
-  validationUser
+  validationUser,
+  signOut
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

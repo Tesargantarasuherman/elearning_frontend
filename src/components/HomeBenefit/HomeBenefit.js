@@ -5,7 +5,6 @@ import { useContext } from 'react';
 import { connect } from 'react-redux'
 
 export const HomeBenefit = (props) => {
-    const { theme, setTheme } = useContext(ThemeContext);
 
     return (
         <div className={`home-benefit ${props.theme == 'dark' ? 'dark' : ''} `}>

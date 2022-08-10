@@ -8,7 +8,6 @@ import { useContext } from 'react';
 import { connect } from 'react-redux'
 
 export const LearningPath = (props) => {
-    const { theme, setTheme } = useContext(ThemeContext);
 
     return (
         <div className={`learning-path ${props.theme.theme == 'dark' ? 'dark' : ''} `}>

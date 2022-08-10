@@ -8,7 +8,6 @@ import { connect } from 'react-redux'
 
 export const HomeInfo =(props)=> {
     const { t, i18n } = useTranslation();
-    const { theme, setTheme } = useContext(ThemeContext);
 
     return (
         <div className={`home-info ${props.theme.theme == 'dark' ? 'dark' : ''} `}>

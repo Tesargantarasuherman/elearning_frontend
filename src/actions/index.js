@@ -1,6 +1,6 @@
 import axios from 'axios'
 import BaseUrl from '../utils/BaseUrl';
-import history from "../utils/History";
+import history from "../utils/history";
 import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE, VALIDATION } from "./types";
 import { toast } from "react-toastify";
 
@@ -51,6 +51,7 @@ export const signIn = (formValues) => (dispatch) => {
                 draggable: true,
                 progress: undefined,
             })
+            
         )
     }).catch((err) => {
         return (
@@ -71,6 +72,12 @@ export const setTheme = (theme) => (dispatch) => {
     dispatch({ type: SET_THEME, payload: theme })
     localStorage.setItem('theme', theme)
 }
+export const signOut = () => {
+    localStorage.setItem('_token',null)
+    return {
+        type: SIGN_OUT
+    };
+};
 export const setLanguage = (language) => (dispatch) => {
     dispatch({ type: SET_LANGUAGE, payload: language })
     localStorage.setItem('language', language)

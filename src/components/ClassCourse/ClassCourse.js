@@ -2,14 +2,13 @@ import React from 'react'
 import './ClassCourse.css'
 import imgClassCourse from '../../images/Rectangle 12-5.png'
 import { useNavigate } from "react-router-dom";
-import { ThemeContext } from '../../context/ThemeContext';
-import { useContext } from 'react';
 import Skeleton from '../_components/Skeleton';
-function ClassCourse(props) {
+import { connect } from 'react-redux'
+
+export const ClassCourse = (props) => {
     const navigate = useNavigate();
-    const { theme, setTheme } = useContext(ThemeContext);
     return (
-        <div className={`class-course ${theme == 'dark' ? 'dark' : ''} `}>
+        <div className={`class-course  ${props.theme == 'dark' ? 'dark' : ''}`}>
             <h1>Katalog Kelas</h1>
             <p>Persiapkan Dirimu untuk Bekerja Di jepang</p>
             <div className="input-group">
@@ -24,7 +23,7 @@ function ClassCourse(props) {
             </div>
             {props.dataCourse.length > 0 ?
                 <>
-                    <div className={`data-class-course ${theme == 'dark' ? 'dark' : ''} `}>
+                    <div className={`data-class-course ${props.theme == 'dark' ? 'dark' : ''}`}>
                         {props.dataCourse.map(course => {
                             return (
                                 <div>
@@ -56,4 +55,12 @@ function ClassCourse(props) {
         </div>
     )
 }
-export default ClassCourse;
+
+const mapStateToProps = (state) => ({
+    theme:state.theme.theme
+})
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ClassCourse)
+
