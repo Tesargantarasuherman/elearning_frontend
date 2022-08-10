@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { LangContext } from "../../context/LangContext";
 import { ThemeContext } from '../../context/ThemeContext';
 import { connect } from 'react-redux'
-import {setLanguage, setTheme } from "../../actions";
+import {setLanguage, setTheme, validationUser } from "../../actions";
 import { useEffect } from "react";
 
 export const Navbar = (props) => {
@@ -49,6 +49,24 @@ export const Navbar = (props) => {
       )
     }
   }
+  const renderUser =()=>{
+    if (props.isSignedIn) {
+      return (
+          <>
+             <div className="dropdown">
+                <img src={Profile} />
+                <div className={`dropdown-content ${props.theme.theme == 'dark' ? 'dark' : ''} `}>
+                  <ul>
+                    <li onClick={() => navigate('/user')}>{t('Profile.1')}</li>
+                    <li>{t('Profile.2')}</li>
+                    <li>{t('Profile.3')}</li>
+                  </ul>
+                </div>
+              </div>
+          </>
+      )
+  }
+  }
   return (
     <>
       <nav className={`${props.theme.theme == 'dark' ? 'dark' : ''} `}>
@@ -68,16 +86,7 @@ export const Navbar = (props) => {
               {renderOptionTheme()}
             </li>
             <li>
-              <div className="dropdown">
-                <img src={Profile} />
-                <div className={`dropdown-content ${props.theme.theme == 'dark' ? 'dark' : ''} `}>
-                  <ul>
-                    <li onClick={() => navigate('/user')}>{t('Profile.1')}</li>
-                    <li>{t('Profile.2')}</li>
-                    <li>{t('Profile.3')}</li>
-                  </ul>
-                </div>
-              </div>
+             {renderUser()}
             </li>
           </ul>
         </div>
@@ -89,12 +98,14 @@ export const Navbar = (props) => {
 
 const mapStateToProps = (state) => ({
   theme: state.theme,
-  language:state.language.language
+  language:state.language.language,
+  isSignedIn: state.auth.isSignedIn
 })
 
 const mapDispatchToProps = {
   setTheme,
-  setLanguage
+  setLanguage,
+  validationUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
