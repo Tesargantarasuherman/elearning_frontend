@@ -1,14 +1,9 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { CartContext } from "../../context/CartContex";
-import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import '../Navbar/Styles/Navbar.css'
 import Logo from '../../images/logo-ureshii.png'
 import Profile from '../../images/male.png'
 import { useTranslation } from 'react-i18next';
-import { LangContext } from "../../context/LangContext";
-import { ThemeContext } from '../../context/ThemeContext';
 import { connect } from 'react-redux'
 import {setLanguage, setTheme, signOut, validationUser } from "../../actions";
 import { useEffect } from "react";

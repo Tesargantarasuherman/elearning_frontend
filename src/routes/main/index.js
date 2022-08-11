@@ -1,18 +1,19 @@
 
-import React from 'react'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useEffect } from 'react'
+import { BrowserRouter, Route, Routes,useNavigate } from "react-router-dom";
 import routes from "../../routes/index";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/admin/Sidebar";
-function Main(props) {
+
+const Main = (props) => {
+
     return (
         <>
             {/* Navbar ----------------------------- */}
             <Routes>
-
                 {routes.map((route) => {
                     if (route.navbar)
-                        return <Route path={route.path} element={<Navbar  />} />;
+                        return <Route path={route.path} element={<Navbar />} />;
                 })}
             </Routes>
 
@@ -34,5 +35,6 @@ function Main(props) {
         </>
     )
 }
+
 
 export default Main

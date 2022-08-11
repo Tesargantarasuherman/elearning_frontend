@@ -17,10 +17,6 @@ import BaseUrl from "../utils/BaseUrl";
 import { connect } from 'react-redux'
 
 export const Home = (props) => {
-    const [activeItem, setActiveItem] = useState("home");
-
-    const handleItemClick = (e, { name }) => setActiveItem(name);
-  
     const [dataClass, setDataClass] = useState([]);
   
     useEffect(() => {

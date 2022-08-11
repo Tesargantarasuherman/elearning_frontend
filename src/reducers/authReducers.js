@@ -1,4 +1,4 @@
-import {REGISTER, SIGN_IN, SIGN_OUT, VALIDATION } from '../actions/types';
+import {MIDDLEWARE, REGISTER, SIGN_IN, SIGN_OUT, VALIDATION } from '../actions/types';
 
 const INTIAL_STATE = {
   isSignedIn: null,

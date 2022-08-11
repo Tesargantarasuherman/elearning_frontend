@@ -1,7 +1,7 @@
 import axios from 'axios'
 import BaseUrl from '../utils/BaseUrl';
 import history, { browserHistory } from "../utils/history";
-import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE, VALIDATION } from "./types";
+import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE, VALIDATION, MIDDLEWARE } from "./types";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -46,12 +46,11 @@ export const signIn = (formValues) => (dispatch) => {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-        }) 
+        })
         dispatch({ type: SIGN_IN, payload: res.data?.data?.data })
-        localStorage.setItem('_token',res.data.data.token)
+        localStorage.setItem('_token', res.data.data.token)
         setTimeout(() => {
             browserHistory.push('/user')
-            window.location.reload()
         }, 100);
     }).catch((err) => {
         return (
@@ -72,11 +71,19 @@ export const setTheme = (theme) => (dispatch) => {
     localStorage.setItem('theme', theme)
 }
 export const signOut = () => {
-    localStorage.setItem('_token',null)
+    localStorage.setItem('_token', null)
     setTimeout(() => {
         browserHistory.push('/')
-        window.location.reload()
     }, 100);
+    toast.success('Berhasil Keluar', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+    })
     return {
         type: SIGN_OUT
     };
@@ -85,14 +92,15 @@ export const setLanguage = (language) => (dispatch) => {
     dispatch({ type: SET_LANGUAGE, payload: language })
     localStorage.setItem('language', language)
 }
-export const validationUser= (token) => (dispatch) => {
+export const validationUser = (token) => (dispatch) => {
 
     let _token = {
-        "token":localStorage.getItem('_token')
+        "token": localStorage.getItem('_token')
     }
     axios.post(`${BaseUrl}validasi`, _token).then(res => {
-        dispatch({ type: VALIDATION, payload: res.data?.data?.data  })
-    }).catch(err=>{
-        dispatch({ type: VALIDATION, payload:null })
+        dispatch({ type: VALIDATION, payload: res.data?.data?.data })
+    }).catch(err => {
+        dispatch({ type: VALIDATION, payload: null })
     })
 }
+
