@@ -8,20 +8,25 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reducers from './reducers';
 import reduxThunk from "redux-thunk";
-
+import { browserHistory } from './utils/history';
+import {
+  BrowserRouter as Router,
+  } from "react-router-dom";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducers, composeEnhancers(applyMiddleware(reduxThunk)));
 
 ReactDOM.render(
-    <Provider store={store}>
-      <Suspense fallback={(
-        <div className="loading">
-          <img src={Logo} alt="" />
-        </div>
-      )}>
-        <App />
-      </Suspense> 
-    </Provider>,
+  <Router history={browserHistory}>
+  <Provider store={store}>
+    <Suspense fallback={(
+      <div className="loading">
+        <img src={Logo} alt="" />
+      </div>
+    )}>
+      <App />
+    </Suspense>  
+    </Provider>
+    </Router>,
   document.querySelector('#root')
 );
 

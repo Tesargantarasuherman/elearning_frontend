@@ -1,21 +1,17 @@
 import {
-  BrowserRouter as Router,
+Router,
 } from "react-router-dom";
 import "./App.css";
 import Main from './routes/main';
-import history from "./utils/history";
 import { ToastContainer} from "react-toastify";
+import { browserHistory } from "./utils/history";
 
-function App() {
-
+const App = () => {
   return (
     <>
-      <Router history={history}>
         <ToastContainer />
         <Main />
-      </Router>
     </>
-
   );
 }
 

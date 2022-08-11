@@ -1,10 +1,9 @@
 import axios from 'axios'
 import BaseUrl from '../utils/BaseUrl';
-import history from "../utils/history";
+import history, { browserHistory } from "../utils/history";
 import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE, VALIDATION } from "./types";
 import { toast } from "react-toastify";
-
-
+import { useNavigate } from "react-router-dom";
 
 export const Register = (formValues) => (dispatch) => {
     axios.post(`${BaseUrl}register`, formValues).then(res => {
@@ -34,25 +33,26 @@ export const Register = (formValues) => (dispatch) => {
             })
         )
     })
-    history.push('/')
+    // history.push('/')
     // navigating get user back to user route
 }
 export const signIn = (formValues) => (dispatch) => {
     axios.post(`${BaseUrl}login`, formValues).then(res => {
+        toast.success('Login Berhasil', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        }) 
         dispatch({ type: SIGN_IN, payload: res.data?.data?.data })
         localStorage.setItem('_token',res.data.data.token)
-        return (
-            toast.success('Login Berhasil', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            })
-            
-        )
+        setTimeout(() => {
+            browserHistory.push('/user')
+            window.location.reload()
+        }, 100);
     }).catch((err) => {
         return (
             toast.error(err.response.data.message, {
@@ -66,7 +66,6 @@ export const signIn = (formValues) => (dispatch) => {
             })
         )
     })
-    history.push('/')
 }
 export const setTheme = (theme) => (dispatch) => {
     dispatch({ type: SET_THEME, payload: theme })
@@ -74,6 +73,10 @@ export const setTheme = (theme) => (dispatch) => {
 }
 export const signOut = () => {
     localStorage.setItem('_token',null)
+    setTimeout(() => {
+        browserHistory.push('/')
+        window.location.reload()
+    }, 100);
     return {
         type: SIGN_OUT
     };
