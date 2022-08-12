@@ -1,7 +1,7 @@
 import axios from 'axios'
 import BaseUrl from '../utils/BaseUrl';
 import history, { browserHistory } from "../utils/history";
-import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE, VALIDATION, MIDDLEWARE } from "./types";
+import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE, VALIDATION, MIDDLEWARE, GET_ALL_COURSE } from "./types";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -103,4 +103,11 @@ export const validationUser = (token) => (dispatch) => {
         dispatch({ type: VALIDATION, payload: null })
     })
 }
+export const getAllCourses = () => (dispatch) => {
+    axios.get(`${BaseUrl}kursus`).then(res => {
+        dispatch({ type: GET_ALL_COURSE, payload: res.data })
+    }).catch((err) => {
+        dispatch({ type: GET_ALL_COURSE, payload: [] })
+    })
 
+}

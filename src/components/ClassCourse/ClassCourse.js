@@ -1,30 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './ClassCourse.css'
 import imgClassCourse from '../../images/Rectangle 12-5.png'
 import { useNavigate } from "react-router-dom";
 import Skeleton from '../_components/Skeleton';
 import { connect } from 'react-redux'
+import { getAllCourses } from '../../actions';
 
 export const ClassCourse = (props) => {
     const navigate = useNavigate();
-    return (
-        <div className={`class-course  ${props.theme == 'dark' ? 'dark' : ''}`}>
-            <h1>Katalog Kelas</h1>
-            <p>Persiapkan Dirimu untuk Bekerja Di jepang</p>
-            <div className="input-group">
-                <input type="text" />
-                <button>Search</button>
-            </div>
-            <h1>Kategori Kelas</h1>
-            <div className="btn-category-class">
-                <button>All</button>
-                <button className='active'>Free</button>
-                <button>Premium</button>
-            </div>
-            {props.dataCourse.length > 0 ?
+
+    useEffect(() => {
+        setTimeout(() => {
+            props.getAllCourses()
+        }, 5000);
+    }, []);
+
+    const renderCourses = () => {
+        if (props?.courses?.length >= 1) {
+            return (
                 <>
                     <div className={`data-class-course ${props.theme == 'dark' ? 'dark' : ''}`}>
-                        {props.dataCourse.map(course => {
+                        {props?.courses?.map(course => {
                             return (
                                 <div>
                                     <div className='type-class-course'>
@@ -47,20 +43,44 @@ export const ClassCourse = (props) => {
                         }
                     </div>
                 </>
-                :
-                <div className='loader'>
-                    <Skeleton />
-                </div>
-            }
+            )
+        }
+        else {
+            return(
+            <div className='loader'>
+                <Skeleton />
+            </div>
+            )
+        }
+    }
+
+    return (
+        <div className={`class-course  ${props.theme == 'dark' ? 'dark' : ''}`}>
+            <h1>Katalog Kelas</h1>
+            <p>Persiapkan Dirimu untuk Bekerja Di jepang</p>
+            <div className="input-group">
+                <input type="text" />
+                <button>Search</button>
+            </div>
+            <h1>Kategori Kelas</h1>
+            <div className="btn-category-class">
+                <button>All</button>
+                <button className='active'>Free</button>
+                <button>Premium</button>
+            </div>
+            {renderCourses()}
         </div>
     )
 }
 
 const mapStateToProps = (state) => ({
-    theme:state.theme.theme
+    theme: state.theme.theme,
+    courses: state.course?.courses?.data
 })
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+    getAllCourses
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClassCourse)
 

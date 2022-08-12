@@ -14,7 +14,7 @@ function Course() {
       }, 3000);
     }, []);
     return (
-        <ClassCourse dataCourse={dataCourse}/>
+        <ClassCourse />
     )
 }
 
