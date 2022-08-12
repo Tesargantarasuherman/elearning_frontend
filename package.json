@@ -29,6 +29,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "^4.0.3",
     "react-scroll": "^1.8.4",
+    "react-shimmer": "^3.2.0",
     "react-toastify": "^8.1.0",
     "redux": "^4.2.0",
     "redux-form": "^8.3.8",

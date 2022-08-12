@@ -1,7 +1,7 @@
 import axios from 'axios'
 import BaseUrl from '../utils/BaseUrl';
 import history, { browserHistory } from "../utils/history";
-import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE, VALIDATION, MIDDLEWARE, GET_ALL_COURSE } from "./types";
+import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE, VALIDATION, MIDDLEWARE, GET_ALL_COURSE, GET_DETAIL_COURSE } from "./types";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -109,5 +109,11 @@ export const getAllCourses = () => (dispatch) => {
     }).catch((err) => {
         dispatch({ type: GET_ALL_COURSE, payload: [] })
     })
-
+}
+export const getDetailCourse = (id) => (dispatch) => {
+    axios.get(`${BaseUrl}kursus/${id}`).then(res => {
+        dispatch({ type: GET_DETAIL_COURSE, payload: res.data })
+    }).catch((err) => {
+        dispatch({ type: GET_DETAIL_COURSE, payload: [] })
+    })
 }

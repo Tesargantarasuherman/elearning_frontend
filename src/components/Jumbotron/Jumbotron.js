@@ -1,17 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import '../Jumbotron/Styles/Jumbotron.css'
 import imgJumbotron from '../../images/BG3.png'
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from "react-router-dom";
-import { ThemeContext } from "../../context/ThemeContext";
 import { connect } from 'react-redux'
 import { validationUser } from "../../actions";
 import { useEffect } from "react";
+import { Image, Shimmer } from 'react-shimmer'
 
 export const Jumbotron = (props) => {
     const navigate = useNavigate();
 
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     useEffect(() => {
         props.validationUser()
@@ -41,7 +41,7 @@ export const Jumbotron = (props) => {
                 </div>
             </div>
             <div className="jumbotron-right">
-                <img src={imgJumbotron} />
+                <Image src={imgJumbotron} fallback={<Shimmer width={800} height={600} />} />
             </div>
         </section>
     )

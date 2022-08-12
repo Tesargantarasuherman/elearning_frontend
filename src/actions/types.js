@@ -6,3 +6,4 @@ export const SET_LANGUAGE = 'SET_LANGUAGE';
 export const GET_LANGUAGE = 'GET_LANGUAGE';
 export const VALIDATION = 'VALIDATION';
 export const GET_ALL_COURSE = 'GET_ALL_COURSE';
+export const GET_DETAIL_COURSE = 'GET_DETAIL_COURSE';

@@ -1,6 +1,4 @@
-import { GET_ALL_COURSE } from "../actions/types";
-
-let _theme = localStorage.getItem('theme')
+import { GET_ALL_COURSE, GET_DETAIL_COURSE } from "../actions/types";
 
 const INTIAL_STATE = {
   courses: []
@@ -9,6 +7,8 @@ const INTIAL_STATE = {
 export default (state = INTIAL_STATE, action) => {
   switch (action.type) {
     case GET_ALL_COURSE:
+      return { ...state,courses:action.payload};
+    case GET_DETAIL_COURSE:
       return { ...state,courses:action.payload};
     default:
       return state;

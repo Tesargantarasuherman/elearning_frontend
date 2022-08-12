@@ -2,16 +2,22 @@ import React, { useContext } from 'react'
 import './CourseDetailComponent.css'
 import LogoUserRating from '../../images/male.png'
 import { useNavigate } from "react-router-dom";
-import { ThemeContext } from '../../context/ThemeContext';
+import { connect } from 'react-redux'
+import { getDetailCourse } from '../../actions';
+import { useEffect } from 'react';
 
 
-function CourseDetailComponent() {
+export const CourseDetailComponent = (props) => {
     const navigate = useNavigate();
-    const { theme, setTheme } = useContext(ThemeContext);
+  
+    useEffect(()=>{
+        props.getDetailCourse(1)
+        console.log(props)
+    },[])
 
     return (
         <>
-            <div className={`course-detail ${theme == 'dark' ? 'dark' : ''} `}>
+            <div className={`course-detail ${props.theme == 'dark' ? 'dark' : ''} `}>
                 <div className="left">
                     <div className='course-detail-title'>
                         <h1>React - The Complete Guide (incl Hooks, React Router, Redux)</h1>
@@ -29,7 +35,7 @@ function CourseDetailComponent() {
                             </div>
                         </div>
                     </div>
-                    <div className={`benefit-course-detail ${theme == 'dark' ? 'dark' : ''} `}>
+                    <div className={`benefit-course-detail ${props.theme == 'dark' ? 'dark' : ''} `}>
                         <h1>Yang Akan Anda Pelajari</h1>
                         <p><span class="lnr lnr-thumbs-up"></span> Lorem, ipsum dolor.</p>
                         <p><span class="lnr lnr-thumbs-up"></span> Lorem ipsum dolor sit.</p>
@@ -49,4 +55,13 @@ function CourseDetailComponent() {
     )
 }
 
-export default CourseDetailComponent
+const mapStateToProps = (state) => ({
+    theme:state.theme.theme
+})
+
+const mapDispatchToProps = {
+    getDetailCourse
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CourseDetailComponent)
+
