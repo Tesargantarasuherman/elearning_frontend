@@ -3,6 +3,7 @@ import { reducer as formReducer } from 'redux-form';
 import authReducers from './authReducers';
 import courseReducers from './courseReducers';
 import langReducers from './langReducers';
+import sidebarReducers from './sidebarReducers';
 import themeReducers from './themeReducers';
 
 export default combineReducers({
@@ -10,6 +11,7 @@ export default combineReducers({
     form: formReducer,
     theme:themeReducers,
     language:langReducers,
-    course:courseReducers
+    course:courseReducers,
+    sidebar:sidebarReducers
   });
   

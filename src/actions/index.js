@@ -1,7 +1,7 @@
 import axios from 'axios'
 import BaseUrl from '../utils/BaseUrl';
 import history, { browserHistory } from "../utils/history";
-import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE, VALIDATION, MIDDLEWARE, GET_ALL_COURSE, GET_DETAIL_COURSE } from "./types";
+import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE, VALIDATION, MIDDLEWARE, GET_ALL_COURSE, GET_DETAIL_COURSE, TOGLE_SIDEBAR } from "./types";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -116,4 +116,7 @@ export const getDetailCourse = (id) => (dispatch) => {
     }).catch((err) => {
         dispatch({ type: GET_DETAIL_COURSE, payload: [] })
     })
+}
+export const togleSidebar = (sidebar) => (dispatch) => {
+    dispatch({ type: TOGLE_SIDEBAR, payload: sidebar })
 }

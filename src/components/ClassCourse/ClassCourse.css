@@ -2,6 +2,7 @@
   margin-top: 80px;
   transition: 0.4s;
   min-height: 100vh;
+  width: 100%;
 }
 .class-course.dark {
   background-color: black;

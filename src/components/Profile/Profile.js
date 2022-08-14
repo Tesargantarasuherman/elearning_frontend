@@ -1,22 +1,20 @@
 import React from 'react'
 import './Profile.css'
-import { useContext } from 'react';
-import { ThemeContext } from '../../context/ThemeContext';
-function Profile(props) {
-    const { theme, setTheme } = useContext(ThemeContext);
+import { connect } from 'react-redux'
 
+export const Profile = (props) => {
     return (
-        <>
-            <h1>Profile</h1>
-            <div className={`my-profile ${theme == 'dark' ? 'dark' : ''} `}>
+        <div className={`body-profile ${props.theme == 'dark' ? 'dark' : ''} ${props.sidebar ?'back':''} `}>
+            <h1>Profiles</h1>
+            <div className={`my-profile ${props.theme == 'dark' ? 'dark' : ''} `}>
                 <form action="" className="form-profile">
                     <div className="body-input-form-profile">
                         <label htmlFor="">Nama Lengkap</label>
-                        <input type="text" value={props.data_user.nama} />
+                        <input type="text" value={null} />
                     </div>
                     <div className="body-input-form-profile">
                         <label htmlFor="">Email</label>
-                        <input type="text" value={props.data_user.email} />
+                        <input type="text" value={null} />
                     </div>
                     <div className="body-input-form-profile">
                         <label htmlFor="">No Kontak</label>
@@ -33,8 +31,16 @@ function Profile(props) {
                     <button>Update</button>
                 </form>
             </div>
-        </>
+        </div>
     )
 }
 
-export default Profile
+const mapStateToProps = (state) => ({
+    theme:state.theme.theme,
+    user:state.auth.data_user,
+    sidebar:state.sidebar.sidebar
+})
+
+const mapDispatchToProps = {}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)

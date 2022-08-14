@@ -1,6 +1,19 @@
+.body-profile{
+  width:84.2%;
+  padding: 20px 5%;
+}
+.body-profile.back{
+  width:100%;
+  transition: 0.4s;
+}
+.body-profile.dark{
+  transition: 0.4s;
+  background-color: rgb(24, 24, 24);
+  color: white;
+}
 .my-profile {
   background-color: white;
-  width: 30%;
+  width: 40%;
   padding: 10px;
   color: #2d3436;
   border-radius: 5px;

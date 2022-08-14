@@ -3,7 +3,6 @@ import './UserCommponent.css'
 import imgProfile from '../../images/male.png'
 import MyCourse from '../MyCourse/MyCourse'
 import Profile from '../Profile/Profile'
-import { ThemeContext } from '../../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux'
 import {setLanguage, setTheme, signOut, validationUser } from "../../actions";

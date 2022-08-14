@@ -4,12 +4,13 @@ import imgClassCourse from '../../images/Rectangle 12-5.png'
 import { useNavigate } from "react-router-dom";
 import Skeleton from '../_components/Skeleton';
 import { connect } from 'react-redux'
-import { getAllCourses } from '../../actions';
+import { getAllCourses, validationUser } from '../../actions';
 
 export const ClassCourse = (props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        props.validationUser()
         setTimeout(() => {
             props.getAllCourses()
         }, 5000);
@@ -79,7 +80,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    getAllCourses
+    getAllCourses,
+    validationUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ClassCourse)

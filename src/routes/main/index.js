@@ -19,6 +19,7 @@ const Main = (props) => {
 
             {/* ---------------------------------- */}
             {/* Render Sidebar */}
+            <div style={{display:'flex',flexWrap:'wrap'}}>
             <Routes>
                 {routes.map((route) => {
                     if (route.sidebar)
@@ -32,6 +33,7 @@ const Main = (props) => {
                     return <Route path={route.path} element={route.component} />
                 })}
             </Routes>
+            </div>
         </>
     )
 }

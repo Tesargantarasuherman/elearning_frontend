@@ -13,13 +13,7 @@ body {
 .br-50 {
   border-radius: 50%;
 }
-.body-profile {
-  background-color: white;
-  border-radius: 20px !important;
-  width: 40%;
-  height: 90vh;
-  padding: 40px;
-}
+
 .sidebar-user-left {
   background-color: white;
   border-radius: 20px !important;

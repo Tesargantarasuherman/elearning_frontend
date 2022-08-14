@@ -5,6 +5,7 @@
     left:40%;
     min-height: 100vh;
     transition: 0.4s;
+    width: 100%;
 }
 .register.dark{
     background-color: black !important;

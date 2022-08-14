@@ -13,21 +13,25 @@ const course = [
         component: <Course />,
         navbar: true,
         auth:true,
+        sidebar:false,
     },
     {
         path: `${root}/detail/:id`,
         component: <CourseDetail />,
         navbar: true,
+        is_user:false,
     },
     {
         path: `${root}/checkout/:id`,
         component: <CourseCheckout />,
         navbar: true,
+        is_user:false,
     },
     {
         path: `${root}/playing/:id`,
         component: <CoursePlaying />,
         navbar: false,
+        user:false,
     },
 ];
 
