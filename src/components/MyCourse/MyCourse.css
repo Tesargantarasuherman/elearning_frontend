@@ -1,8 +1,15 @@
 .my-course{
   transition: 0.4s;
+  width:84.2%;
+  padding: 20px 5%;
 }
 .my-course.dark {
   background-color: rgb(24,24,24);
+  transition: 0.4s;
+  color: white;
+}
+.my-course.back{
+  width:100%;
   transition: 0.4s;
 }
 .my-course-header {

@@ -70,37 +70,7 @@ export const UserComponent = (props) => {
     };
     return (
         <>
-            <div className={`user-component ${props.theme == 'dark' ? 'dark' : ''} `}>
-                <div className={`${togleNav ? 'back' : ''} left `}>
-                    <div>
-                        <button onClick={toggleBtn} className={`btn-toggle-user`}>
-                            <ion-icon name="menu-outline"></ion-icon>
-                        </button>
-                        <select value={props.language} onChange={(e) => _setLanguage(e.target.value)}>
-                            <option value="id">Indonesia</option>
-                            <option value="en">English</option>
-                        </select>
-                        {renderOptionTheme()}
-                    </div>
-                    <div className="user-description">
-                        <img src={imgProfile} alt="" />
-                        <div>
-                            <p>{props?.data_user?.nama}</p>
-                        </div>
-                    </div>
-                    <div className="user-menu">
-                        <ul>
-                            <li onClick={() => setactive({ active: "course" })} className={`${active.active == 'course' ? 'active' : ''}`}><a href="#course">{t('User.2')}</a> </li>
-                            <li onClick={() => setactive({ active: "profile" })} className={`${active.active == 'profile' ? 'active' : ''}`}><a href="#profile">{t('User.1')}</a> </li>
-                            <li onClick={()=>props.signOut()}>Logout</li>
-                        </ul>
-                    </div>
-
-                </div>
-                <div className="right">
-                    {renderSwitch(active.active)}
-                </div>
-            </div>
+            <MyCourse courseActive={props.courseActive}/>
         </>
     )
 }

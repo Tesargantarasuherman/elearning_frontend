@@ -9,7 +9,7 @@ export const MyCourse = (props) => {
     const navigate = useNavigate();
 
     return (
-        <div className='my-course'>
+        <div className={`my-course ${props.theme == 'dark' ? 'dark' : ''} ${props.sidebar ?'back':''}`}>
             <div className="my-course-header">
                 <label>My Course</label>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod fugit aliquam minima placeat nam veritatis beatae soluta, excepturi voluptatem velit!</p>
@@ -49,7 +49,9 @@ export const MyCourse = (props) => {
 const mapStateToProps = (state) => ({
     theme: state.theme.theme,
     language: state.language.language,
-    isSignedIn: state.auth.isSignedIn
+    isSignedIn: state.auth.isSignedIn,
+    sidebar:state.sidebar.sidebar
+
 })
 
 const mapDispatchToProps = {}
