@@ -5,6 +5,7 @@
     background-color: #D43E2A;
     color:white;
     transition: 0.4s;
+    min-height: 100vh;
 }
 .course-detail.dark{
     background-color: black;

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import BaseUrl from '../utils/BaseUrl';
 import history, { browserHistory } from "../utils/history";
-import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE, VALIDATION, MIDDLEWARE, GET_ALL_COURSE, GET_DETAIL_COURSE, TOGLE_SIDEBAR } from "./types";
+import { REGISTER, SIGN_IN, SIGN_OUT, SET_THEME, SET_LANGUAGE, VALIDATION, MIDDLEWARE, GET_ALL_COURSE, GET_DETAIL_COURSE, TOGLE_SIDEBAR, GET_DETAIL_COURSE_PLAYING } from "./types";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -115,6 +115,20 @@ export const getDetailCourse = (id) => (dispatch) => {
         dispatch({ type: GET_DETAIL_COURSE, payload: res.data })
     }).catch((err) => {
         dispatch({ type: GET_DETAIL_COURSE, payload: [] })
+    })
+}
+export const getCoursePlaying = (idKursus) => (dispatch,getState) => {
+    const axiosConfig = {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `bearer ${localStorage.getItem('_token')}`,
+        },
+    };
+    const {id} = getState().auth.data_user;
+    axios.get(`${BaseUrl}kursus/${idKursus}/${id}`,axiosConfig).then(res => {
+        dispatch({ type: GET_DETAIL_COURSE_PLAYING, payload: res.data })
+    }).catch((err) => {
+        dispatch({ type: GET_DETAIL_COURSE_PLAYING, payload: [] })
     })
 }
 export const togleSidebar = (sidebar) => (dispatch) => {

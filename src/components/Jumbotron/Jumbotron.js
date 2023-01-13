@@ -41,7 +41,7 @@ export const Jumbotron = (props) => {
                 </div>
             </div>
             <div className="jumbotron-right">
-                <Image src={imgJumbotron} fallback={<Shimmer width={800} height={600} />} />
+                <Image src={imgJumbotron} fallback={<Shimmer width={600} height={400} />} />
             </div>
         </section>
     )

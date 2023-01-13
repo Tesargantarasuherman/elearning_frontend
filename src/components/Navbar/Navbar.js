@@ -13,6 +13,7 @@ export const Navbar = (props) => {
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
+    console.log(props)
     actionSetLang(props.language);
   }, [])
 
